@@ -1,0 +1,10 @@
+Haunted Hacks: Real-Time AI Edition
+Come join us for Haunted Hacks to kick off Halloween this year. Hosted by Terse (F26) and AgentRelay (F26), brought to you by OpenAI, Supabase (S20), Mastra (W25), Freestyle (F24) and Superserve (F26).
+Every participant will receive: $100 in OpenAI API credits per participant. $25 in Supabase credits. $100 in Freestyle credits. $100 in Superserve.ai credits.
+Love Durable Objects? Come build with our Open Source alternative! Tired of copy/pasting messages between your agents? Come see how much you can build when you let agents collaborate directly with Agent Relay! Want to do both at the same time? Even better!
+Tracks include: Hackathon winner: A guaranteed YC interview. Stateful Apps: Build with Durable Actors from Terse - iPhone Duo. Agent to agent communication built with Agent Relay: Mac Mini. Costume contest: Bragging rights.
+Schedule: 11:00am Hacking begins. 4:00pm Submission deadline. 4-5pm Judging. 5-6pm Award Ceremony.
+What to build: The Actor world is hot right now. Come build your own Software Factory, long-running agent, multiplayer AI system or something super creative you've been itching to try out. Projects should ideally use either Durable actors, or Agent Relay (bonus points if you use both at the same time).
+Rules: All code must be created at the hackathon. Judging: The top entries will demo live at the end of the event, and judges will select winners from those demos. Judges are looking for either very well-executed products or incredibly creative use cases using Durable Actors and Agent Relay. Again, bonus points if you can do both!
+Prizes: best overall: guaranteed YC Interview, $5k OpenAI credits, $10,000 Freestyle credits, $1000 Superserve credits, 3 months Mastra. Second: $2.5k OpenAI. Third: $1k OpenAI. Best Durable Actors: iPhone duo. Best Agent Relay: Mac mini. Most likely to scale to millions: $1K Supabase credits.
+Resources: https://docs.useterse.ai/quickstart https://boristane.com/blog/what-are-cloudflare-durable-objects/

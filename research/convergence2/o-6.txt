@@ -1,0 +1,41 @@
+Here's the one idea I'd bet on, and why it beats the field given exactly who you are and what the judges reward.
+
+## The idea: **"Séance" — a real-time social deduction game where you have to find the AI**
+
+A multiplayer party game, Halloween-skinned. 5–8 players join a room. One or more "players" are secretly **AI agents** trying to blend in. Everyone chats in real time to complete a light task (vote on a story, solve a riddle, survive the night). At the end, humans vote on who the ghost/AI is. The AI agents are *also* coordinating secretly to avoid detection.
+
+It's "Among Us meets a live Turing test," and it's the single best shape for *your* team to win this specific event.
+
+## Why this wins, criterion by criterion
+
+**Judges pick from live demos and reward "well-executed product" OR "incredibly creative use case."** This is both. The hook — "one of these players in the room is an AI, can you tell?" — makes judges *want* to play, and a judge who plays your demo remembers it. That's how you win the room.
+
+**You're 3 frontend engineers.** This idea is 90% the thing you're already elite at: real-time rooms, chat UI, lobby, animations, presence, vote screens. The AI is a thin layer (chat completion per agent turn). You are not fighting backend infra you don't know — you're shipping polish, which is your edge over backend-heavy teams building something ugly.
+
+**Uses BOTH sponsors naturally (the explicit bonus + two side prizes):**
+- **Durable Actors (Terse):** each *game room* is a durable actor holding the full game state — players, turn order, chat log, votes, phase. This is the textbook Durable Object use case (stateful, one authority per room, survives disconnects). Clean, legitimate, demos the "stateful app" track → iPhone duo prize.
+- **Agent Relay:** each AI player is its own agent, and they **talk to each other directly** over Agent Relay to collude — "don't both claim you're a nurse," "back me up on vote." That's a genuine agent-to-agent use case, not a bolt-on → Mac mini prize. The relay traffic is *diegetic* (part of the game's fiction), which judges will find clever.
+- Doing both at once = the stated bonus → pushes you toward **best overall (the YC interview)**.
+
+**"Most likely to scale to millions" (Supabase prize) is also in reach** — party games are inherently viral/multiplayer, and you can wave at Supabase for auth/presence.
+
+**Halloween theme** gives you the costume-contest vibe and a free aesthetic: séance, ghosts, candlelight, a flickering dark UI. Theme-matched demos feel finished.
+
+## 5-hour build plan (11am→4pm), scoped hard
+
+- **Hour 1 — skeleton + contract.** One of you: room actor (create/join, state shape, phase machine: lobby → chat → vote → reveal). One: lobby + room UI shell. One: wire the AI turn (single chat call that reads recent transcript, returns one in-character message).
+- **Hour 2 — real-time loop.** Humans + agents post messages into the room actor; everyone sees them live. Get *one* AI convincingly chatting in a room with humans. This is your core — nail it before anything else.
+- **Hour 3 — the game.** Voting phase, reveal screen ("The AI was… Marcus 👻"), win/lose. Add Agent Relay so 2 AI agents coordinate before they speak. **This is your differentiator — don't cut it.**
+- **Hour 4 — polish = the win.** Séance aesthetic (dark, candle flicker, typing indicators, dramatic reveal animation, sound). For a frontend team this is where you out-execute everyone.
+- **Hour 5 — demo rehearsal + buffer.** Seed one safe room so a live join never fails. Have a backup recording. Write the 90-second pitch.
+
+**Ruthless cut list if behind:** 1 AI instead of many; skip the task mini-game and make it pure "chat then vote"; reveal screen can be static. The irreducible core that must work live: *judges join a room, chat with a mix of humans and AI, and genuinely can't tell.*
+
+## The demo script (the part that actually wins)
+"Everyone here — scan this QR, join the séance. Somewhere in this room is a ghost that isn't human. Chat for 60 seconds, then vote." Judges play, laugh, guess wrong, and *then* you reveal the two AI agents were secretly coordinating over Agent Relay the whole time, and show the relay log. That reveal is the moment that wins.
+
+---
+
+One caution so you go in clear-eyed: the entire thing lives or dies on the AI being *fun and fast to chat with live* under real network conditions. Protect hours 1–2 for that; everything else is garnish you're good at.
+
+Want me to scaffold the room-actor state machine and the chat loop now so you hit the ground running at 11?

@@ -1,0 +1,13 @@
+{
+  "name": "haunt-bots",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fill": "bun src/main.ts --fill",
+    "typecheck": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/bun": "1.2.21",
+    "typescript": "5.9.2"
+  }
+}

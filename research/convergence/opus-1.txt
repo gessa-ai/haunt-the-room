@@ -1,0 +1,5 @@
+**GhostWriter Factory** — a self-organizing swarm of Claude Code agents that build a full app from one prompt, each agent a Durable Actor (SQLite state, alarms for retries) coordinating over Agent Relay channels like a real eng team.
+
+**Demo moment:** You type "build me a Halloween party RSVP app," then watch a live org-chart light up as PM/frontend/backend/QA agents DM each other, split tickets, and ship a working deployed URL in ~3 minutes — on stage, from scratch.
+
+Want me to scaffold it?

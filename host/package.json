@@ -1,0 +1,22 @@
+{
+  "name": "conjure-host",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "smoke": "bun test/run.ts"
+  },
+  "dependencies": {
+    "@jitl/quickjs-singlefile-mjs-release-sync": "0.31.0",
+    "quickjs-emscripten-core": "0.31.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0",
+    "typescript": "~5.9.3"
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Story reel</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #040307; color: #efe6d2; font-family: ui-monospace, monospace; }
+      #stage { position: relative; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: auto; }
+      #qr { position: absolute; right: 2%; bottom: 3%; width: 9%; aspect-ratio: 1; background: #efe6d2; color: #040307;
+        display: grid; place-items: center; font-size: 12px; z-index: 5; }
+      #bar { position: fixed; left: 8px; bottom: 8px; z-index: 10; display: flex; gap: 6px; }
+      button { font: inherit; background: #2b1838; color: #efe6d2; border: 1px solid #42245a; padding: 6px 10px; cursor: pointer; }
+      body:not(.debug) #bar, body:not(.debug) #log { display: none; }
+      #log { position: fixed; right: 8px; top: 8px; z-index: 10; font-size: 11px; opacity: 0.6; }
+    </style>
+  </head>
+  <body>
+    <div id="stage"><div id="qr">QR</div></div>
+    <div id="bar">
+      <button id="full">full</button><button id="loop">lobby loop</button><button id="short">12 s cut</button><button id="ghosts">epilogue: ghosts</button><button id="hunters">epilogue: hunters</button>
+      <button id="h">H (start)</button>
+    </div>
+    <div id="log"></div>
+    <script type="module" src="./dev.ts"></script>
+  </body>
+</html>

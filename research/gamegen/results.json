@@ -1,0 +1,385 @@
+[
+  {
+    "slug": "pumpkin",
+    "idea": "pumpkin carving speed race",
+    "model": "sonnet",
+    "genSeconds": 91.2,
+    "exit": 0,
+    "lines": 340,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 157,
+      "uiActionsChangedState": 157,
+      "actionTypes": {
+        "start": 2,
+        "tap": 154,
+        "playAgain": 1
+      },
+      "ticks": 400,
+      "renders": 1650,
+      "emptyControlSteps": 43,
+      "phases": [
+        "lobby",
+        "play",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "pumpkin",
+    "idea": "pumpkin carving speed race",
+    "model": "haiku",
+    "genSeconds": 90.9,
+    "exit": 0,
+    "lines": 254,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 200,
+      "uiActionsChangedState": 200,
+      "actionTypes": {
+        "start": 1,
+        "carve": 197,
+        "playAgain": 2
+      },
+      "ticks": 0,
+      "renders": 952,
+      "emptyControlSteps": 0,
+      "phases": [
+        "lobby",
+        "carving",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "ghostvote",
+    "idea": "werewolf-style hidden ghost voting",
+    "model": "sonnet",
+    "genSeconds": 140,
+    "exit": 0,
+    "lines": 328,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 26,
+      "uiActionsChangedState": 26,
+      "actionTypes": {
+        "start": 5,
+        "voteNight": 6,
+        "voteDay": 11,
+        "playAgain": 4
+      },
+      "ticks": 80,
+      "renders": 504,
+      "emptyControlSteps": 174,
+      "phases": [
+        "lobby",
+        "night",
+        "nightReveal",
+        "day",
+        "dayReveal",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "ghostvote",
+    "idea": "werewolf-style hidden ghost voting",
+    "model": "haiku",
+    "genSeconds": 65.9,
+    "exit": 0,
+    "lines": 246,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 162,
+      "uiActionsChangedState": 129,
+      "actionTypes": {
+        "startGame": 1,
+        "vote": 149,
+        "haunt": 11,
+        "playAgain": 1
+      },
+      "ticks": 160,
+      "renders": 1436,
+      "emptyControlSteps": 38,
+      "phases": [
+        "lobby",
+        "day",
+        "night",
+        "gameover"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [
+      "unknown action type changed state"
+    ],
+    "pass1": true
+  },
+  {
+    "slug": "trivia",
+    "idea": "trivia about horror movies",
+    "model": "sonnet",
+    "genSeconds": 50.2,
+    "exit": 0,
+    "lines": 314,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 47,
+      "uiActionsChangedState": 47,
+      "actionTypes": {
+        "start": 1,
+        "answer": 46
+      },
+      "ticks": 160,
+      "renders": 972,
+      "emptyControlSteps": 153,
+      "phases": [
+        "lobby",
+        "question",
+        "reveal"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "trivia",
+    "idea": "trivia about horror movies",
+    "model": "haiku",
+    "genSeconds": 94.9,
+    "exit": 0,
+    "lines": 246,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 31,
+      "uiActionsChangedState": 31,
+      "actionTypes": {
+        "start": 1,
+        "answer": 30
+      },
+      "ticks": 800,
+      "renders": 1000,
+      "emptyControlSteps": 169,
+      "phases": [
+        "lobby",
+        "play",
+        "reveal"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "escape",
+    "idea": "haunted house tap-to-escape where everyone must coordinate",
+    "model": "sonnet",
+    "genSeconds": 74.6,
+    "exit": 0,
+    "lines": 297,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 67,
+      "uiActionsChangedState": 67,
+      "actionTypes": {
+        "start": 5,
+        "tap": 58,
+        "playAgain": 4
+      },
+      "ticks": 160,
+      "renders": 1049,
+      "emptyControlSteps": 133,
+      "phases": [
+        "lobby",
+        "play",
+        "result",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "escape",
+    "idea": "haunted house tap-to-escape where everyone must coordinate",
+    "model": "haiku",
+    "genSeconds": 116.1,
+    "exit": 0,
+    "lines": 320,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 200,
+      "uiActionsChangedState": 114,
+      "actionTypes": {
+        "ready": 11,
+        "tap": 189
+      },
+      "ticks": 160,
+      "renders": 526,
+      "emptyControlSteps": 0,
+      "phases": [
+        "lobby",
+        "play"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [
+      "unknown action type changed state"
+    ],
+    "pass1": true
+  },
+  {
+    "slug": "emoji",
+    "idea": "costume drawing guessing game using emoji only",
+    "model": "sonnet",
+    "genSeconds": 141.2,
+    "exit": 0,
+    "lines": 361,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 48,
+      "uiActionsChangedState": 19,
+      "actionTypes": {
+        "start": 1,
+        "addEmoji": 41,
+        "submitClue": 1,
+        "guess": 4,
+        "next": 1
+      },
+      "ticks": 80,
+      "renders": 432,
+      "emptyControlSteps": 152,
+      "phases": [
+        "lobby",
+        "clue",
+        "guess",
+        "reveal"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "emoji",
+    "idea": "costume drawing guessing game using emoji only",
+    "model": "haiku",
+    "genSeconds": 113.6,
+    "exit": 0,
+    "lines": 271,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 110,
+      "uiActionsChangedState": 110,
+      "actionTypes": {
+        "startGame": 9,
+        "submitDrawing": 27,
+        "reveal": 26,
+        "nextRound": 26,
+        "playAgain": 7,
+        "submitGuess": 15
+      },
+      "ticks": 0,
+      "renders": 537,
+      "emptyControlSteps": 90,
+      "phases": [
+        "lobby",
+        "drawing",
+        "guessing",
+        "reveal",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "zombie",
+    "idea": "zombie tag on a grid",
+    "model": "sonnet",
+    "genSeconds": 70.4,
+    "exit": 0,
+    "lines": 275,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 86,
+      "uiActionsChangedState": 86,
+      "actionTypes": {
+        "start": 2,
+        "move": 83,
+        "playAgain": 1
+      },
+      "ticks": 80,
+      "renders": 551,
+      "emptyControlSteps": 114,
+      "phases": [
+        "lobby",
+        "play",
+        "over"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  },
+  {
+    "slug": "zombie",
+    "idea": "zombie tag on a grid",
+    "model": "haiku",
+    "genSeconds": 78.7,
+    "exit": 0,
+    "lines": 289,
+    "pass0": true,
+    "errors0": [],
+    "stats0": {
+      "steps": 200,
+      "uiActions": 200,
+      "uiActionsChangedState": 199,
+      "actionTypes": {
+        "move": 200
+      },
+      "ticks": 160,
+      "renders": 754,
+      "emptyControlSteps": 0,
+      "phases": [
+        "play"
+      ],
+      "garbage": 20
+    },
+    "warnings0": [],
+    "pass1": true
+  }
+]

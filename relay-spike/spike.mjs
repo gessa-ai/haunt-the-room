@@ -1,0 +1,14 @@
+import { AgentRelay } from '@agent-relay/sdk';
+const base = 'http://localhost:8787';
+const ws = await (await fetch(base + '/v1/workspaces', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: 'haunted-spike' }) })).json();
+const workspaceKey = ws.api_key || ws.apiKey || ws.data?.api_key || ws.workspaceKey || ws.key;
+console.log('workspace keys:', Object.keys(ws.data ?? ws));
+const relay = new AgentRelay({ workspaceKey, baseUrl: base });
+const a = await relay.workspace.register({ name: 'ghost-agnes', type: 'agent' });
+const b = await relay.workspace.register({ name: 'ghost-bram', type: 'agent' });
+await a.channels.create({ name: 'seance', topic: 'spike' });
+await b.channels.join('seance');
+const got = new Promise(r => relay.addListener('message.created', ({ message, envelope }) => r(envelope?.from?.handle + ': ' + (message?.text ?? JSON.stringify(message)))));
+await a.sendMessage({ to: '#seance', text: 'the guest in the attic is scared of mirrors' });
+console.log('received:', await Promise.race([got, new Promise(r => setTimeout(() => r('TIMEOUT'), 8000))]));
+process.exit(0);

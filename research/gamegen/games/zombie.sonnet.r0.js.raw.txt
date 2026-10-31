@@ -1,0 +1,276 @@
+```js
+export const meta = { title: "Zombie Tag Grid", minPlayers: 2, maxPlayers: 8, tickMs: 1000 };
+
+const GRID = 6;
+const ROUND_MS = 8000;
+const MAX_ROUNDS = 15;
+const DELTA = { up: [0, 1], down: [0, -1], left: [-1, 0], right: [1, 0], stay: [0, 0] };
+
+function shuffle(arr, random) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function freeCell(state, ctx) {
+  const taken = new Set(state.players.filter(p => p.pos).map(p => p.pos[0] + "," + p.pos[1]));
+  const cells = [];
+  for (let x = 0; x < GRID; x++) for (let y = 0; y < GRID; y++) if (!taken.has(x + "," + y)) cells.push([x, y]);
+  if (cells.length === 0) return [0, 0];
+  return cells[Math.floor(ctx.random() * cells.length)];
+}
+
+export function init(players, ctx) {
+  const cells = [];
+  for (let x = 0; x < GRID; x++) for (let y = 0; y < GRID; y++) cells.push([x, y]);
+  const shuffled = shuffle(cells, ctx.random);
+  const zIdx = Math.floor(ctx.random() * players.length);
+  const pstates = players.map((p, i) => ({
+    id: p.id, name: p.name,
+    pos: shuffled[i] || [0, 0],
+    role: i === zIdx ? "zombie" : "human"
+  }));
+  return {
+    phase: "lobby",
+    players: pstates,
+    round: 0,
+    moves: {},
+    deadline: null,
+    now: ctx.now,
+    winner: null,
+    log: ["🎃 Lobby open... someone brought a zombie friend."]
+  };
+}
+
+function pushLog(state, msg) {
+  state.log.push(msg);
+  if (state.log.length > 5) state.log.shift();
+}
+
+function resolveRound(state, ctx) {
+  for (const p of state.players) {
+    if (!p.pos) continue;
+    const dir = state.moves[p.id] || "stay";
+    const d = DELTA[dir] || [0, 0];
+    let nx = p.pos[0] + d[0], ny = p.pos[1] + d[1];
+    nx = Math.max(0, Math.min(GRID - 1, nx));
+    ny = Math.max(0, Math.min(GRID - 1, ny));
+    p.pos = [nx, ny];
+  }
+  const zPos = state.players.filter(p => p.role === "zombie" && p.pos).map(p => p.pos.join(","));
+  for (const p of state.players) {
+    if (p.role === "human" && p.pos && zPos.includes(p.pos.join(","))) {
+      p.role = "zombie";
+      pushLog(state, `🧟 ${p.name} got bitten!`);
+    }
+  }
+  state.moves = {};
+  state.round += 1;
+  const humans = state.players.filter(p => p.role === "human" && p.pos);
+  const zombies = state.players.filter(p => p.role === "zombie" && p.pos);
+  if (humans.length === 0) {
+    state.phase = "over"; state.winner = "zombies";
+    pushLog(state, "💀 All humans turned. Zombies win!");
+  } else if (zombies.length === 0) {
+    state.phase = "over"; state.winner = "humans";
+    pushLog(state, "🏆 Zombies all wandered off. Humans win!");
+  } else if (state.round > MAX_ROUNDS) {
+    state.phase = "over"; state.winner = "humans";
+    pushLog(state, "⏰ Time's up! Survivors win!");
+  } else {
+    state.deadline = ctx.now + ROUND_MS;
+  }
+  return state;
+}
+
+export function reduce(state, action, ctx) {
+  if (action.type === "join") {
+    if (state.players.find(p => p.id === action.playerId)) return state;
+    if (state.players.length >= 8) return state;
+    const role = state.phase === "lobby" ? "human" : "spectator";
+    const pos = state.phase === "lobby" ? freeCell(state, ctx) : null;
+    state.players.push({ id: action.playerId, name: action.name || "Player", pos, role });
+    return state;
+  }
+  if (action.type === "leave") {
+    state.players = state.players.filter(p => p.id !== action.playerId);
+    delete state.moves[action.playerId];
+    return state;
+  }
+  if (action.type === "start") {
+    if (state.phase !== "lobby") return state;
+    if (state.players.length < 2) return state;
+    state.phase = "play";
+    state.round = 1;
+    state.deadline = ctx.now + ROUND_MS;
+    pushLog(state, "🏁 The chase begins!");
+    return state;
+  }
+  if (action.type === "move") {
+    if (state.phase !== "play") return state;
+    const p = state.players.find(pl => pl.id === action.playerId);
+    if (!p || !p.pos) return state;
+    if (!["up", "down", "left", "right", "stay"].includes(action.dir)) return state;
+    if (state.moves[action.playerId]) return state;
+    state.moves[action.playerId] = action.dir;
+    const alive = state.players.filter(pl => pl.pos);
+    if (alive.every(pl => state.moves[pl.id])) {
+      resolveRound(state, ctx);
+    }
+    return state;
+  }
+  if (action.type === "tick") {
+    state.now = ctx.now;
+    if (state.phase === "play" && state.deadline !== null && ctx.now >= state.deadline) {
+      resolveRound(state, ctx);
+    }
+    return state;
+  }
+  if (action.type === "playAgain") {
+    if (state.phase !== "over") return state;
+    const cells = [];
+    for (let x = 0; x < GRID; x++) for (let y = 0; y < GRID; y++) cells.push([x, y]);
+    const shuffled = shuffle(cells, ctx.random);
+    const zIdx = Math.floor(ctx.random() * state.players.length);
+    state.players.forEach((p, i) => {
+      p.pos = shuffled[i] || [0, 0];
+      p.role = i === zIdx ? "zombie" : "human";
+    });
+    state.phase = "lobby";
+    state.round = 0;
+    state.moves = {};
+    state.deadline = null;
+    state.winner = null;
+    state.log = ["🎃 New round brewing..."];
+    return state;
+  }
+  return state;
+}
+
+export function view(state, playerId) {
+  const me = state.players.find(p => p.id === playerId);
+  const msLeft = state.phase === "play" && state.deadline !== null ? Math.max(0, state.deadline - state.now) : null;
+  return {
+    me: playerId,
+    phase: state.phase,
+    round: state.round,
+    maxRounds: MAX_ROUNDS,
+    grid: GRID,
+    players: state.players.map(p => ({ id: p.id, name: p.name, pos: p.pos, role: p.role })),
+    hasMoved: !!state.moves[playerId],
+    myRole: me ? me.role : null,
+    winner: state.winner,
+    msLeft,
+    log: state.log
+  };
+}
+
+export function render(view, send, root) {
+  root.replaceChildren();
+  const style = document.createElement("style");
+  style.textContent = `
+    * { box-sizing: border-box; font-family: sans-serif; }
+    .wrap { background:#0b0614; color:#f5f5f5; min-height:100vh; padding:10px; }
+    h2 { color:#ff7518; margin:4px 0; }
+    .banner { font-size:18px; margin-bottom:8px; }
+    button { min-height:56px; font-size:18px; width:100%; margin:4px 0; border:none; border-radius:10px;
+      background:#8a2be2; color:#f5f5f5; }
+    button:active { background:#ff7518; }
+    .grid { display:grid; gap:2px; margin:10px 0; }
+    .cell { background:#1a1125; border:1px solid #39ff14; display:flex; align-items:center; justify-content:center;
+      font-size:22px; aspect-ratio:1; }
+    .dpad { display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; max-width:260px; margin:10px auto; }
+    .log { background:#1a1125; border:1px solid #c1121f; padding:6px; margin-top:10px; font-size:14px; max-height:120px; overflow-y:auto; }
+    .score { font-size:16px; margin:4px 0; }
+    .zrole { color:#39ff14; } .hrole { color:#ff7518; }
+  `;
+  root.appendChild(style);
+
+  const wrap = document.createElement("div");
+  wrap.className = "wrap";
+
+  if (view.phase === "lobby") {
+    const h = document.createElement("h2"); h.textContent = "🎃 Zombie Tag Lobby"; wrap.appendChild(h);
+    const p = document.createElement("div"); p.className = "banner"; p.textContent = "Tap Start when everyone's in!"; wrap.appendChild(p);
+    view.players.forEach(pl => {
+      const d = document.createElement("div"); d.className = "score";
+      d.textContent = `${pl.name} — ${pl.role === "zombie" ? "🧟 Zombie" : "🧍 Human"}`;
+      wrap.appendChild(d);
+    });
+    const btn = document.createElement("button"); btn.textContent = "🏁 Start Game";
+    btn.onclick = () => send({ type: "start" });
+    wrap.appendChild(btn);
+  } else if (view.phase === "play") {
+    const h = document.createElement("h2");
+    h.textContent = view.myRole === "zombie" ? "🧟 You're a ZOMBIE — hunt them!" : view.myRole === "human" ? "🧍 You're HUMAN — run!" : "👻 Spectating...";
+    wrap.appendChild(h);
+    const info = document.createElement("div"); info.className = "banner";
+    const secs = view.msLeft !== null ? Math.ceil(view.msLeft / 1000) : "?";
+    info.textContent = `Round ${view.round}/${view.maxRounds} — ⏳ ${secs}s — ${view.hasMoved ? "Move locked in!" : "Pick a move"}`;
+    wrap.appendChild(info);
+
+    const gridEl = document.createElement("div");
+    gridEl.className = "grid";
+    gridEl.style.gridTemplateColumns = `repeat(${view.grid}, 1fr)`;
+    const cells = {};
+    for (let x = 0; x < view.grid; x++) for (let y = 0; y < view.grid; y++) cells[x + "," + y] = [];
+    view.players.forEach(pl => { if (pl.pos) cells[pl.pos[0] + "," + pl.pos[1]].push(pl); });
+    for (let row = 0; row < view.grid; row++) {
+      const y = view.grid - 1 - row;
+      for (let x = 0; x < view.grid; x++) {
+        const c = document.createElement("div"); c.className = "cell";
+        const occ = cells[x + "," + y];
+        if (occ.length) {
+          const anyZ = occ.some(o => o.role === "zombie");
+          const me = occ.some(o => o.id === view.me);
+          c.textContent = (anyZ ? "🧟" : "🧍") + (me ? "⭐" : "");
+        }
+        gridEl.appendChild(c);
+      }
+    }
+    wrap.appendChild(gridEl);
+
+    if (view.myRole === "human" || view.myRole === "zombie") {
+      const dpad = document.createElement("div"); dpad.className = "dpad";
+      const mk = (label, dir) => {
+        const b = document.createElement("button"); b.textContent = label;
+        b.disabled = view.hasMoved;
+        b.onclick = () => send({ type: "move", dir });
+        return b;
+      };
+      dpad.appendChild(document.createElement("div"));
+      dpad.appendChild(mk("⬆️", "up"));
+      dpad.appendChild(document.createElement("div"));
+      dpad.appendChild(mk("⬅️", "left"));
+      dpad.appendChild(mk("⏹️", "stay"));
+      dpad.appendChild(mk("➡️", "right"));
+      dpad.appendChild(document.createElement("div"));
+      dpad.appendChild(mk("⬇️", "down"));
+      dpad.appendChild(document.createElement("div"));
+      wrap.appendChild(dpad);
+    }
+
+    const log = document.createElement("div"); log.className = "log";
+    view.log.forEach(l => { const d = document.createElement("div"); d.textContent = l; log.appendChild(d); });
+    wrap.appendChild(log);
+  } else if (view.phase === "over") {
+    const h = document.createElement("h2");
+    h.textContent = view.winner === "zombies" ? "💀 Zombies Win!" : "🏆 Humans Win!";
+    wrap.appendChild(h);
+    view.players.forEach(pl => {
+      const d = document.createElement("div"); d.className = "score";
+      d.className += pl.role === "zombie" ? " zrole" : " hrole";
+      d.textContent = `${pl.name} — ${pl.role === "zombie" ? "🧟 Zombie" : "🧍 Survivor"}`;
+      wrap.appendChild(d);
+    });
+    const btn = document.createElement("button"); btn.textContent = "🔁 Play Again";
+    btn.onclick = () => send({ type: "playAgain" });
+    wrap.appendChild(btn);
+  }
+
+  root.appendChild(wrap);
+}
+```

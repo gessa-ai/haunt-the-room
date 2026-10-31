@@ -1,0 +1,8 @@
+{
+ "_": "SWAP A VOICE = change one voice id (ids on /voices.html). Live lines pick it up on the next line, no restart. Re-render the bank: bun audio/render-voices.ts elevenlabs. Owner 14:38 pick: v3 #2 for every role.",
+ "exorcist": { "voice": "Q4oILuo4P8VeXtE6FMLI", "name": "Matthew Schmitz (warm mountain man, gravelly, slow)", "stability": 0.5, "similarity": 0.8, "style": 0.2, "speed": 0.95 },
+ "medium": { "voice": "0WKkG7JmcKK7MkwhnMIe", "name": "Sabrina (charismatic, dramatic)", "stability": 0.35, "similarity": 0.75, "style": 0.55, "speed": 1.0 },
+ "skeptic": { "voice": "lCfIptVKzlPoj4vLmTLz", "name": "Drew (deadpan, vocal fry)", "stability": 0.75, "similarity": 0.8, "style": 0.05, "speed": 1.0 },
+ "priest": { "voice": "a4BsmeT8RITKlxlCY9PO", "name": "Brother Wayne (warm southern preacher)", "stability": 0.4, "similarity": 0.8, "style": 0.5, "speed": 0.97 },
+ "announcer": { "voice": "6F5Zhi321D3Oq7v1oNT4", "name": "Hank (deep trailer narrator)", "stability": 0.4, "similarity": 0.85, "style": 0.6, "speed": 1.0 }
+}

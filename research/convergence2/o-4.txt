@@ -1,0 +1,24 @@
+## 🏚️ SÉANCE — a living haunted mansion where the ghosts actually talk to each other
+
+**The one-liner:** A multiplayer haunted house that you explore in real time, where every room is a Durable Actor holding persistent state, and every ghost is an autonomous AI agent that *coordinates scares with the other ghosts* by messaging them directly over Agent Relay — and you can literally **see the ghosts whispering to each other** as glowing threads of light arcing between rooms.
+
+### Why it's visually stunning
+- A 2.5D cutaway mansion (think *The Sims* meets *Luigi's Mansion*), rendered in a dark, candlelit WebGL/Canvas scene with fog, flickering light, and parallax.
+- The money shot: **agent-to-agent messages are rendered as physical objects** — ectoplasmic threads of light that streak from room to room whenever one ghost tells another "the player just entered the library, dim your lights and I'll slam the door behind them." Judges literally *watch the collaboration happen* on screen. That's the demo that wins.
+- A live "spirit graph" overlay in the corner showing the mesh of agents lighting up as they message — gorgeous, and it proves the architecture at a glance.
+
+### Why it nails *both* required techs (the bonus-points sweet spot)
+- **Durable Actors (Terse):** each Room is an actor with durable state — temperature, light level, which objects are disturbed, what it remembers about each player who passed through. The mansion *persists and evolves* even after you leave and come back. One `MansionDirector` actor orchestrates the night.
+- **Agent Relay:** each ghost is an independent agent. Instead of a central script, they **negotiate scares peer-to-peer** — the Poltergeist tells the Shadow to cut the lights, the Child Ghost begs them to go easy, the Director agent sets the overall "dread level." Emergent, unscripted horror from agents genuinely collaborating. No copy/pasting messages between agents — exactly the pain Agent Relay pitches.
+
+### The emotional hook
+Because the ghosts reason and talk, **no two playthroughs are the same**. A nervous player gets stalked gently; a cocky one gets ambushed by three ghosts coordinating a jump-scare. The house *remembers* you. That's "incredibly creative use case" territory, not just "well-executed product."
+
+### Scoped for a 11am–4pm build
+- **Hours 1–2:** Room actors + one Director actor, 3 ghost agents on Agent Relay, hard-coded mansion layout.
+- **Hours 2–4:** The WebGL mansion view + the glowing-message thread visualization (this is where you spend your polish budget — it's what judges see).
+- **Hour 4–5:** One scripted "golden path" demo walkthrough so the live demo can't flop, plus the costume-contest-friendly Halloween skin.
+
+It's thematically perfect for Halloween, it's a genuine multi-agent system, it uses Durable Actors *and* Agent Relay in ways that are each load-bearing (not bolted on), and the core visual — ghosts whispering to each other in beams of light — is the kind of thing that makes a room go *"ohhh."*
+
+Want me to spec the agent message protocol or sketch the room-actor state model next?

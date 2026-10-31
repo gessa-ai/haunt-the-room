@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stage 3D (lane L16 dev entry)</title>
+    <style>html, body { margin: 0; height: 100%; background: #05060f; color: #efe6d2; } #app { position: fixed; inset: 0; }</style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      // ?shot=intro|finale|finale-hunters loops one showpiece (theater.ts); otherwise the full /stage3d prototype
+      const app = document.getElementById("app")
+      const shot = new URLSearchParams(location.search).get("shot")
+      const fail = (err) => { console.error("[stage3d] failed", err); document.body.textContent = "stage3d failed: " + (err && err.message) }
+      if (shot) {
+        import("./theater.ts").then(async ({ playIntroShot, playFinaleShot }) => {
+          for (;;) {
+            const s = shot === "intro" ? playIntroShot(app) : playFinaleShot(app, shot === "finale-hunters" ? "hunters" : "ghosts")
+            await s.done
+            await new Promise((r) => setTimeout(r, 1500))
+            s.stop()
+          }
+        }).catch(fail)
+      } else import("./index.ts").then((m) => m.mountStage3d(app)).catch(fail)
+    </script>
+  </body>
+</html>

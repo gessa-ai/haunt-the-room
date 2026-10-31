@@ -1,0 +1,362 @@
+```js
+"use strict";
+
+const CLUE_MS = 45000, GUESS_MS = 30000, REVEAL_MS = 10000;
+
+const COSTUMES = [
+  "Vampire Pirate","Zombie Cheerleader","Mummy Astronaut","Witch Doctor","Ghost Clown",
+  "Werewolf Chef","Skeleton Ninja","Frankenstein Farmer","Devil Angel","Headless Horseman",
+  "Grim Reaper Santa","Dracula Superhero","Swamp Bride","Alien Vampire","Cursed Pharaoh",
+  "Haunted Doll","Phantom Pirate","Zombie Princess","Mad Scientist Mummy","Witch Biker",
+  "Vampire Astronaut","Ghost Pirate King","Zombie Knight","Werewolf Astronaut"
+];
+
+const EMOJI_PALETTE = [
+  "🧛","🧟","🧙","👻","💀","🎃","🦇","🕷️","🕸️","🩸","⚰️","🪦",
+  "🌕","🌙","⭐","🔥","❄️","🌊","🦸","🦹","🧜","🧞","🎅","🤶",
+  "👮","🥷","👑","💍","👰","🤵","🚀","⚓","🏴‍☠️","🎓","🔪","🐺","🦊","🐱","🐷"
+];
+
+function shuffle(arr, random) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function pickCostume(state, ctx) {
+  let avail = COSTUMES.filter(c => !state.usedCostumes.includes(c));
+  if (avail.length === 0) { state.usedCostumes = []; avail = COSTUMES.slice(); }
+  const chosen = avail[Math.floor(ctx.random() * avail.length)];
+  state.usedCostumes.push(chosen);
+  return chosen;
+}
+function normalize(s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function isCorrect(guess, costume) {
+  const g = normalize(guess);
+  const words = costume.toLowerCase().split(/\s+/).map(w => w.replace(/[^a-z0-9]/g, ""));
+  return words.every(w => w.length > 0 && g.includes(w));
+}
+function startRound(state, ctx) {
+  while (state.roundIndex < state.order.length) {
+    const gid = state.order[state.roundIndex];
+    if (state.players.some(p => p.id === gid)) {
+      state.phase = "clue";
+      state.clueGiverId = gid;
+      state.currentCostume = pickCostume(state, ctx);
+      state.pendingClue = []; state.emojiClue = [];
+      state.guesses = {}; state.correctOrder = [];
+      state.deadline = ctx.now + CLUE_MS;
+      return;
+    }
+    state.roundIndex++;
+  }
+  state.phase = "over";
+}
+function finishRound(state, ctx) {
+  let giverPoints = 0;
+  state.correctOrder.forEach((pid, idx) => {
+    const pts = idx === 0 ? 10 : 5;
+    const pl = state.players.find(p => p.id === pid);
+    if (pl) pl.score += pts;
+  });
+  if (state.correctOrder.length > 0) giverPoints = 5;
+  const giver = state.players.find(p => p.id === state.clueGiverId);
+  if (giver) giver.score += giverPoints;
+  state.revealInfo = {
+    costume: state.currentCostume,
+    clue: state.emojiClue,
+    clueGiverName: giver ? giver.name : "???",
+    correct: state.correctOrder.map(pid => {
+      const pl = state.players.find(p => p.id === pid);
+      return { id: pid, name: pl ? pl.name : "?" };
+    }),
+    giverPoints
+  };
+  state.phase = "reveal";
+  state.deadline = ctx.now + REVEAL_MS;
+}
+
+export const meta = { title: "Emoji Costume Charades 🎃", minPlayers: 2, maxPlayers: 8, tickMs: 1000 };
+
+export function init(players, ctx) {
+  return {
+    phase: "lobby",
+    players: players.map(p => ({ id: p.id, name: p.name, score: 0 })),
+    order: [], roundIndex: 0, usedCostumes: [],
+    clueGiverId: null, currentCostume: null,
+    pendingClue: [], emojiClue: [], guesses: {}, correctOrder: [],
+    deadline: 0, now: ctx.now, revealInfo: null
+  };
+}
+
+export function reduce(state, action, ctx) {
+  const { type, playerId } = action;
+  if (type === "join") {
+    if (!state.players.some(p => p.id === playerId) && state.players.length < 8) {
+      state.players.push({ id: playerId, name: action.name || "Ghost", score: 0 });
+    }
+    return state;
+  }
+  if (type === "leave") {
+    const wasGiver = state.clueGiverId === playerId;
+    state.players = state.players.filter(p => p.id !== playerId);
+    delete state.guesses[playerId];
+    if ((state.phase === "clue" || state.phase === "guess") && wasGiver) {
+      finishRound(state, ctx);
+    } else if (state.phase === "guess") {
+      const eligible = state.players.filter(p => p.id !== state.clueGiverId);
+      if (eligible.length > 0 && eligible.every(p => p.id in state.guesses)) finishRound(state, ctx);
+    }
+    return state;
+  }
+  if (type === "tick") {
+    state.now = ctx.now;
+    if (state.phase === "clue" && ctx.now >= state.deadline) {
+      if (state.pendingClue.length > 0) {
+        state.emojiClue = state.pendingClue.slice();
+        state.phase = "guess"; state.deadline = ctx.now + GUESS_MS;
+        state.guesses = {}; state.correctOrder = [];
+      } else finishRound(state, ctx);
+    } else if (state.phase === "guess" && ctx.now >= state.deadline) {
+      finishRound(state, ctx);
+    } else if (state.phase === "reveal" && ctx.now >= state.deadline) {
+      state.roundIndex++; startRound(state, ctx);
+    }
+    return state;
+  }
+  if (type === "start") {
+    if (state.phase !== "lobby" || state.players.length < 2) return state;
+    state.order = shuffle(state.players.map(p => p.id), ctx.random);
+    state.roundIndex = 0; state.usedCostumes = [];
+    startRound(state, ctx);
+    return state;
+  }
+  if (type === "addEmoji") {
+    if (state.phase !== "clue" || playerId !== state.clueGiverId) return state;
+    if (typeof action.emoji !== "string" || !EMOJI_PALETTE.includes(action.emoji)) return state;
+    if (state.pendingClue.length >= 6) return state;
+    state.pendingClue.push(action.emoji);
+    return state;
+  }
+  if (type === "removeEmoji") {
+    if (state.phase !== "clue" || playerId !== state.clueGiverId) return state;
+    if (state.pendingClue.length > 0) state.pendingClue.pop();
+    return state;
+  }
+  if (type === "submitClue") {
+    if (state.phase !== "clue" || playerId !== state.clueGiverId) return state;
+    if (state.pendingClue.length === 0) return state;
+    state.emojiClue = state.pendingClue.slice();
+    state.phase = "guess"; state.deadline = ctx.now + GUESS_MS;
+    state.guesses = {}; state.correctOrder = [];
+    return state;
+  }
+  if (type === "guess") {
+    if (state.phase !== "guess" || playerId === state.clueGiverId) return state;
+    if (!state.players.some(p => p.id === playerId)) return state;
+    if (playerId in state.guesses) return state;
+    if (typeof action.text !== "string") return state;
+    const text = action.text.trim().slice(0, 40);
+    if (text.length === 0) return state;
+    const correct = isCorrect(text, state.currentCostume);
+    state.guesses[playerId] = { text, correct };
+    if (correct) state.correctOrder.push(playerId);
+    const eligible = state.players.filter(p => p.id !== state.clueGiverId);
+    if (eligible.length > 0 && eligible.every(p => p.id in state.guesses)) finishRound(state, ctx);
+    return state;
+  }
+  if (type === "next") {
+    if (state.phase !== "reveal") return state;
+    state.roundIndex++; startRound(state, ctx);
+    return state;
+  }
+  if (type === "playAgain") {
+    if (state.phase !== "over") return state;
+    state.players.forEach(p => p.score = 0);
+    state.order = shuffle(state.players.map(p => p.id), ctx.random);
+    state.roundIndex = 0; state.usedCostumes = [];
+    startRound(state, ctx);
+    return state;
+  }
+  return state;
+}
+
+export function view(state, playerId) {
+  const msLeft = Math.max(0, state.deadline - state.now);
+  const base = { me: playerId, phase: state.phase, players: state.players.map(p => ({ id: p.id, name: p.name, score: p.score })), msLeft };
+  if (state.phase === "lobby") return base;
+  if (state.phase === "clue") {
+    const isGiver = playerId === state.clueGiverId;
+    const giver = state.players.find(p => p.id === state.clueGiverId);
+    return { ...base, clueGiverName: giver ? giver.name : "?", isGiver,
+      costume: isGiver ? state.currentCostume : null,
+      pendingClue: isGiver ? state.pendingClue : [],
+      palette: isGiver ? EMOJI_PALETTE : [] };
+  }
+  if (state.phase === "guess") {
+    const isGiver = playerId === state.clueGiverId;
+    const giver = state.players.find(p => p.id === state.clueGiverId);
+    const mine = state.guesses[playerId];
+    return { ...base, clueGiverName: giver ? giver.name : "?", isGiver,
+      emojiClue: state.emojiClue, alreadyGuessed: !!mine, myGuessText: mine ? mine.text : null,
+      guessedCount: Object.keys(state.guesses).length,
+      totalNeeded: state.players.filter(p => p.id !== state.clueGiverId).length };
+  }
+  if (state.phase === "reveal") return { ...base, reveal: state.revealInfo };
+  if (state.phase === "over") return base;
+  return base;
+}
+
+export function render(view, send, root) {
+  root.replaceChildren();
+  const style = document.createElement("style");
+  style.textContent = `
+    *{box-sizing:border-box;font-family:sans-serif}
+    .wrap{background:#0b0614;color:#f5f5f5;min-height:100vh;padding:14px}
+    h2{color:#ff7518;margin:4px 0}
+    .top{font-size:18px;color:#39ff14;font-weight:bold;margin-bottom:10px}
+    button{min-height:56px;font-size:18px;width:100%;margin:6px 0;border:none;border-radius:10px;
+      background:#8a2be2;color:#f5f5f5;font-weight:bold}
+    button:disabled{opacity:.5}
+    .pumpkin{background:#ff7518;color:#0b0614}
+    .blood{background:#c1121f}
+    input[type=text]{width:100%;min-height:50px;font-size:18px;padding:8px;border-radius:8px;border:none;margin:6px 0}
+    .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+    .grid button{min-height:46px;font-size:22px;padding:0}
+    .clueBox{font-size:40px;letter-spacing:4px;margin:10px 0;text-align:center}
+    .score{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #8a2be2}
+    .small{font-size:14px;color:#ccc}
+  `;
+  root.appendChild(style);
+  const wrap = document.createElement("div");
+  wrap.className = "wrap";
+  root.appendChild(wrap);
+
+  function scoreboard() {
+    const box = document.createElement("div");
+    box.innerHTML = "<h2>🏆 Scoreboard</h2>";
+    view.players.slice().sort((a, b) => b.score - a.score).forEach(p => {
+      const row = document.createElement("div");
+      row.className = "score";
+      row.textContent = `${p.name}${p.id === view.me ? " (you)" : ""}`;
+      const s = document.createElement("span"); s.textContent = p.score;
+      row.appendChild(s);
+      box.appendChild(row);
+    });
+    return box;
+  }
+
+  if (view.phase === "lobby") {
+    const t = document.createElement("div"); t.className = "top"; t.textContent = "👻 Waiting in the crypt...";
+    wrap.appendChild(t);
+    wrap.appendChild(scoreboard());
+    const btn = document.createElement("button"); btn.className = "pumpkin";
+    btn.textContent = "🎃 Start Game"; btn.onclick = () => send({ type: "start" });
+    wrap.appendChild(btn);
+    return;
+  }
+
+  if (view.phase === "clue") {
+    if (view.isGiver) {
+      const t = document.createElement("div"); t.className = "top"; t.textContent = `✍️ Build the costume clue! (${Math.ceil(view.msLeft / 1000)}s)`;
+      wrap.appendChild(t);
+      const costume = document.createElement("h2"); costume.textContent = `🎭 ${view.costume}`;
+      wrap.appendChild(costume);
+      const clue = document.createElement("div"); clue.className = "clueBox";
+      clue.textContent = view.pendingClue.join(" ") || "⬛⬛⬛";
+      wrap.appendChild(clue);
+      const grid = document.createElement("div"); grid.className = "grid";
+      view.palette.forEach(e => {
+        const b = document.createElement("button");
+        b.textContent = e;
+        b.onclick = () => send({ type: "addEmoji", emoji: e });
+        grid.appendChild(b);
+      });
+      wrap.appendChild(grid);
+      const undo = document.createElement("button"); undo.className = "blood";
+      undo.textContent = "⬅️ Remove Last"; undo.onclick = () => send({ type: "removeEmoji" });
+      wrap.appendChild(undo);
+      const sub = document.createElement("button"); sub.className = "pumpkin";
+      sub.textContent = "✅ Submit Clue"; sub.disabled = view.pendingClue.length === 0;
+      sub.onclick = () => send({ type: "submitClue" });
+      wrap.appendChild(sub);
+    } else {
+      const t = document.createElement("div"); t.className = "top";
+      t.textContent = `🕯️ ${view.clueGiverName} is conjuring a clue... (${Math.ceil(view.msLeft / 1000)}s)`;
+      wrap.appendChild(t);
+    }
+    wrap.appendChild(scoreboard());
+    return;
+  }
+
+  if (view.phase === "guess") {
+    const t = document.createElement("div"); t.className = "top";
+    t.textContent = view.isGiver ? `👀 Waiting for guesses... (${Math.ceil(view.msLeft / 1000)}s)` : `🔮 Guess the costume! (${Math.ceil(view.msLeft / 1000)}s)`;
+    wrap.appendChild(t);
+    const clue = document.createElement("div"); clue.className = "clueBox";
+    clue.textContent = view.emojiClue.join(" ");
+    wrap.appendChild(clue);
+    const prog = document.createElement("div"); prog.className = "small";
+    prog.textContent = `${view.guessedCount}/${view.totalNeeded} guessed`;
+    wrap.appendChild(prog);
+    if (!view.isGiver) {
+      if (view.alreadyGuessed) {
+        const d = document.createElement("div"); d.className = "small";
+        d.textContent = `You guessed: "${view.myGuessText}" — waiting on others...`;
+        wrap.appendChild(d);
+      } else {
+        const input = document.createElement("input"); input.type = "text"; input.placeholder = "Your guess...";
+        wrap.appendChild(input);
+        const btn = document.createElement("button"); btn.className = "pumpkin";
+        btn.textContent = "👻 Submit Guess";
+        btn.onclick = () => { if (input.value.trim()) send({ type: "guess", text: input.value }); };
+        wrap.appendChild(btn);
+      }
+    }
+    wrap.appendChild(scoreboard());
+    return;
+  }
+
+  if (view.phase === "reveal") {
+    const r = view.reveal;
+    const t = document.createElement("div"); t.className = "top"; t.textContent = "💀 Reveal!";
+    wrap.appendChild(t);
+    const costume = document.createElement("h2"); costume.textContent = `🎭 ${r.costume}`;
+    wrap.appendChild(costume);
+    const clue = document.createElement("div"); clue.className = "clueBox"; clue.textContent = r.clue.join(" ");
+    wrap.appendChild(clue);
+    const giverInfo = document.createElement("div"); giverInfo.className = "small";
+    giverInfo.textContent = `${r.clueGiverName} drew this (+${r.giverPoints} pts)`;
+    wrap.appendChild(giverInfo);
+    const list = document.createElement("div");
+    if (r.correct.length === 0) {
+      list.textContent = "😱 Nobody guessed it!";
+    } else {
+      list.innerHTML = "<b>Correct guessers:</b>";
+      r.correct.forEach((c, i) => {
+        const row = document.createElement("div");
+        row.textContent = `${i === 0 ? "🥇" : "✅"} ${c.name} (+${i === 0 ? 10 : 5})`;
+        list.appendChild(row);
+      });
+    }
+    wrap.appendChild(list);
+    wrap.appendChild(scoreboard());
+    const btn = document.createElement("button"); btn.className = "pumpkin";
+    btn.textContent = "➡️ Next Round"; btn.onclick = () => send({ type: "next" });
+    wrap.appendChild(btn);
+    return;
+  }
+
+  if (view.phase === "over") {
+    const t = document.createElement("div"); t.className = "top"; t.textContent = "🎃 Game Over! Final Scores:";
+    wrap.appendChild(t);
+    wrap.appendChild(scoreboard());
+    const btn = document.createElement("button"); btn.className = "pumpkin";
+    btn.textContent = "🔁 Play Again"; btn.onclick = () => send({ type: "playAgain" });
+    wrap.appendChild(btn);
+    return;
+  }
+}
+```

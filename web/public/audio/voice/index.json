@@ -1,0 +1,2558 @@
+{
+ "engine": "elevenlabs:eleven_v3",
+ "version": "1793484553442",
+ "rendered": "2026-10-31T22:09:13.442Z",
+ "voices": {
+  "exorcist": {
+   "arrive": [
+    {
+     "file": "exorcist/arrive-1.mp3",
+     "text": "Evening. Nobody touch anything.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/arrive-2.mp3",
+     "text": "Lovely house. Shame about the residents.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/arrive-3.mp3",
+     "text": "I was told this place was empty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/arrive-4.mp3",
+     "text": "Six rooms. Let's not make this weird.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "sweep": [
+    {
+     "file": "exorcist/sweep-1.mp3",
+     "text": "Lights. Now.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/sweep-2.mp3",
+     "text": "Checking this one. Stay behind me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/sweep-3.mp3",
+     "text": "Nobody breathe. Not that you can.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/sweep-4.mp3",
+     "text": "Open it up.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "caught": [
+    {
+     "file": "exorcist/caught-1.mp3",
+     "text": "There you are.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/caught-2.mp3",
+     "text": "One down. Put it on the board.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/caught-3.mp3",
+     "text": "Into the jar.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/caught-4.mp3",
+     "text": "Got one. Don't make a fuss.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "missed": [
+    {
+     "file": "exorcist/missed-1.mp3",
+     "text": "Empty. Of course it's empty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/missed-2.mp3",
+     "text": "Nothing. Somebody's been talking.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/missed-3.mp3",
+     "text": "Cold room. Wrong room.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/missed-4.mp3",
+     "text": "They moved. Rude.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooled": [
+    {
+     "file": "exorcist/fooled-1.mp3",
+     "text": "We took directions from a dead person.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooled-2.mp3",
+     "text": "Who listened to the ghost? Medium.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooled-3.mp3",
+     "text": "That was a lie. A good one.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooled-4.mp3",
+     "text": "For the report: ghosts lie.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "possessed": [
+    {
+     "file": "exorcist/possessed-1.mp3",
+     "text": "They've moved in. Great. Paperwork.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-2.mp3",
+     "text": "That room's theirs now. Take it back.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-3.mp3",
+     "text": "Lost one. Nobody tell my boss.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-4.mp3",
+     "text": "They're putting up curtains in there.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-5.mp3",
+     "text": "they took the whole room. [sighs] that's a weekend job.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-6.mp3",
+     "text": "that house is theirs now. I'm calling my wife.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-7.mp3",
+     "text": "possessed. great. that's a different invoice.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/possessed-8.mp3",
+     "text": "the walls are breathing. that's not in the contract.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "back": [
+    {
+     "file": "exorcist/back-1.mp3",
+     "text": "...the Crypt was a lie, wasn't it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/back-2.mp3",
+     "text": "Power's back. Nobody moved. Unsettling.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/back-3.mp3",
+     "text": "The house died. Of course you didn't.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/back-4.mp3",
+     "text": "Right. Where were we?",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "win": [
+    {
+     "file": "exorcist/win-1.mp3",
+     "text": "House is clean. I'm going home.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/win-2.mp3",
+     "text": "Invoice is in the post.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/win-3.mp3",
+     "text": "Done. Same as last Tuesday.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/win-4.mp3",
+     "text": "Lights on. Coats on. Goodnight.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lose": [
+    {
+     "file": "exorcist/lose-1.mp3",
+     "text": "Get the van.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lose-2.mp3",
+     "text": "It's their house now. I'm too old.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lose-3.mp3",
+     "text": "Fall back. Leave the salt.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lose-4.mp3",
+     "text": "Tell the owners to sell.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "taunt": [
+    {
+     "file": "exorcist/taunt-1.mp3",
+     "text": "I can hear you glowing.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/taunt-2.mp3",
+     "text": "Come out. I'm paid by the hour.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/taunt-3.mp3",
+     "text": "Hide well. I get paid either way.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/taunt-4.mp3",
+     "text": "I've been doing this since before phones.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "crowded": [
+    {
+     "file": "exorcist/crowded-1.mp3",
+     "text": "[sighs] they've put their names on the door.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/crowded-2.mp3",
+     "text": "that room is a one-bucket job. we sweep it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/crowded-3.mp3",
+     "text": "it's full. I can still be home by eleven.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/crowded-4.mp3",
+     "text": "packed in like a church picnic. easy money.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "empty": [
+    {
+     "file": "exorcist/empty-1.mp3",
+     "text": "empty. [sighs] I drove forty minutes for empty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/empty-2.mp3",
+     "text": "nobody in there. not even the mice.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/empty-3.mp3",
+     "text": "zero. that's my favourite number after eleven.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/empty-4.mp3",
+     "text": "the board says nothing. I believe the board.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "whispered": [
+    {
+     "file": "exorcist/whispered-1.mp3",
+     "text": "a ghost told me something. I'm writing it down and ignoring it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/whispered-2.mp3",
+     "text": "[chuckles] they whisper to me like I'm new.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/whispered-3.mp3",
+     "text": "thirty years. they still try the whisper.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/whispered-4.mp3",
+     "text": "a dead stranger gave me a tip. noted. declined.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lied": [
+    {
+     "file": "exorcist/lied-1.mp3",
+     "text": "[sighs] lied to. on overtime.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lied-2.mp3",
+     "text": "that was a lie. I should've stayed home.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lied-3.mp3",
+     "text": "the crypt was empty. the crypt is always a lie.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lied-4.mp3",
+     "text": "I knew it. I went anyway. that's on me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mock": [
+    {
+     "file": "exorcist/mock-1.mp3",
+     "text": "the medium is listening to the dead again.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mock-2.mp3",
+     "text": "son, the priest hasn't caught a thing since Easter.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mock-3.mp3",
+     "text": "the skeptic keeps a notebook. he should keep a flashlight.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mock-4.mp3",
+     "text": "everybody's an expert. nobody's got a mop.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "betrayal": [
+    {
+     "file": "exorcist/betrayal-1.mp3",
+     "text": "I said the attic. I meant the crypt. [chuckles] business.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/betrayal-2.mp3",
+     "text": "we had a deal. I'm going home early.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/betrayal-3.mp3",
+     "text": "sorry, father. the overtime's all mine.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/betrayal-4.mp3",
+     "text": "nothing personal. it's a paycheck.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "losing": [
+    {
+     "file": "exorcist/losing-1.mp3",
+     "text": "we're behind. I've been behind since nineteen ninety.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/losing-2.mp3",
+     "text": "[sighs] they're winning. I'm still getting paid.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/losing-3.mp3",
+     "text": "this is what happens when you trust the medium.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/losing-4.mp3",
+     "text": "we need a catch. I need a sandwich.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "winning": [
+    {
+     "file": "exorcist/winning-1.mp3",
+     "text": "we're ahead. let's not get cute.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/winning-2.mp3",
+     "text": "[chuckles] steady. steady wins it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/winning-3.mp3",
+     "text": "that's how you do it. nobody touch anything.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/winning-4.mp3",
+     "text": "good. now let's go home.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooledAgain": [
+    {
+     "file": "exorcist/fooledAgain-1.mp3",
+     "text": "I swore I'd never get fooled again. [sighs] I swore.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooledAgain-2.mp3",
+     "text": "twice. same ghost. same face.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooledAgain-3.mp3",
+     "text": "fool me twice, it's a Tuesday.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/fooledAgain-4.mp3",
+     "text": "I'm too old to be lied to this much.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mobLie": [
+    {
+     "file": "exorcist/mobLie-1.mp3",
+     "text": "everybody's telling me the same room. that's how I know it's wrong.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mobLie-2.mp3",
+     "text": "forty ghosts agree. forty ghosts lie.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mobLie-3.mp3",
+     "text": "[chuckles] a whole choir of liars. cute.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/mobLie-4.mp3",
+     "text": "when the whole house whispers, I check the other room.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "overtake": [
+    {
+     "file": "exorcist/overtake-1.mp3",
+     "text": "new ghost on top. I don't even know his name.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/overtake-2.mp3",
+     "text": "somebody just took the lead. kids these days.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/overtake-3.mp3",
+     "text": "[sighs] there's a new number one. great.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/overtake-4.mp3",
+     "text": "fresh face at the top. won't last.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "revive": [
+    {
+     "file": "exorcist/revive-1.mp3",
+     "text": "...did anyone else just die?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/revive-2.mp3",
+     "text": "[gasps] what was that. was I gone?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/revive-3.mp3",
+     "text": "the lights went out and I felt nothing. like a Monday.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/revive-4.mp3",
+     "text": "I blinked and the whole house came back. huh.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleGhosts": [
+    {
+     "file": "exorcist/finaleGhosts-1.mp3",
+     "text": "[sighs] they won. I'm going home anyway.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleGhosts-2.mp3",
+     "text": "the house is theirs. somebody tell my wife.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleGhosts-3.mp3",
+     "text": "beat by a room full of strangers on their phones.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleGhosts-4.mp3",
+     "text": "thirty years in the trade. lost to the front row.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleHunters": [
+    {
+     "file": "exorcist/finaleHunters-1.mp3",
+     "text": "house is clean. I'm home by eleven.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleHunters-2.mp3",
+     "text": "[chuckles] that's the job. that's the whole job.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleHunters-3.mp3",
+     "text": "swept. done. invoice is in the mail.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/finaleHunters-4.mp3",
+     "text": "told you. one bucket.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lastWords": [
+    {
+     "file": "exorcist/lastWords-1.mp3",
+     "text": "tell my wife I was home by eleven.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lastWords-2.mp3",
+     "text": "[sighs] I should've retired in ninety-eight.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lastWords-3.mp3",
+     "text": "put the mop back where you found it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/lastWords-4.mp3",
+     "text": "it's been a long shift.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "flipflop": [
+    {
+     "file": "exorcist/flipflop-1.mp3",
+     "text": "[sighs] you just changed your mind because one ghost said so?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/flipflop-2.mp3",
+     "text": "you were the other room ten seconds ago. one whisper and you move.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "exorcist/flipflop-3.mp3",
+     "text": "one whisper and you pack a bag. unbelievable.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ]
+  },
+  "medium": {
+   "arrive": [
+    {
+     "file": "medium/arrive-1.mp3",
+     "text": "Hello, everyone. I can feel your phones.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/arrive-2.mp3",
+     "text": "Ooh. It's so crowded in here.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/arrive-3.mp3",
+     "text": "Oh, they're all so young.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/arrive-4.mp3",
+     "text": "Spirits, one at a time, please.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "sweep": [
+    {
+     "file": "medium/sweep-1.mp3",
+     "text": "Come towards the light!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/sweep-2.mp3",
+     "text": "I'm opening my third eye. Now!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/sweep-3.mp3",
+     "text": "Show yourselves! Gently!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/sweep-4.mp3",
+     "text": "Out you come! Into the light!",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "caught": [
+    {
+     "file": "medium/caught-1.mp3",
+     "text": "Oh! I felt that one go.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/caught-2.mp3",
+     "text": "Shh. Rest now, little one.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/caught-3.mp3",
+     "text": "Got you! I mean... be at peace.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/caught-4.mp3",
+     "text": "Goodbye. Write if you can.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "missed": [
+    {
+     "file": "medium/missed-1.mp3",
+     "text": "But they were here. I felt them!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/missed-2.mp3",
+     "text": "Empty? My elbows were so sure.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/missed-3.mp3",
+     "text": "They left without saying goodbye.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/missed-4.mp3",
+     "text": "Hmm. The vibes were very strong.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooled": [
+    {
+     "file": "medium/fooled-1.mp3",
+     "text": "A ghost lied to me? A ghost?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooled-2.mp3",
+     "text": "But they sounded so honest!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooled-3.mp3",
+     "text": "I trusted you. I trusted all of you.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooled-4.mp3",
+     "text": "My spirit guide is fired.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "possessed": [
+    {
+     "file": "medium/possessed-1.mp3",
+     "text": "They've taken the room! I feel faint.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-2.mp3",
+     "text": "Oh, they're redecorating.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-3.mp3",
+     "text": "The room is humming. I predicted this.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-4.mp3",
+     "text": "It's beautiful. It's terrible. I need water.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-5.mp3",
+     "text": "[gasps] they took the room. I saw this. in a vision. in the bath.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-6.mp3",
+     "text": "possessed. I feel so seen.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-7.mp3",
+     "text": "they're singing in there. I want to go in.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/possessed-8.mp3",
+     "text": "possessed. I told you. nobody writes down what I say.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "back": [
+    {
+     "file": "medium/back-1.mp3",
+     "text": "The Crypt was a lie? They promised!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/back-2.mp3",
+     "text": "Did we die? I felt us die.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/back-3.mp3",
+     "text": "I saw a white light. Then static.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/back-4.mp3",
+     "text": "Everyone's back! I knew they'd wait.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "win": [
+    {
+     "file": "medium/win-1.mp3",
+     "text": "Go into the light. Go on.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/win-2.mp3",
+     "text": "I foresaw this. Mostly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/win-3.mp3",
+     "text": "It's so quiet. I miss them already.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/win-4.mp3",
+     "text": "They've crossed over. I'm going to cry.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lose": [
+    {
+     "file": "medium/lose-1.mp3",
+     "text": "They want us to leave. Politely, for now.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lose-2.mp3",
+     "text": "I should have read the tea leaves.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lose-3.mp3",
+     "text": "They're in the walls. And in me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lose-4.mp3",
+     "text": "I'm staying. No, I'm not. Run.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "taunt": [
+    {
+     "file": "medium/taunt-1.mp3",
+     "text": "I can feel your little phone buzzing.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/taunt-2.mp3",
+     "text": "Whisper to me. I'll believe anything.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/taunt-3.mp3",
+     "text": "Your aura is showing. It's beige.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/taunt-4.mp3",
+     "text": "Tell me where you are. I won't tell.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "crowded": [
+    {
+     "file": "medium/crowded-1.mp3",
+     "text": "it's so crowded in there. they're lonely.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/crowded-2.mp3",
+     "text": "that's not a crowd. [gasps] that's a congregation.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/crowded-3.mp3",
+     "text": "a full room. that's a consensus.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/crowded-4.mp3",
+     "text": "[gasps] they're all holding hands in there.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "empty": [
+    {
+     "file": "medium/empty-1.mp3",
+     "text": "empty? [gasps] no. they're shy.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/empty-2.mp3",
+     "text": "it feels empty. which means they're hiding from me personally.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/empty-3.mp3",
+     "text": "nobody there. or everybody, invisible.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/empty-4.mp3",
+     "text": "zero. but a very emotional zero.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "whispered": [
+    {
+     "file": "medium/whispered-1.mp3",
+     "text": "[whispers] someone told me a secret. I'm glowing.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/whispered-2.mp3",
+     "text": "they came to me. out of all four, me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/whispered-3.mp3",
+     "text": "a ghost whispered to me. it has such an honest little voice.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/whispered-4.mp3",
+     "text": "I was chosen. again. [laughs] I'm always chosen.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lied": [
+    {
+     "file": "medium/lied-1.mp3",
+     "text": "[gasps] they lied to me. to my face. my beautiful face.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lied-2.mp3",
+     "text": "it was empty. the house heard that lie. the house remembers.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lied-3.mp3",
+     "text": "I trusted them. I will never trust again.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lied-4.mp3",
+     "text": "[sighs] lied to once. statistically, that's a reset.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mock": [
+    {
+     "file": "medium/mock-1.mp3",
+     "text": "the skeptic doesn't believe in anything. not even lunch.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mock-2.mp3",
+     "text": "the priest only listens to the priest.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mock-3.mp3",
+     "text": "the exorcist has the spiritual depth of a mop.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mock-4.mp3",
+     "text": "[laughs] the skeptic counts ghosts like invoices. they're people. dead ones.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "betrayal": [
+    {
+     "file": "medium/betrayal-1.mp3",
+     "text": "I said the library. I went to the crypt. a girl can change.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/betrayal-2.mp3",
+     "text": "forgive me, father. actually, don't. it was fun.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/betrayal-3.mp3",
+     "text": "I had a feeling. the feeling was betrayal.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/betrayal-4.mp3",
+     "text": "[laughs] I voted against all of you. the dead told me to.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "losing": [
+    {
+     "file": "medium/losing-1.mp3",
+     "text": "we're losing. the spirits are toying with me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/losing-2.mp3",
+     "text": "[sighs] I'm not losing. I'm being taught.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/losing-3.mp3",
+     "text": "they're winning because they're organised. the dead have unionised.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/losing-4.mp3",
+     "text": "this is the priest's fault. spiritually.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "winning": [
+    {
+     "file": "medium/winning-1.mp3",
+     "text": "we're winning. the dead told me we would. one of them was honest.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/winning-2.mp3",
+     "text": "[laughs] the spirits are on my side.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/winning-3.mp3",
+     "text": "I knew it. I always know.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/winning-4.mp3",
+     "text": "we're ahead. I feel very chosen.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooledAgain": [
+    {
+     "file": "medium/fooledAgain-1.mp3",
+     "text": "they lied to me in beat one. I will not be fooled again.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooledAgain-2.mp3",
+     "text": "[gasps] fooled again. but it felt so real.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooledAgain-3.mp3",
+     "text": "I said never again. I meant mostly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/fooledAgain-4.mp3",
+     "text": "the same ghost. the same honest little face.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mobLie": [
+    {
+     "file": "medium/mobLie-1.mp3",
+     "text": "everyone is saying the same room. that's a consensus.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mobLie-2.mp3",
+     "text": "the whole house agrees. who am I to argue.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mobLie-3.mp3",
+     "text": "so many whispers. they can't all be lying.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/mobLie-4.mp3",
+     "text": "[gasps] forty ghosts told me. forty.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "overtake": [
+    {
+     "file": "medium/overtake-1.mp3",
+     "text": "a new ghost is on top. I sensed it a second ago.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/overtake-2.mp3",
+     "text": "[gasps] a new number one. I saw their name in the steam.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/overtake-3.mp3",
+     "text": "someone just took the crown. it's so romantic.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/overtake-4.mp3",
+     "text": "a new number one. I felt that in my teeth.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "revive": [
+    {
+     "file": "medium/revive-1.mp3",
+     "text": "...did anyone else just die?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/revive-2.mp3",
+     "text": "[gasps] I went somewhere. it was carpeted.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/revive-3.mp3",
+     "text": "I saw a light. it was the projector.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/revive-4.mp3",
+     "text": "we died. we're back. I've never felt closer to you all.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleGhosts": [
+    {
+     "file": "medium/finaleGhosts-1.mp3",
+     "text": "they won. I said they would. nobody writes it down.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleGhosts-2.mp3",
+     "text": "[gasps] the house is theirs. I've never been so right and so evicted.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleGhosts-3.mp3",
+     "text": "I lost to the people I believed in. that's on them.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleGhosts-4.mp3",
+     "text": "the spirits won. I said they would.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleHunters": [
+    {
+     "file": "medium/finaleHunters-1.mp3",
+     "text": "we won. I felt it all along.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleHunters-2.mp3",
+     "text": "[laughs] the spirits let us win. they're so kind.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleHunters-3.mp3",
+     "text": "victory. I want to thank my third eye.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/finaleHunters-4.mp3",
+     "text": "we cleansed it. I'll miss them.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lastWords": [
+    {
+     "file": "medium/lastWords-1.mp3",
+     "text": "remember me as the one who believed.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lastWords-2.mp3",
+     "text": "[whispers] kyle, if you're out there. I still trust you.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lastWords-3.mp3",
+     "text": "I'll see you all on the other side. I'll save seats.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/lastWords-4.mp3",
+     "text": "it was always the crypt. always.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "flipflop": [
+    {
+     "file": "medium/flipflop-1.mp3",
+     "text": "[gasps] they spoke to you and not to me? I see how it is.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/flipflop-2.mp3",
+     "text": "you switched. even the doubters hear them now.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "medium/flipflop-3.mp3",
+     "text": "you felt it too. I said this an hour ago.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ]
+  },
+  "skeptic": {
+   "arrive": [
+    {
+     "file": "skeptic/arrive-1.mp3",
+     "text": "For the record, this is a draft.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/arrive-2.mp3",
+     "text": "Ghosts aren't real. I'll catch them anyway.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/arrive-3.mp3",
+     "text": "I brought a clipboard. She brought candles.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/arrive-4.mp3",
+     "text": "Six rooms. Finite. Solvable.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "sweep": [
+    {
+     "file": "skeptic/sweep-1.mp3",
+     "text": "Searching. Try not to be measurable.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/sweep-2.mp3",
+     "text": "Checking. Let's see the numbers.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/sweep-3.mp3",
+     "text": "Statistically, you're in here.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/sweep-4.mp3",
+     "text": "Running the obvious play.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "caught": [
+    {
+     "file": "skeptic/caught-1.mp3",
+     "text": "Subject located. Unremarkable.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/caught-2.mp3",
+     "text": "That's one for me. I'm counting.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/caught-3.mp3",
+     "text": "Caught. The model works.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/caught-4.mp3",
+     "text": "One subject removed. Peer review pending.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "missed": [
+    {
+     "file": "skeptic/missed-1.mp3",
+     "text": "Zero. Adjusting the model.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/missed-2.mp3",
+     "text": "Empty. That was the Medium's pick.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/missed-3.mp3",
+     "text": "Nothing. Put that one on her.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/missed-4.mp3",
+     "text": "Statistically, they're somewhere else.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooled": [
+    {
+     "file": "skeptic/fooled-1.mp3",
+     "text": "We trusted a ghost. Write that down.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooled-2.mp3",
+     "text": "Who could have predicted this? Me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooled-3.mp3",
+     "text": "I'd like it minuted that I objected.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooled-4.mp3",
+     "text": "Fooled by a crowd. Embarrassing.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "possessed": [
+    {
+     "file": "skeptic/possessed-1.mp3",
+     "text": "Room lost. That's a trend.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-2.mp3",
+     "text": "They're clustering. Smart. Annoying.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-3.mp3",
+     "text": "Possession is up twelve percent.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-4.mp3",
+     "text": "That room is theirs now. Legally, somehow.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-5.mp3",
+     "text": "the room is possessed. statistically unlikely.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-6.mp3",
+     "text": "[scoffs] possessed. sure. it's drafty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-7.mp3",
+     "text": "that's not possession. that's a lot of phones.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/possessed-8.mp3",
+     "text": "I refuse to acknowledge that room.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "back": [
+    {
+     "file": "skeptic/back-1.mp3",
+     "text": "...the Crypt was a lie.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/back-2.mp3",
+     "text": "Power cut. Same positions. Interesting.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/back-3.mp3",
+     "text": "The server died. The data didn't.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/back-4.mp3",
+     "text": "Everything came back exactly where it was.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "win": [
+    {
+     "file": "skeptic/win-1.mp3",
+     "text": "House cleared. Ghosts still aren't real.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/win-2.mp3",
+     "text": "Zero subjects detected. As expected.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/win-3.mp3",
+     "text": "Case closed. I'm keeping the clipboard.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/win-4.mp3",
+     "text": "The numbers never lie. Ghosts do.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lose": [
+    {
+     "file": "skeptic/lose-1.mp3",
+     "text": "This was not in the model.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lose-2.mp3",
+     "text": "Fine. Ghosts are real. Happy?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lose-3.mp3",
+     "text": "I demand a recount.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lose-4.mp3",
+     "text": "Statistically improbable. And yet.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "taunt": [
+    {
+     "file": "skeptic/taunt-1.mp3",
+     "text": "I've graphed your movements. Predictable.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/taunt-2.mp3",
+     "text": "Your battery is at twelve percent.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/taunt-3.mp3",
+     "text": "You're not hiding. You're averaging.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/taunt-4.mp3",
+     "text": "I know which room you picked.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "crowded": [
+    {
+     "file": "skeptic/crowded-1.mp3",
+     "text": "board says it's full. [scoffs] so it's empty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/crowded-2.mp3",
+     "text": "full room. too obvious. so it's obvious.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/crowded-3.mp3",
+     "text": "I'd like it on the record that I'm right before I'm right.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/crowded-4.mp3",
+     "text": "lots of subjects. no ghosts. I don't say ghosts.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "empty": [
+    {
+     "file": "skeptic/empty-1.mp3",
+     "text": "board says empty. so they're in there.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/empty-2.mp3",
+     "text": "empty. the medium will call it a feeling.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/empty-3.mp3",
+     "text": "zero subjects. I find that suspicious.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/empty-4.mp3",
+     "text": "an empty room is just a full room that's lying.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "whispered": [
+    {
+     "file": "skeptic/whispered-1.mp3",
+     "text": "a dead stranger typed one sentence at me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/whispered-2.mp3",
+     "text": "[scoffs] someone whispered. I'm doing the opposite.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/whispered-3.mp3",
+     "text": "I got a tip. I don't take tips.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/whispered-4.mp3",
+     "text": "a whisper. that's not evidence. that's a sound.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lied": [
+    {
+     "file": "skeptic/lied-1.mp3",
+     "text": "I was lied to. I'm adding it to the tally.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lied-2.mp3",
+     "text": "[sighs] I was wrong. that's a first. write it down.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lied-3.mp3",
+     "text": "that was a lie. technically I was misinformed.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lied-4.mp3",
+     "text": "lied to. by a subject. on a phone.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mock": [
+    {
+     "file": "skeptic/mock-1.mp3",
+     "text": "the medium heard a whisper and packed a bag.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mock-2.mp3",
+     "text": "that's four for the medium. four wrong.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mock-3.mp3",
+     "text": "the priest is checking his hair in the crypt.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mock-4.mp3",
+     "text": "the exorcist is asleep with his eyes open.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "betrayal": [
+    {
+     "file": "skeptic/betrayal-1.mp3",
+     "text": "I agreed out loud. I voted in private.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/betrayal-2.mp3",
+     "text": "[chuckles] I never said I was on your side.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/betrayal-3.mp3",
+     "text": "betrayal is just strategy with feelings.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/betrayal-4.mp3",
+     "text": "I lied too. it felt efficient.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "losing": [
+    {
+     "file": "skeptic/losing-1.mp3",
+     "text": "we're losing. I have it in a spreadsheet.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/losing-2.mp3",
+     "text": "this is the medium's fault. I have receipts.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/losing-3.mp3",
+     "text": "[sighs] we're behind. as predicted. by me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/losing-4.mp3",
+     "text": "losing to subjects. humiliating, but data.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "winning": [
+    {
+     "file": "skeptic/winning-1.mp3",
+     "text": "we're winning. against my expectations.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/winning-2.mp3",
+     "text": "ahead. I'll allow it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/winning-3.mp3",
+     "text": "good. nobody say a word, especially the medium.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/winning-4.mp3",
+     "text": "winning. I'm still not saying ghost.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooledAgain": [
+    {
+     "file": "skeptic/fooledAgain-1.mp3",
+     "text": "fooled twice. I'm updating my priors.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooledAgain-2.mp3",
+     "text": "[sighs] same lie. different beat.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooledAgain-3.mp3",
+     "text": "I knew it was a lie. I just wanted to check.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/fooledAgain-4.mp3",
+     "text": "fooled again. I'm removing myself from the tally.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mobLie": [
+    {
+     "file": "skeptic/mobLie-1.mp3",
+     "text": "the whole room agrees. which means nobody checked.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mobLie-2.mp3",
+     "text": "forty whispers is just one lie, forty times.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mobLie-3.mp3",
+     "text": "[scoffs] a mob. lovely. a wrong mob.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/mobLie-4.mp3",
+     "text": "consensus is just a lie with friends.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "overtake": [
+    {
+     "file": "skeptic/overtake-1.mp3",
+     "text": "new leader. irrelevant. still a subject.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/overtake-2.mp3",
+     "text": "someone passed number one. I didn't see it happen.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/overtake-3.mp3",
+     "text": "a new name on top. I'll misspell it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/overtake-4.mp3",
+     "text": "[scoffs] new number one. the medium is weeping.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "revive": [
+    {
+     "file": "skeptic/revive-1.mp3",
+     "text": "...did anyone else just die?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/revive-2.mp3",
+     "text": "we were dead. for the record, I didn't believe it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/revive-3.mp3",
+     "text": "the lights went out. I assume a fuse. not ghosts.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/revive-4.mp3",
+     "text": "[sighs] we died. I'd like that removed from the minutes.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleGhosts": [
+    {
+     "file": "skeptic/finaleGhosts-1.mp3",
+     "text": "they won. I still don't believe in them.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleGhosts-2.mp3",
+     "text": "[scoffs] beaten by things that don't exist.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleGhosts-3.mp3",
+     "text": "the subjects won. I'm filing a complaint.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleGhosts-4.mp3",
+     "text": "I lost. I'd like a recount.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleHunters": [
+    {
+     "file": "skeptic/finaleHunters-1.mp3",
+     "text": "we won. I was right. not about anything specific.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleHunters-2.mp3",
+     "text": "victory. I'll be in my car.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleHunters-3.mp3",
+     "text": "the house is clean. it was always clean. it was empty.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/finaleHunters-4.mp3",
+     "text": "[chuckles] told you. they weren't real.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lastWords": [
+    {
+     "file": "skeptic/lastWords-1.mp3",
+     "text": "for the record. I was right.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lastWords-2.mp3",
+     "text": "[sighs] still not saying the word.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lastWords-3.mp3",
+     "text": "the tally is in my coat. read it out at the funeral.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/lastWords-4.mp3",
+     "text": "this is a draft. I'm going home.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "flipflop": [
+    {
+     "file": "skeptic/flipflop-1.mp3",
+     "text": "flipped on one whisper. minuted.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/flipflop-2.mp3",
+     "text": "you were the other room. now this one. remarkable.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "skeptic/flipflop-3.mp3",
+     "text": "[scoffs] folded in under a second. a record.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ]
+  },
+  "priest": {
+   "arrive": [
+    {
+     "file": "priest/arrive-1.mp3",
+     "text": "Fear not. I'm here. Also, hello.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/arrive-2.mp3",
+     "text": "Bless this house. Especially the lighting.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/arrive-3.mp3",
+     "text": "I polished my cross for this.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/arrive-4.mp3",
+     "text": "Make way. Robes coming through.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "sweep": [
+    {
+     "file": "priest/sweep-1.mp3",
+     "text": "Begone! And admire my robes.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/sweep-2.mp3",
+     "text": "The light compels you! My light.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/sweep-3.mp3",
+     "text": "Witness this. Somebody film it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/sweep-4.mp3",
+     "text": "Out! I'm told my voice carries.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "caught": [
+    {
+     "file": "priest/caught-1.mp3",
+     "text": "Another soul saved. By me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/caught-2.mp3",
+     "text": "Blessed. You're welcome.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/caught-3.mp3",
+     "text": "Rest in peace. Remember my face.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/caught-4.mp3",
+     "text": "Absolved. Tell your friends.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "missed": [
+    {
+     "file": "priest/missed-1.mp3",
+     "text": "Empty. They fear my holiness.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/missed-2.mp3",
+     "text": "The Lord tests me. Rudely.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/missed-3.mp3",
+     "text": "Nobody? I did my good side for nothing.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/missed-4.mp3",
+     "text": "A test of faith. How tedious.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooled": [
+    {
+     "file": "priest/fooled-1.mp3",
+     "text": "Deceived! By the dead, no less!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooled-2.mp3",
+     "text": "I forgive you. I'm lying.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooled-3.mp3",
+     "text": "This is the Medium's fault. Somehow.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooled-4.mp3",
+     "text": "Lied to. In my good robe.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "possessed": [
+    {
+     "file": "priest/possessed-1.mp3",
+     "text": "Sanctuary lost! Seal the doors!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-2.mp3",
+     "text": "That room needs a priest. Luckily.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-3.mp3",
+     "text": "They're dancing in there. Badly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-4.mp3",
+     "text": "The darkness spreads! Pray harder!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-5.mp3",
+     "text": "they've taken the room. I'll need to sing at it.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-6.mp3",
+     "text": "[gasps] possession. my time to shine.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-7.mp3",
+     "text": "the devil is in there. and he's not even dressed up.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/possessed-8.mp3",
+     "text": "possessed. a lesser priest would panic.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "back": [
+    {
+     "file": "priest/back-1.mp3",
+     "text": "The Crypt was a lie! Heresy!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/back-2.mp3",
+     "text": "I have risen. Obviously.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/back-3.mp3",
+     "text": "Was that the rapture? Why am I here?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/back-4.mp3",
+     "text": "Darkness fell. My hair survived.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "win": [
+    {
+     "file": "priest/win-1.mp3",
+     "text": "Hallelujah. And yes, it was me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/win-2.mp3",
+     "text": "The house is purified. Applause welcome.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/win-3.mp3",
+     "text": "Heaven rejoices. Autographs later.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/win-4.mp3",
+     "text": "Glory! Mostly mine.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lose": [
+    {
+     "file": "priest/lose-1.mp3",
+     "text": "Abandon the house! Save my hair!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lose-2.mp3",
+     "text": "I shall pray for you. Later.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lose-3.mp3",
+     "text": "This is not my good side!",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lose-4.mp3",
+     "text": "I was never here. Tell no one.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "taunt": [
+    {
+     "file": "priest/taunt-1.mp3",
+     "text": "Confess, little wisp. I'm listening.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/taunt-2.mp3",
+     "text": "Come into the light. Mind the robe.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/taunt-3.mp3",
+     "text": "Kneel before your favorite priest.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/taunt-4.mp3",
+     "text": "I see you. I see everything. Mostly me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "crowded": [
+    {
+     "file": "priest/crowded-1.mp3",
+     "text": "a full room. they've come to hear me speak.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/crowded-2.mp3",
+     "text": "the chapel, of course. they know where the voice is.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/crowded-3.mp3",
+     "text": "so many souls. I'll need my good robe.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/crowded-4.mp3",
+     "text": "[clears throat] gather round, children. it's me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "empty": [
+    {
+     "file": "priest/empty-1.mp3",
+     "text": "empty. they're intimidated by my presence.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/empty-2.mp3",
+     "text": "nobody there. they must have heard me warming up.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/empty-3.mp3",
+     "text": "an empty room, like the medium's head.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/empty-4.mp3",
+     "text": "zero. they fled from my good side.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "whispered": [
+    {
+     "file": "priest/whispered-1.mp3",
+     "text": "a ghost whispered to me. naturally. I'm the famous one.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/whispered-2.mp3",
+     "text": "[chuckles] they always come to me first.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/whispered-3.mp3",
+     "text": "a little bird told me. a dead bird.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/whispered-4.mp3",
+     "text": "a whisper, for me. I'll be gracious.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lied": [
+    {
+     "file": "priest/lied-1.mp3",
+     "text": "they lied to a man of the cloth. [gasps] the nerve.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lied-2.mp3",
+     "text": "I was misled. I forgive them. loudly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lied-3.mp3",
+     "text": "an empty room. my robes are dusty for nothing.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lied-4.mp3",
+     "text": "lied to. I blame the medium.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mock": [
+    {
+     "file": "priest/mock-1.mp3",
+     "text": "the medium is a gifted amateur.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mock-2.mp3",
+     "text": "the skeptic wouldn't know faith if it sat on him.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mock-3.mp3",
+     "text": "the exorcist has the charisma of a bucket.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mock-4.mp3",
+     "text": "[laughs] bless their little hearts.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "betrayal": [
+    {
+     "file": "priest/betrayal-1.mp3",
+     "text": "I said the chapel. the lord said otherwise.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/betrayal-2.mp3",
+     "text": "forgive me. I'm magnificent and I'm hungry.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/betrayal-3.mp3",
+     "text": "[chuckles] I voted for myself. spiritually.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/betrayal-4.mp3",
+     "text": "betrayal? I call it a sermon.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "losing": [
+    {
+     "file": "priest/losing-1.mp3",
+     "text": "we're losing. the medium's prayers are out of tune.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/losing-2.mp3",
+     "text": "[sighs] behind. nobody listened to me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/losing-3.mp3",
+     "text": "losing is a test. I will pass it beautifully.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/losing-4.mp3",
+     "text": "this is the medium's fault. I said it in the hymn.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "winning": [
+    {
+     "file": "priest/winning-1.mp3",
+     "text": "we're winning because of me. you're welcome.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/winning-2.mp3",
+     "text": "[laughs] glory. mostly mine.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/winning-3.mp3",
+     "text": "praise be. to me, specifically.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/winning-4.mp3",
+     "text": "a lead. hallelujah. I'll take a bow.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "fooledAgain": [
+    {
+     "file": "priest/fooledAgain-1.mp3",
+     "text": "fooled twice. the lord tests the beautiful.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooledAgain-2.mp3",
+     "text": "[sighs] I was lied to again. at least I looked good.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooledAgain-3.mp3",
+     "text": "again. I'll pray about it. loudly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/fooledAgain-4.mp3",
+     "text": "the same lie. the same humble servant. me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mobLie": [
+    {
+     "file": "priest/mobLie-1.mp3",
+     "text": "the whole flock agrees. a flock is a flock.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mobLie-2.mp3",
+     "text": "they're all saying it. I hear a choir.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mobLie-3.mp3",
+     "text": "[chuckles] a congregation of liars. I've preached to worse.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/mobLie-4.mp3",
+     "text": "when everyone agrees, I lead the way.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "overtake": [
+    {
+     "file": "priest/overtake-1.mp3",
+     "text": "a new number one. they must have heard my sermon.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/overtake-2.mp3",
+     "text": "someone new on top. I'll anoint them.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/overtake-3.mp3",
+     "text": "a fresh leader. I preached that.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/overtake-4.mp3",
+     "text": "[gasps] a new champion. almost as good as me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "revive": [
+    {
+     "file": "priest/revive-1.mp3",
+     "text": "...did anyone else just die?",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/revive-2.mp3",
+     "text": "I died. I'd like to note I looked serene.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/revive-3.mp3",
+     "text": "[gasps] resurrection. that's my department.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/revive-4.mp3",
+     "text": "back from the dead. I've done this before.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleGhosts": [
+    {
+     "file": "priest/finaleGhosts-1.mp3",
+     "text": "they won. it's a miracle. not mine, sadly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleGhosts-2.mp3",
+     "text": "[sighs] the house is lost. my robes are ruined.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleGhosts-3.mp3",
+     "text": "beaten by a crowd with phones. heavenly.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleGhosts-4.mp3",
+     "text": "I'll pray for you all. after lunch.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finaleHunters": [
+    {
+     "file": "priest/finaleHunters-1.mp3",
+     "text": "we won. I'll take questions.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleHunters-2.mp3",
+     "text": "[laughs] glory be. mostly to me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleHunters-3.mp3",
+     "text": "cleansed. by my voice, primarily.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/finaleHunters-4.mp3",
+     "text": "victory. the medium may kiss my ring.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "lastWords": [
+    {
+     "file": "priest/lastWords-1.mp3",
+     "text": "bury me in the good robe.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lastWords-2.mp3",
+     "text": "[clears throat] I'd like a choir.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lastWords-3.mp3",
+     "text": "tell them it was me. it was always me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/lastWords-4.mp3",
+     "text": "I forgive you all. especially me.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "flipflop": [
+    {
+     "file": "priest/flipflop-1.mp3",
+     "text": "you changed sides for a whisper. I'd never. unless they asked me.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/flipflop-2.mp3",
+     "text": "[clears throat] they whispered to you instead of me. a clerical error.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "priest/flipflop-3.mp3",
+     "text": "you follow them in. I'll lead you out after.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ]
+  },
+  "announcer": {
+   "round-one": [
+    {
+     "file": "announcer/round-one-1.mp3",
+     "text": "Round one. Find a seat.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "first-blood": [
+    {
+     "file": "announcer/first-blood-1.mp3",
+     "text": "First blood.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "hunters-choosing": [
+    {
+     "file": "announcer/hunters-choosing-1.mp3",
+     "text": "The hunters are choosing.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-attic": [
+    {
+     "file": "announcer/haunted-attic-1.mp3",
+     "text": "The Attic is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-nursery": [
+    {
+     "file": "announcer/haunted-nursery-1.mp3",
+     "text": "The Nursery is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-library": [
+    {
+     "file": "announcer/haunted-library-1.mp3",
+     "text": "The Library is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-ballroom": [
+    {
+     "file": "announcer/haunted-ballroom-1.mp3",
+     "text": "The Ballroom is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-chapel": [
+    {
+     "file": "announcer/haunted-chapel-1.mp3",
+     "text": "The Chapel is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "haunted-crypt": [
+    {
+     "file": "announcer/haunted-crypt-1.mp3",
+     "text": "The Crypt is haunted.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "shutdown": [
+    {
+     "file": "announcer/shutdown-1.mp3",
+     "text": "Shutdown.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "on-fire": [
+    {
+     "file": "announcer/on-fire-1.mp3",
+     "text": "On fire.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "house-yours": [
+    {
+     "file": "announcer/house-yours-1.mp3",
+     "text": "The house is yours.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "exorcised": [
+    {
+     "file": "announcer/exorcised-1.mp3",
+     "text": "Exorcised.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "overtake": [
+    {
+     "file": "announcer/overtake-1.mp3",
+     "text": "new leader. the crown has moved.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/overtake-2.mp3",
+     "text": "a ghost just took number one.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/overtake-3.mp3",
+     "text": "[dramatic] the throne has a new name.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "revive": [
+    {
+     "file": "announcer/revive-1.mp3",
+     "text": "the house is back. and so are they.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/revive-2.mp3",
+     "text": "they died. they rose. let's go.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/revive-3.mp3",
+     "text": "[dramatic pause] the dead have come back online.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "mob-lie": [
+    {
+     "file": "announcer/mob-lie-1.mp3",
+     "text": "the whole house is lying. together.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/mob-lie-2.mp3",
+     "text": "a mob of whispers. one big lie.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finale-ghosts": [
+    {
+     "file": "announcer/finale-ghosts-1.mp3",
+     "text": "the house belongs to the dead.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/finale-ghosts-2.mp3",
+     "text": "ghosts win. the hunters go home.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/finale-ghosts-3.mp3",
+     "text": "[dramatic] tonight, the house is yours.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "finale-hunters": [
+    {
+     "file": "announcer/finale-hunters-1.mp3",
+     "text": "the house is clean. hunters win.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/finale-hunters-2.mp3",
+     "text": "exorcised. every last one.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/finale-hunters-3.mp3",
+     "text": "the hunters take the night.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ],
+   "closing": [
+    {
+     "file": "announcer/closing-1.mp3",
+     "text": "this has been haunt the room.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/closing-2.mp3",
+     "text": "four hunters. one house. a room full of liars.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/closing-3.mp3",
+     "text": "goodnight. lock your doors.",
+     "engine": "elevenlabs:eleven_v3"
+    },
+    {
+     "file": "announcer/closing-4.mp3",
+     "text": "[whispers] they're still in there.",
+     "engine": "elevenlabs:eleven_v3"
+    }
+   ]
+  }
+ }
+}

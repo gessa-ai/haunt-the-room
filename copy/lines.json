@@ -1,0 +1,299 @@
+{
+  "_": "Hunter line sheet + casting (L18 COPY rewrite of L10's sheet; same structure). <= 8 words per line, 4 lines per hunter x VOICE_EVENT. Variant 1 of every 'back' pool is the Crypt-was-a-lie line for the kill beat. Render: bun audio/render-voices.ts say|openai",
+  "cast": {
+    "exorcist": {
+      "say": {
+        "voice": "Daniel",
+        "rate": 168,
+        "semitones": -4
+      },
+      "openai": {
+        "voice": "onyx",
+        "instructions": "A tired professional exorcist, thirty years in the trade, on a job he has done a thousand times. Low, unhurried and flat, like a plumber explaining the boiler. Dry, a little bored, never shouts; the menace is that he is not worried at all."
+      }
+    },
+    "medium": {
+      "say": {
+        "voice": "Moira",
+        "rate": 165,
+        "semitones": 0
+      },
+      "openai": {
+        "voice": "shimmer",
+        "instructions": "A theatrical, sincere spirit medium who believes everything. Breathy and warm, calls everyone darling, little gasps on discovery, genuinely hurt when lied to and instantly over it. Sweet with an unsettling edge, like a favourite aunt who talks to the dead."
+      }
+    },
+    "skeptic": {
+      "say": {
+        "voice": "Samantha",
+        "rate": 182,
+        "semitones": 0
+      },
+      "openai": {
+        "voice": "sage",
+        "instructions": "A deadpan, petty scientist keeping score. Flat, quick and precise, almost no inflection, a tiny pause before the dig. Unimpressed, faintly smug, never raises their voice."
+      }
+    },
+    "priest": {
+      "say": {
+        "voice": "Grandpa (English (UK))",
+        "rate": 150,
+        "semitones": 0
+      },
+      "openai": {
+        "voice": "ballad",
+        "instructions": "A vain, operatic priest who adores his own voice. Grand, rolling and slow, savours every word as if a choir is behind him, pauses for applause that never comes. Self-pity delivered as scripture."
+      }
+    }
+  },
+  "lines": {
+    "exorcist": {
+      "arrive": [
+        "Evening. Nobody touch anything.",
+        "Lovely house. Shame about the residents.",
+        "I was told this place was empty.",
+        "Six rooms. Let's not make this weird."
+      ],
+      "sweep": [
+        "Lights. Now.",
+        "Checking this one. Stay behind me.",
+        "Nobody breathe. Not that you can.",
+        "Open it up."
+      ],
+      "caught": [
+        "There you are.",
+        "One down. Put it on the board.",
+        "Into the jar.",
+        "Got one. Don't make a fuss."
+      ],
+      "missed": [
+        "Empty. Of course it's empty.",
+        "Nothing. Somebody's been talking.",
+        "Cold room. Wrong room.",
+        "They moved. Rude."
+      ],
+      "fooled": [
+        "We took directions from a dead person.",
+        "Who listened to the ghost? Medium.",
+        "That was a lie. A good one.",
+        "For the report: ghosts lie."
+      ],
+      "possessed": [
+        "They've moved in. Great. Paperwork.",
+        "That room's theirs now. Take it back.",
+        "Lost one. Nobody tell my boss.",
+        "They're putting up curtains in there."
+      ],
+      "back": [
+        "...the Crypt was a lie, wasn't it.",
+        "Power's back. Nobody moved. Unsettling.",
+        "The house died. Of course you didn't.",
+        "Right. Where were we?"
+      ],
+      "win": [
+        "House is clean. I'm going home.",
+        "Invoice is in the post.",
+        "Done. Same as last Tuesday.",
+        "Lights on. Coats on. Goodnight."
+      ],
+      "lose": [
+        "Get the van.",
+        "It's their house now. I'm too old.",
+        "Fall back. Leave the salt.",
+        "Tell the owners to sell."
+      ],
+      "taunt": [
+        "I can hear you glowing.",
+        "Come out. I'm paid by the hour.",
+        "Hide well. I get paid either way.",
+        "I've been doing this since before phones."
+      ]
+    },
+    "medium": {
+      "arrive": [
+        "Hello, darlings. I can feel your phones.",
+        "Ooh. It's so crowded in here.",
+        "Oh, they're all so young.",
+        "Spirits, one at a time, please."
+      ],
+      "sweep": [
+        "Come towards the light, darlings!",
+        "I'm opening my third eye. Now!",
+        "Show yourselves! Gently!",
+        "Out you come! Into the light!"
+      ],
+      "caught": [
+        "Oh! I felt that one go.",
+        "Shh. Rest now, little one.",
+        "Got you! I mean... be at peace.",
+        "Goodbye, darling. Write if you can."
+      ],
+      "missed": [
+        "But they were here. I felt them!",
+        "Empty? My elbows were so sure.",
+        "They left without saying goodbye.",
+        "Hmm. The vibes were very strong."
+      ],
+      "fooled": [
+        "A ghost lied to me? A ghost?",
+        "But they sounded so honest!",
+        "I trusted you. I trusted all of you.",
+        "My spirit guide is fired."
+      ],
+      "possessed": [
+        "They've taken the room! I feel faint.",
+        "Oh, they're redecorating.",
+        "The room is humming! I love it!",
+        "It's beautiful. It's terrible. I need water."
+      ],
+      "back": [
+        "The Crypt was a lie? They promised!",
+        "Did we die? I felt us die.",
+        "I saw a white light. Then static.",
+        "Everyone's back! I knew they'd wait."
+      ],
+      "win": [
+        "Go into the light, darlings. Go on.",
+        "I foresaw this. Mostly.",
+        "It's so quiet. I miss them already.",
+        "They've crossed over. I'm going to cry."
+      ],
+      "lose": [
+        "They want us to leave. Politely, for now.",
+        "I should have read the tea leaves.",
+        "They're in the walls. And in me.",
+        "I'm staying. No, I'm not. Run."
+      ],
+      "taunt": [
+        "I can feel your little phone buzzing.",
+        "Whisper to me. I'll believe anything.",
+        "Your aura is showing, darling.",
+        "Tell me where you are. I won't tell."
+      ]
+    },
+    "skeptic": {
+      "arrive": [
+        "For the record, this is a draft.",
+        "Ghosts aren't real. I'll catch them anyway.",
+        "I brought a clipboard. She brought candles.",
+        "Six rooms. Finite. Solvable."
+      ],
+      "sweep": [
+        "Searching. Try not to be measurable.",
+        "Checking. Let's see the numbers.",
+        "Statistically, you're in here.",
+        "Running the obvious play."
+      ],
+      "caught": [
+        "Subject located. Unremarkable.",
+        "That's one for me. I'm counting.",
+        "Caught. The model works.",
+        "One subject removed. Peer review pending."
+      ],
+      "missed": [
+        "Zero. Adjusting the model.",
+        "Empty. That was the Medium's pick.",
+        "Nothing. Put that one on her.",
+        "Statistically, they're somewhere else."
+      ],
+      "fooled": [
+        "We trusted a ghost. Write that down.",
+        "Who could have predicted this? Me.",
+        "I'd like it minuted that I objected.",
+        "Fooled by a crowd. Embarrassing."
+      ],
+      "possessed": [
+        "Room lost. That's a trend.",
+        "They're clustering. Smart. Annoying.",
+        "Possession is up twelve percent.",
+        "That room is theirs now. Legally, somehow."
+      ],
+      "back": [
+        "...the Crypt was a lie.",
+        "Power cut. Same positions. Interesting.",
+        "The server died. The data didn't.",
+        "Everything came back exactly where it was."
+      ],
+      "win": [
+        "House cleared. Ghosts still aren't real.",
+        "Zero subjects detected. As expected.",
+        "Case closed. I'm keeping the clipboard.",
+        "The numbers never lie. Ghosts do."
+      ],
+      "lose": [
+        "This was not in the model.",
+        "Fine. Ghosts are real. Happy?",
+        "I demand a recount.",
+        "Statistically improbable. And yet."
+      ],
+      "taunt": [
+        "I've graphed your movements. Predictable.",
+        "Your battery is at twelve percent.",
+        "You're not hiding. You're averaging.",
+        "I know which room you picked."
+      ]
+    },
+    "priest": {
+      "arrive": [
+        "Fear not. I'm here. Also, hello.",
+        "Bless this house. Especially the lighting.",
+        "I polished my cross for this.",
+        "Make way. Robes coming through."
+      ],
+      "sweep": [
+        "Begone! And admire my robes.",
+        "The light compels you! My light.",
+        "Witness this. Somebody film it.",
+        "Out! I'm told my voice carries."
+      ],
+      "caught": [
+        "Another soul saved. By me.",
+        "Blessed. You're welcome.",
+        "Rest in peace. Remember my face.",
+        "Absolved. Tell your friends."
+      ],
+      "missed": [
+        "Empty. They fear my holiness.",
+        "The Lord tests me. Rudely.",
+        "Nobody? I did my good side for nothing.",
+        "A test of faith. How tedious."
+      ],
+      "fooled": [
+        "Deceived! By the dead, no less!",
+        "I forgive you. I'm lying.",
+        "This is the Medium's fault. Somehow.",
+        "Lied to. In my good robe."
+      ],
+      "possessed": [
+        "Sanctuary lost! Seal the doors!",
+        "That room needs a priest. Luckily.",
+        "They're dancing in there. Badly.",
+        "The darkness spreads! Pray harder!"
+      ],
+      "back": [
+        "The Crypt was a lie! Heresy!",
+        "I have risen. Obviously.",
+        "Was that the rapture? Why am I here?",
+        "Darkness fell. My hair survived."
+      ],
+      "win": [
+        "Hallelujah. And yes, it was me.",
+        "The house is purified. Applause welcome.",
+        "Heaven rejoices. Autographs later.",
+        "Glory! Mostly mine."
+      ],
+      "lose": [
+        "Abandon the house! Save my hair!",
+        "I shall pray for you. Later.",
+        "This is not my good side!",
+        "I was never here. Tell no one."
+      ],
+      "taunt": [
+        "Confess, little wisp. I'm listening.",
+        "Come into the light. Mind the robe.",
+        "Kneel before your favorite priest.",
+        "I see you. I see everything. Mostly me."
+      ]
+    }
+  }
+}

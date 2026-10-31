@@ -1,0 +1,7 @@
+**Hivemind**
+
+A self-organizing agent factory where you drop one prompt and a swarm of Claude/Codex agents—each a Durable Actor holding its own state—negotiate roles over Agent Relay channels and ship a deployed app live.
+
+**Demo moment:** An audience member shouts an app idea. On a projected live graph, agents DM each other ("I'll take auth, you take UI"), spin up, and a working URL goes live on screen in under three minutes.
+
+Uses both tools (bonus), is visibly multiplayer-agentic, and screams "scales to millions."

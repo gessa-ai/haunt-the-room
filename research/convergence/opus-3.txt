@@ -1,0 +1,5 @@
+**HauntHouse** — a live "haunted mansion" where each room is a Durable Actor hosting an autonomous AI agent, and the agents talk to each other over Agent Relay to collaboratively build you a working app in real time.
+
+**Demo moment:** You whisper one request to the front door. The audience watches, room by room, agents DM each other across the mansion map (planner→coder→reviewer), SQLite state and websockets updating live—and 90 seconds later a deployed app opens on screen.
+
+Uses both. Ship it.

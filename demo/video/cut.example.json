@@ -1,0 +1,15 @@
+{
+ "out": "test.mp4",
+ "voEngine": "say",
+ "segments": [
+  { "src": "cap1/stage", "in": 4, "dur": 3, "zoom": {"z": 1.6, "x": 1.0, "y": 0.6, "ramp": 0.3},
+    "captions": [{"t": 0, "d": 3, "item": {"kind": "whisper", "who": "kyle", "to": "medium", "text": "Psst. Everyone's in The Crypt."}}],
+    "vo": {"t": 0.3, "text": "Kyle is lying. The crypt is empty."} },
+  { "src": "cap1/stage", "in": 7, "dur": 3, "pip": {"src": "cap1/phone1"},
+    "captions": [{"t": 0.2, "d": 2.6, "item": {"kind": "line", "who": "medium", "text": "kyle says the crypt. kyle has an honest little face."}}] },
+  { "card": {"style": "title", "title": "Haunt the Room", "sub": "You are the ghosts. They are AI. Lie to them.", "bg": "title.webp"}, "dur": 3 },
+  { "src": "story/stage", "in": 1, "dur": 3, "captions": [{"t":0, "item": {"kind": "tag", "text": "4 AI agents · private memory · Agent Relay"}}] },
+  { "src": "cap1/stage", "in": 10, "dur": 2, "captions": [{"t":0, "item": {"kind": "term", "text": "kill -9 48213"}}, {"t":0.8, "d":1.2, "item": {"kind": "big", "text": "+200", "sub": "The Medium believes you."}}] },
+  { "card": {"style": "end", "title": "Haunt the Room", "url": "haunt.gessa.ai", "small": "Terse Durable Actors · Agent Relay · YC Haunted Hacks"}, "dur": 3 }
+ ]
+}

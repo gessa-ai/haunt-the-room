@@ -1,0 +1,104 @@
+.end { position: absolute; inset: 0; overflow: hidden; background: #040307; z-index: 5; perspective: 1100px;
+  font-family: "GeistPixel", ui-monospace, monospace; color: #efe6d2; }
+.end-world { position: absolute; inset: -4%; transform-style: preserve-3d; transform: translateZ(0) rotateX(4deg);
+  transition: transform 14s cubic-bezier(.2,.6,.2,1); }
+.end.go .end-world { transform: translateZ(90px) rotateX(0deg); }
+.end-world > * { position: absolute; inset: 0; }
+
+/* the house, deep back; it darkens as the flood rises */
+.end-house { background: url(/3d/stage/overview.webp) center 40% / cover; transform: translateZ(-300px) scale(1.3);
+  filter: brightness(.75) saturate(.8); image-rendering: pixelated; transition: filter 3s; }
+.end-hunters .end-house { filter: grayscale(.7) brightness(.9) sepia(.3); }
+.end-ghosts.go .end-house { filter: brightness(.55) saturate(1.4) hue-rotate(-18deg); }
+
+/* light: slow god rays from a high window */
+.end-rays { transform: translateZ(-150px) scale(1.2); mix-blend-mode: screen; opacity: .0; transition: opacity 2s;
+  background: repeating-conic-gradient(from 200deg at 50% -20%, rgba(255,210,170,.13) 0deg 3deg, rgba(0,0,0,0) 3deg 9deg);
+  animation: end-sway 9s ease-in-out infinite alternate; }
+.end.go .end-rays { opacity: 1; }
+.end-ghosts .end-rays { background: repeating-conic-gradient(from 200deg at 50% -20%, rgba(255,80,60,.16) 0deg 3deg, rgba(0,0,0,0) 3deg 9deg); }
+@keyframes end-sway { to { transform: translateZ(-150px) scale(1.2) rotate(4deg); } }
+
+/* the flood: rises from below (ghosts: blood; hunters: a thin cold dawn wash) */
+.end-flood { transform: translateZ(-60px) translateY(100%); transition: transform 3.2s cubic-bezier(.3,.7,.2,1);
+  mix-blend-mode: multiply; image-rendering: pixelated; background-size: cover; }
+.end-ghosts.go .end-flood { transform: translateZ(-60px) translateY(28%); }
+.end-ghosts.podium-up .end-flood { transform: translateZ(-60px) translateY(0%); }
+.end-hunters .end-flood { mix-blend-mode: screen; opacity: .35; }
+.end-hunters.go .end-flood { transform: translateZ(-60px) translateY(0%); }
+
+/* smoke: big soft puffs drifting at different depths */
+.end-smoke .puff { position: absolute; width: 60vw; height: 30vw; border-radius: 50%;
+  left: calc(var(--i) * 17vw - 25vw); top: calc(45% + var(--i) * 4%);
+  background: radial-gradient(closest-side, rgba(220,200,210,.22), rgba(220,200,210,0));
+  filter: blur(18px); transform: translateZ(calc(var(--i) * 40px));
+  animation: end-drift calc(9s + var(--i) * 1.3s) linear infinite alternate; }
+.end-ghosts .end-smoke .puff { background: radial-gradient(closest-side, rgba(255,90,80,.22), rgba(255,90,80,0)); }
+@keyframes end-drift { to { translate: 14vw -3vw; } }
+
+/* the hunters, front row; under they go */
+.end-crew { display: flex; justify-content: center; align-items: flex-end; gap: 4vw; padding-bottom: 24vh;
+  transform: translateZ(60px); transform-style: preserve-3d; }
+.end-crew .hunter { width: 12.5vw; transition: transform 1.1s cubic-bezier(.5,0,.8,.4), opacity 1.1s, filter .3s;
+  transform: translateY(0) rotateX(0); filter: drop-shadow(0 0 2vw rgba(255,59,59,.5)); }
+.end-crew .hunter canvas { width: 100%; height: auto; image-rendering: pixelated; display: block; }
+.end-crew .hunter.talk { transform: translateY(-2vw) scale(1.12); filter: drop-shadow(0 0 3vw rgba(255,210,122,.7)) brightness(1.2); }
+.end-crew .hunter.gone { transform: translateY(40vh) rotate(calc(var(--i) * 7deg - 10deg)) scale(.9); opacity: 0; filter: brightness(.4) sepia(1) hue-rotate(-40deg) saturate(4); }
+.end-hunters .end-crew .hunter { filter: drop-shadow(0 0 2vw rgba(255,210,170,.5)); }
+.end-hunters .end-crew { padding: 0 30vw 10vh 0; }
+.end-hunters .end-crew .hunter { width: 15vw; }
+.end-hunters.podium-up .end-crew .hunter:first-child { transform: rotate(-4deg) translateY(-1vw); }
+
+/* the podium rises out of the flood, in depth */
+.end-podium { display: flex; justify-content: center; align-items: flex-end; gap: 1.6vw; transform-style: preserve-3d; padding-bottom: 17vh;
+  transform: translateZ(30px) translateY(110%) rotateX(14deg); transition: transform 1.6s cubic-bezier(.2,1.2,.3,1); }
+.end.podium-up .end-podium { transform: translateZ(30px) translateY(0) rotateX(8deg); }
+.end-podium .step { display: flex; flex-direction: column; align-items: center; width: 20vw; }
+.end-podium .crown { width: 5vw; image-rendering: pixelated; margin-bottom: .6vw; animation: end-bob 1.6s ease-in-out infinite alternate; }
+.end-podium .s1 .crown { width: 7vw; }
+@keyframes end-bob { to { translate: 0 -.6vw; } }
+.end-podium .face { width: 9vw; height: 9vw; image-rendering: pixelated; border-radius: 50%;
+  box-shadow: 0 0 0 .4vw var(--c), 0 0 4vw var(--c); background: #0d0816; }
+.end-podium .s1 .face { width: 13vw; height: 13vw; }
+.end-podium .who { margin: 1vw 0 .8vw; font-size: 2.6vw; text-shadow: .15vw .15vw 0 #040307; white-space: nowrap; }
+.end-podium .s1 .who { font-size: 6.5vw; line-height: 1; }
+.end-podium .block { width: 100%; display: grid; place-items: center; font-family: "Pirata One", "GeistPixel", serif;
+  font-size: 5vw; color: #040307; background: linear-gradient(#efe6d2, #a89a86); box-shadow: inset 0 -1.2vw 0 rgba(0,0,0,.25), 0 2vw 4vw rgba(0,0,0,.6); }
+.end-podium .s1 .block { height: 14vh; background: linear-gradient(#ffd27a, #b8892a); }
+.end-podium .s2 .block { height: 9vh; }
+.end-podium .s3 .block { height: 6vh; background: linear-gradient(#e8a070, #8c5530); }
+/* hunters win: the podium is small, crooked and sinking */
+.end-hunters .end-podium { justify-content: flex-end; padding: 0 13vw 12vh 0; gap: .6vw; }
+.end-hunters .end-podium .step { width: 8vw; }
+.end-hunters .end-podium .face { width: 6vw; height: 6vw; filter: grayscale(1) brightness(.7); }
+.end-hunters .end-podium .s1 .face { width: 7vw; height: 7vw; }
+.end-hunters .end-podium .who, .end-hunters .end-podium .s1 .who { font-size: 1.6vw; }
+.end-hunters .end-podium .crown { display: none; }
+.end-hunters .end-podium .block { height: 6vh !important; font-size: 2.4vw; background: linear-gradient(#777, #333); }
+.end-hunters.podium-up .end-podium { transform: translateZ(30px) translateY(4%) rotate(-7deg); transition: transform 1s cubic-bezier(.2,1.2,.3,1); }
+
+.end-big { position: absolute; left: 0; right: 0; top: 6%; text-align: center; font-family: "Pirata One", "GeistPixel", serif;
+  font-size: 11vw; color: #efe6d2; text-shadow: .3vw .3vw 0 #040307, 0 0 4vw rgba(239,230,210,.4);
+  opacity: 0; transform: scale(1.4); transition: opacity .3s, transform .5s cubic-bezier(.2,1.4,.4,1); }
+.end-big.on { opacity: 1; transform: scale(1); }
+
+/* captions sit at the top in the ending (the crew and podium own the bottom) */
+.end-caps { position: absolute; left: 12%; right: 12%; top: 4%; height: 36%; }
+
+/* the quiet card */
+.end-card { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4vh; background: #040307; opacity: 0; transition: opacity 1.4s; pointer-events: none; text-align: center; }
+.end.carded .end-card { opacity: 1; }
+.end-card .line { font-family: "Pirata One", "GeistPixel", serif; font-size: 7vw; color: #efe6d2; }
+.end-ghosts .end-card .line { color: #ff6a5a; text-shadow: 0 0 3vw rgba(255,59,59,.4); }
+.end-card .credits { font-family: "IM Fell English", Georgia, serif; font-size: max(44px, 2.4vw); max-width: 74vw; line-height: 1.25; color: rgba(255,255,255,.9);
+  opacity: 0; transition: opacity 1s 1.6s; }
+.end.carded .end-card .credits { opacity: 1; }
+/* sponsor names in their own colour */
+.end-card .credits b { font-weight: bold; font-style: normal; }
+.end-card .credits .terse { color: #7af0ff; }
+.end-card .credits .relay { color: #ffd27a; }
+/* ending captions read like the cabal's: 56 px and up */
+.end-caps .cap-stage .cap-text, .end-caps .cap-stage .cap-old .cap-text { font-size: 58px; }
+.end-caps .cap-stage .cap-name, .end-caps .cap-stage .cap-old .cap-name { font-size: 40px; }
+.end-caps { left: 6%; right: 6%; }

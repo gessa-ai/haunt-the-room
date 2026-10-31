@@ -1,0 +1,3 @@
+**Durable AI D&D dungeon master** — a Durable Actor per party/session that persists campaign state (characters, inventory, world flags) across disconnects, with Agent Relay letting NPC actors (shopkeeper, rival party, monster boss) run as independent agents that negotiate/fight/react to the player in real time instead of being scripted.
+
+Pitch: solo + Claude Code is well-suited to one deep vertical slice (one dungeon, 2-3 NPC actors) rather than a broad platform — want me to start scaffolding the Durable Actor session state + one Agent Relay NPC now?

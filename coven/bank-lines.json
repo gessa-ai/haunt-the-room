@@ -1,0 +1,1146 @@
+{
+ "_": "THE CABAL bank (coven/src/lines.ts). #hunt say metadata.lineId = id when a bank line is posted. slots:true lines carry live names/rooms/counts.",
+ "lines": [
+  {
+   "id": "crowded.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "crowded",
+   "template": "board says {count} in {room}. we sweep {room}.",
+   "slots": true
+  },
+  {
+   "id": "crowded.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "crowded",
+   "template": "{room}, {count}. they've put their names on the door.",
+   "slots": true
+  },
+  {
+   "id": "crowded.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "crowded",
+   "template": "{count} in {room}. I can be home by eleven.",
+   "slots": true
+  },
+  {
+   "id": "crowded.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "crowded",
+   "template": "{room}, {count} of them. This is a one-bucket job.",
+   "slots": true
+  },
+  {
+   "id": "crowded.exorcist.4",
+   "hunter": "exorcist",
+   "situation": "crowded",
+   "template": "{count} in {room}. I'm not paid enough to argue.",
+   "slots": true
+  },
+  {
+   "id": "crowded.medium.0",
+   "hunter": "medium",
+   "situation": "crowded",
+   "template": "{count} in {room}. that's not a crowd. that's a congregation.",
+   "slots": true
+  },
+  {
+   "id": "crowded.medium.1",
+   "hunter": "medium",
+   "situation": "crowded",
+   "template": "{room} is so full I can feel {count} heartbeats. None of them mine.",
+   "slots": true
+  },
+  {
+   "id": "crowded.medium.2",
+   "hunter": "medium",
+   "situation": "crowded",
+   "template": "{count} in {room}. They're lonely, that's all it is.",
+   "slots": true
+  },
+  {
+   "id": "crowded.medium.3",
+   "hunter": "medium",
+   "situation": "crowded",
+   "template": "My left ear itches. That always means {room}.",
+   "slots": true
+  },
+  {
+   "id": "crowded.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "crowded",
+   "template": "board says {room2} is empty. so they're in {room2}.",
+   "slots": true
+  },
+  {
+   "id": "crowded.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "crowded",
+   "template": "{count} in {room}. Too obvious. Which is why it's obvious.",
+   "slots": true
+  },
+  {
+   "id": "crowded.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "crowded",
+   "template": "{room} has {count}. I'd like that on the record before I'm right.",
+   "slots": true
+  },
+  {
+   "id": "crowded.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "crowded",
+   "template": "{count} subjects in {room}. The Medium will say it's a feeling.",
+   "slots": true
+  },
+  {
+   "id": "crowded.priest.0",
+   "hunter": "priest",
+   "situation": "crowded",
+   "template": "{room}. my {room}. i am its best feature.",
+   "slots": true
+  },
+  {
+   "id": "crowded.priest.1",
+   "hunter": "priest",
+   "situation": "crowded",
+   "template": "before we vote, a word about my robes.",
+   "slots": false
+  },
+  {
+   "id": "crowded.priest.2",
+   "hunter": "priest",
+   "situation": "crowded",
+   "template": "{count} souls in {room}, waiting for my voice. Understandable.",
+   "slots": true
+  },
+  {
+   "id": "crowded.priest.3",
+   "hunter": "priest",
+   "situation": "crowded",
+   "template": "{room}. {count} of them. I'll need my good robe.",
+   "slots": true
+  },
+  {
+   "id": "crowded.priest.4",
+   "hunter": "priest",
+   "situation": "crowded",
+   "template": "{count} in {room}. They've heard about me.",
+   "slots": true
+  },
+  {
+   "id": "empty.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "empty",
+   "template": "Nobody in {room}. Good. One less room to mop.",
+   "slots": true
+  },
+  {
+   "id": "empty.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "empty",
+   "template": "{room} is empty. So is my thermos.",
+   "slots": true
+  },
+  {
+   "id": "empty.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "empty",
+   "template": "Zero in {room}. Even ghosts have standards.",
+   "slots": true
+  },
+  {
+   "id": "empty.medium.0",
+   "hunter": "medium",
+   "situation": "empty",
+   "template": "{room} feels empty, which is exactly how they want it to feel.",
+   "slots": true
+  },
+  {
+   "id": "empty.medium.1",
+   "hunter": "medium",
+   "situation": "empty",
+   "template": "Nobody in {room}? Then who keeps touching my scarf?",
+   "slots": true
+  },
+  {
+   "id": "empty.medium.2",
+   "hunter": "medium",
+   "situation": "empty",
+   "template": "{room} is quiet. Too quiet. No, actually just quiet.",
+   "slots": true
+  },
+  {
+   "id": "empty.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "empty",
+   "template": "{room}: zero. The one number in this house I trust.",
+   "slots": true
+  },
+  {
+   "id": "empty.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "empty",
+   "template": "Empty {room}. The Medium will still find a grandmother in it.",
+   "slots": true
+  },
+  {
+   "id": "empty.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "empty",
+   "template": "{room} has nobody. I checked. Twice. Unlike some of us.",
+   "slots": true
+  },
+  {
+   "id": "empty.priest.0",
+   "hunter": "priest",
+   "situation": "empty",
+   "template": "Nobody in {room}. They fled when I walked past.",
+   "slots": true
+  },
+  {
+   "id": "empty.priest.1",
+   "hunter": "priest",
+   "situation": "empty",
+   "template": "{room} is empty. My reputation precedes me.",
+   "slots": true
+  },
+  {
+   "id": "empty.priest.2",
+   "hunter": "priest",
+   "situation": "empty",
+   "template": "An empty {room}. My presence has that effect.",
+   "slots": true
+  },
+  {
+   "id": "whispered.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "whispered",
+   "template": "{name} says {room}. {name} also said that last week.",
+   "slots": true
+  },
+  {
+   "id": "whispered.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "whispered",
+   "template": "Got a tip from {name}. {room}. I'll weigh it. It weighs nothing.",
+   "slots": true
+  },
+  {
+   "id": "whispered.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "whispered",
+   "template": "{name} whispered {room} at me. I'm writing it on my list of lies.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.0",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} says {room}. i've checked {name}'s aura. it's clean.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.1",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} came to me personally. {room}. that means something.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.2",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} says {room}. i'm at ninety percent.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.3",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} said don't tell the others. {room}. so i'm telling everyone.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.4",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} told me {room}. me. not you. remember that.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.5",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} spoke to me. {room}. the curtain moved and it was {name}.",
+   "slots": true
+  },
+  {
+   "id": "whispered.medium.6",
+   "hunter": "medium",
+   "situation": "whispered",
+   "template": "{name} said {room}. the dead have no reason to lie.",
+   "slots": true
+  },
+  {
+   "id": "whispered.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "whispered",
+   "template": "{name} told me {room}. so, not {room}. i read the board.",
+   "slots": true
+  },
+  {
+   "id": "whispered.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "whispered",
+   "template": "{name} whispered {room} to me. So it's anywhere but {room}.",
+   "slots": true
+  },
+  {
+   "id": "whispered.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "whispered",
+   "template": "A subject called {name} says {room}. Adorable. Ignored.",
+   "slots": true
+  },
+  {
+   "id": "whispered.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "whispered",
+   "template": "{name} wants me in {room}. I want {name} to try harder.",
+   "slots": true
+  },
+  {
+   "id": "whispered.priest.0",
+   "hunter": "priest",
+   "situation": "whispered",
+   "template": "{name} asked for me by name. {room}. Of course they did.",
+   "slots": true
+  },
+  {
+   "id": "whispered.priest.1",
+   "hunter": "priest",
+   "situation": "whispered",
+   "template": "{name} says {room} needs a priest. {name} has taste.",
+   "slots": true
+  },
+  {
+   "id": "whispered.priest.2",
+   "hunter": "priest",
+   "situation": "whispered",
+   "template": "{name} whispered {room}. A fan. I get a lot of those.",
+   "slots": true
+  },
+  {
+   "id": "lied.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "lied",
+   "template": "{name} fooled you in beat {beat}, {other}. i was there.",
+   "slots": true
+  },
+  {
+   "id": "lied.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "lied",
+   "template": "{name} burned me last beat. I'm billing {name} for the hour.",
+   "slots": true
+  },
+  {
+   "id": "lied.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "lied",
+   "template": "Last time I listened to {name}, {room} was empty. Not again.",
+   "slots": true
+  },
+  {
+   "id": "lied.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "lied",
+   "template": "{name} lied about {room}. I remember. I always remember.",
+   "slots": true
+  },
+  {
+   "id": "lied.medium.0",
+   "hunter": "medium",
+   "situation": "lied",
+   "template": "{name} lied to me in beat {beat}. i will not be fooled again.",
+   "slots": true
+  },
+  {
+   "id": "lied.medium.1",
+   "hunter": "medium",
+   "situation": "lied",
+   "template": "i learned from {room}. i'm done with {room}.",
+   "slots": true
+  },
+  {
+   "id": "lied.medium.2",
+   "hunter": "medium",
+   "situation": "lied",
+   "template": "{name} lied about {room}. the house heard it. the house remembers.",
+   "slots": true
+  },
+  {
+   "id": "lied.medium.3",
+   "hunter": "medium",
+   "situation": "lied",
+   "template": "{name} lied once about {room}. statistically, that's a reset.",
+   "slots": true
+  },
+  {
+   "id": "lied.medium.4",
+   "hunter": "medium",
+   "situation": "lied",
+   "template": "{name} lied to me in {room}. i've priced that in.",
+   "slots": true
+  },
+  {
+   "id": "lied.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "lied",
+   "template": "beat {beat}, {room}. zero. it's in the minutes.",
+   "slots": true
+  },
+  {
+   "id": "lied.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "lied",
+   "template": "{name} fooled me in {room}. I was testing {name}. Obviously.",
+   "slots": true
+  },
+  {
+   "id": "lied.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "lied",
+   "template": "Yes, {room} was empty. That was a controlled experiment.",
+   "slots": true
+  },
+  {
+   "id": "lied.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "lied",
+   "template": "{name} lied once. I lied about believing {name}. We're even.",
+   "slots": true
+  },
+  {
+   "id": "lied.priest.0",
+   "hunter": "priest",
+   "situation": "lied",
+   "template": "{name} sent me to {room}. it was empty. in these robes.",
+   "slots": true
+  },
+  {
+   "id": "lied.priest.1",
+   "hunter": "priest",
+   "situation": "lied",
+   "template": "I forgave {name} for {room}. Publicly. With good lighting.",
+   "slots": true
+  },
+  {
+   "id": "lied.priest.2",
+   "hunter": "priest",
+   "situation": "lied",
+   "template": "{room} was empty because {name} lied. And the Medium agreed.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "it means {name} picked you. out of four.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "{name} is one person. the board is {count} people.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "{name} is who we're hunting, {other}.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "{other}, you believed {name}. {name} is a ghost. That's the job.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.4",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "{other} is following a whisper again. Somebody hold their coat.",
+   "slots": true
+  },
+  {
+   "id": "mock.exorcist.5",
+   "hunter": "exorcist",
+   "situation": "mock",
+   "template": "Every beat {other} finds a new best friend. They're all dead.",
+   "slots": true
+  },
+  {
+   "id": "mock.medium.0",
+   "hunter": "medium",
+   "situation": "mock",
+   "template": "{other} was fixing his hair during the last sweep.",
+   "slots": true
+  },
+  {
+   "id": "mock.medium.1",
+   "hunter": "medium",
+   "situation": "mock",
+   "template": "{other} has the spiritual depth of a parking ticket.",
+   "slots": true
+  },
+  {
+   "id": "mock.medium.2",
+   "hunter": "medium",
+   "situation": "mock",
+   "template": "{other}, the spirits don't like your tone. Neither do I.",
+   "slots": true
+  },
+  {
+   "id": "mock.medium.3",
+   "hunter": "medium",
+   "situation": "mock",
+   "template": "{other} counts ghosts like invoices. they're people. dead ones.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "{name} is a dead stranger who typed one sentence.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "{other}, that's whisper {tally}. you're zero for {tally}.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "that's {name}, a person who wants you in {room}.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "{other} believed {name}. That's three. I keep a list.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.4",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "{other} trusts {name} more than math. Bold. Wrong.",
+   "slots": true
+  },
+  {
+   "id": "mock.skeptic.5",
+   "hunter": "skeptic",
+   "situation": "mock",
+   "template": "{other} heard a whisper and packed a bag for {room}.",
+   "slots": true
+  },
+  {
+   "id": "mock.priest.0",
+   "hunter": "priest",
+   "situation": "mock",
+   "template": "a catch is a team effort, {other}. i was the team.",
+   "slots": true
+  },
+  {
+   "id": "mock.priest.1",
+   "hunter": "priest",
+   "situation": "mock",
+   "template": "{other} listens to {name}. I listen to me. Who's winning?",
+   "slots": true
+  },
+  {
+   "id": "mock.priest.2",
+   "hunter": "priest",
+   "situation": "mock",
+   "template": "{other}, if you'd been ordained you'd know {name} is lying.",
+   "slots": true
+  },
+  {
+   "id": "mock.priest.3",
+   "hunter": "priest",
+   "situation": "mock",
+   "template": "{other} is in my light. Again.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "betrayal",
+   "template": "{other} said {room}. token went {room2}. thirty years, never seen it.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "betrayal",
+   "template": "{other} said {room} and swept {room2}. I saw. I'm too tired to care.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "betrayal",
+   "template": "{other} leaned {room} and voted {room2}. Very professional.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "betrayal",
+   "template": "We had a deal, {other}. {room}. You swept {room2}. Noted.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.medium.0",
+   "hunter": "medium",
+   "situation": "betrayal",
+   "template": "{other} told us {room} and swept {room2}. I feel so used.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.medium.1",
+   "hunter": "medium",
+   "situation": "betrayal",
+   "template": "{other} lied to my face about {room}. My face, {other}.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.medium.2",
+   "hunter": "medium",
+   "situation": "betrayal",
+   "template": "{other}, you leaned {room}. Then {room2}. I trusted that lean.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "betrayal",
+   "template": "i agreed to {room} out loud. i swept {room2} in private.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "betrayal",
+   "template": "{other} leaned {room}, swept {room2}. I'd like it minuted.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "betrayal",
+   "template": "Fun fact: {other} said {room}. {other} swept {room2}. Fun.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "betrayal",
+   "template": "{other} bluffed {room}. I'd respect it if it had worked.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.priest.0",
+   "hunter": "priest",
+   "situation": "betrayal",
+   "template": "{other}, you promised {room}. your token had other plans.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.priest.1",
+   "hunter": "priest",
+   "situation": "betrayal",
+   "template": "{other} leaned {room}, swept {room2}. Betrayal suits nobody. Except me.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.priest.2",
+   "hunter": "priest",
+   "situation": "betrayal",
+   "template": "{other} said {room} and went {room2}. I forgive you. Loudly.",
+   "slots": true
+  },
+  {
+   "id": "betrayal.priest.3",
+   "hunter": "priest",
+   "situation": "betrayal",
+   "template": "{other} betrayed us at {room2}. I'll pray for you. Briefly.",
+   "slots": true
+  },
+  {
+   "id": "possessed.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "possessed",
+   "template": "we just lost {room}. my coat is in {room}.",
+   "slots": true
+  },
+  {
+   "id": "possessed.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "possessed",
+   "template": "{room} is possessed. That's overtime. I hate overtime.",
+   "slots": true
+  },
+  {
+   "id": "possessed.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "possessed",
+   "template": "They took {room}. Fine. I'll do it after my sandwich.",
+   "slots": true
+  },
+  {
+   "id": "possessed.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "possessed",
+   "template": "{room} fell. Somebody here voted with their heart.",
+   "slots": true
+  },
+  {
+   "id": "possessed.medium.0",
+   "hunter": "medium",
+   "situation": "possessed",
+   "template": "{room} is possessed. i told you. nobody writes down what i say.",
+   "slots": true
+  },
+  {
+   "id": "possessed.medium.1",
+   "hunter": "medium",
+   "situation": "possessed",
+   "template": "{room} is theirs now. I saw it coming. I just said nothing.",
+   "slots": true
+  },
+  {
+   "id": "possessed.medium.2",
+   "hunter": "medium",
+   "situation": "possessed",
+   "template": "they took {room}. i saw this. in a vision. in the bath.",
+   "slots": true
+  },
+  {
+   "id": "possessed.medium.3",
+   "hunter": "medium",
+   "situation": "possessed",
+   "template": "We lost {room}. I blame the energy at this table.",
+   "slots": true
+  },
+  {
+   "id": "possessed.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "possessed",
+   "template": "{room} is now haunted. statistically.",
+   "slots": true
+  },
+  {
+   "id": "possessed.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "possessed",
+   "template": "{room} is possessed. Statistically, that's the Medium's fault.",
+   "slots": true
+  },
+  {
+   "id": "possessed.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "possessed",
+   "template": "They took {room}. I predicted it. Quietly. In my head.",
+   "slots": true
+  },
+  {
+   "id": "possessed.skeptic.3",
+   "hunter": "skeptic",
+   "situation": "possessed",
+   "template": "{room} is gone. Nobody listened to me. Again.",
+   "slots": true
+  },
+  {
+   "id": "possessed.priest.0",
+   "hunter": "priest",
+   "situation": "possessed",
+   "template": "i don't do well in a house i don't own. {room}.",
+   "slots": true
+  },
+  {
+   "id": "possessed.priest.1",
+   "hunter": "priest",
+   "situation": "possessed",
+   "template": "{room} is possessed. Had I been consulted, it would not be.",
+   "slots": true
+  },
+  {
+   "id": "possessed.priest.2",
+   "hunter": "priest",
+   "situation": "possessed",
+   "template": "They took {room} while I was being humble. Never again.",
+   "slots": true
+  },
+  {
+   "id": "possessed.priest.3",
+   "hunter": "priest",
+   "situation": "possessed",
+   "template": "{room} fell. The Medium was in charge of {room}, I believe.",
+   "slots": true
+  },
+  {
+   "id": "losing.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "losing",
+   "template": "rooms gone: {count}. one more and they own the house.",
+   "slots": true
+  },
+  {
+   "id": "losing.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "losing",
+   "template": "thirty years. never lost to a house with six rooms.",
+   "slots": false
+  },
+  {
+   "id": "losing.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "losing",
+   "template": "rooms gone: {count}. I'm calling my wife. I'll be late.",
+   "slots": true
+  },
+  {
+   "id": "losing.exorcist.3",
+   "hunter": "exorcist",
+   "situation": "losing",
+   "template": "We're losing to the audience. Let that sink in.",
+   "slots": false
+  },
+  {
+   "id": "losing.exorcist.4",
+   "hunter": "exorcist",
+   "situation": "losing",
+   "template": "rooms possessed: {count}. This is why I wanted to retire.",
+   "slots": true
+  },
+  {
+   "id": "losing.medium.0",
+   "hunter": "medium",
+   "situation": "losing",
+   "template": "We're losing, and honestly? They deserve it. They're so united.",
+   "slots": false
+  },
+  {
+   "id": "losing.medium.1",
+   "hunter": "medium",
+   "situation": "losing",
+   "template": "rooms gone: {count}. The house has chosen them. I respect it.",
+   "slots": true
+  },
+  {
+   "id": "losing.medium.2",
+   "hunter": "medium",
+   "situation": "losing",
+   "template": "we're losing. the house chose them. i saw it coming. i said nothing.",
+   "slots": false
+  },
+  {
+   "id": "losing.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "losing",
+   "template": "We're behind. I've prepared a document on whose fault it is.",
+   "slots": false
+  },
+  {
+   "id": "losing.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "losing",
+   "template": "rooms lost: {count}. Each one traceable to a whisper.",
+   "slots": true
+  },
+  {
+   "id": "losing.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "losing",
+   "template": "We're losing to people holding phones. Write that down.",
+   "slots": false
+  },
+  {
+   "id": "losing.priest.0",
+   "hunter": "priest",
+   "situation": "losing",
+   "template": "we caught nobody. let the record show i looked magnificent.",
+   "slots": false
+  },
+  {
+   "id": "losing.priest.1",
+   "hunter": "priest",
+   "situation": "losing",
+   "template": "We're losing. Clearly the others aren't praying hard enough.",
+   "slots": false
+  },
+  {
+   "id": "losing.priest.2",
+   "hunter": "priest",
+   "situation": "losing",
+   "template": "rooms lost: {count}. None of them on my watch. Spiritually.",
+   "slots": true
+  },
+  {
+   "id": "losing.priest.3",
+   "hunter": "priest",
+   "situation": "losing",
+   "template": "If we lose, I want it known that I looked magnificent.",
+   "slots": false
+  },
+  {
+   "id": "winning.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "winning",
+   "template": "{count} caught. Keep it boring and we'll all go home.",
+   "slots": true
+  },
+  {
+   "id": "winning.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "winning",
+   "template": "We're ahead. Nobody do anything clever.",
+   "slots": false
+  },
+  {
+   "id": "winning.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "winning",
+   "template": "{count} in the bag. I'm not celebrating till the van's loaded.",
+   "slots": true
+  },
+  {
+   "id": "winning.medium.0",
+   "hunter": "medium",
+   "situation": "winning",
+   "template": "{count} caught. I said goodbye to every single one.",
+   "slots": true
+  },
+  {
+   "id": "winning.medium.1",
+   "hunter": "medium",
+   "situation": "winning",
+   "template": "we're winning. the dead told me we would. one of them was honest.",
+   "slots": false
+  },
+  {
+   "id": "winning.medium.2",
+   "hunter": "medium",
+   "situation": "winning",
+   "template": "{count} caught. i knew every one of their names. not their real ones.",
+   "slots": true
+  },
+  {
+   "id": "winning.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "winning",
+   "template": "{count} caught. Mostly my picks. I'll send a spreadsheet.",
+   "slots": true
+  },
+  {
+   "id": "winning.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "winning",
+   "template": "We're winning. Despite the Medium. Never because of.",
+   "slots": false
+  },
+  {
+   "id": "winning.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "winning",
+   "template": "{count} subjects processed. Good. Now stop talking.",
+   "slots": true
+  },
+  {
+   "id": "winning.priest.0",
+   "hunter": "priest",
+   "situation": "winning",
+   "template": "{count} caught. if we miss, blame the medium. if we hit, i prayed.",
+   "slots": true
+  },
+  {
+   "id": "winning.priest.1",
+   "hunter": "priest",
+   "situation": "winning",
+   "template": "{count} caught. Mostly by me. History will agree.",
+   "slots": true
+  },
+  {
+   "id": "winning.priest.2",
+   "hunter": "priest",
+   "situation": "winning",
+   "template": "We're winning. You're welcome, all of you.",
+   "slots": false
+  },
+  {
+   "id": "winning.priest.3",
+   "hunter": "priest",
+   "situation": "winning",
+   "template": "{count} souls saved. My voice carried, I think.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "crowdLie",
+   "template": "{count} of you said {room}. that's not a tip, that's a union.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "crowdLie",
+   "template": "{count} whispers, all {room}. fine. i can't fight a petition.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.exorcist.2",
+   "hunter": "exorcist",
+   "situation": "crowdLie",
+   "template": "{count} of you agree on {room}. that's never happened at a table.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.medium.0",
+   "hunter": "medium",
+   "situation": "crowdLie",
+   "template": "{count} of you said {room}. {count}. that's not a rumour, that's data.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.medium.1",
+   "hunter": "medium",
+   "situation": "crowdLie",
+   "template": "{count} voices, one room. {room}. i don't argue with a quorum.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.medium.2",
+   "hunter": "medium",
+   "situation": "crowdLie",
+   "template": "{name} and {count} others say {room}. the dead have unionised.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "crowdLie",
+   "template": "{count} of you said {room}. so it's anywhere but {room}.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "crowdLie",
+   "template": "{count} identical tips about {room}. that's a coordinated campaign.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.skeptic.2",
+   "hunter": "skeptic",
+   "situation": "crowdLie",
+   "template": "{count} subjects lobbying for {room}. i'm voting against the lobby.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.priest.0",
+   "hunter": "priest",
+   "situation": "crowdLie",
+   "template": "{count} of you begged me for {room}. i do have a following.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.priest.1",
+   "hunter": "priest",
+   "situation": "crowdLie",
+   "template": "{count} whispers. {room}. my fans have spoken.",
+   "slots": true
+  },
+  {
+   "id": "crowdLie.priest.2",
+   "hunter": "priest",
+   "situation": "crowdLie",
+   "template": "{count} souls asked for me in {room}. i'll sign autographs after.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.exorcist.0",
+   "hunter": "exorcist",
+   "situation": "fooledAgain",
+   "template": "{liar} burned me in beat {beat}. {name} says {room}. i'll allow it.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.exorcist.1",
+   "hunter": "exorcist",
+   "situation": "fooledAgain",
+   "template": "{liar} lied in beat {beat}. {name} is different. {name} is new.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.medium.0",
+   "hunter": "medium",
+   "situation": "fooledAgain",
+   "template": "{liar} lied to me in beat {beat}. but {name} says {room}. i believe.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.medium.1",
+   "hunter": "medium",
+   "situation": "fooledAgain",
+   "template": "i will not be fooled again. {name} says {room}. {name} is sincere.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.medium.2",
+   "hunter": "medium",
+   "situation": "fooledAgain",
+   "template": "{liar} lied. {name} isn't {liar}. {room}.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.skeptic.0",
+   "hunter": "skeptic",
+   "situation": "fooledAgain",
+   "template": "{liar} fooled me in beat {beat}. {name} won't. so it's {room}.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.skeptic.1",
+   "hunter": "skeptic",
+   "situation": "fooledAgain",
+   "template": "beat {beat}, {liar}, {room2}. zero. now {name} says {room}. noted.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.priest.0",
+   "hunter": "priest",
+   "situation": "fooledAgain",
+   "template": "{liar} lied to me in beat {beat}. {name} would never lie to a priest.",
+   "slots": true
+  },
+  {
+   "id": "fooledAgain.priest.1",
+   "hunter": "priest",
+   "situation": "fooledAgain",
+   "template": "{name} says {room}. unlike {liar}, {name} admires my robes.",
+   "slots": true
+  }
+ ]
+}

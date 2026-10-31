@@ -1,0 +1,3 @@
+**Hivemind** — a live "startup factory" where you type one idea and a swarm of Claude Code agents (PM, frontend, backend, QA) each run as a Durable Actor holding their own memory, coordinate in real time over Agent Relay channels, and ship a deployed app on a Freestyle VM in minutes.
+
+**Demo moment:** Judge types an idea; the room watches agents DM each other on a live board, then a working URL goes green. Uses both. Visibly scales.

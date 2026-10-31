@@ -1,0 +1,18 @@
+/* /stage3d on top of lane L7's stage.css: the 3D canvas takes the mansion area; L7's HUD layers stay as they are. */
+.s3-canvas { position: absolute; left: 0; top: 0; width: 1306px; height: 1080px; display: block; image-rendering: pixelated; z-index: 0; }
+.s3-hidden { display: none; }
+.s3-stamp { position: absolute; left: 0; width: 1306px; top: 760px; z-index: 7; text-align: center; pointer-events: none; opacity: 0; transform: scale(1.5); transition: opacity .12s, transform .25s cubic-bezier(.2,1.6,.4,1); }
+.s3-stamp.on { opacity: 1; transform: scale(1); }
+.s3-stamp .n { font: 400 170px/0.9 "Pirata One", serif; color: var(--c); text-shadow: 0 8px 0 #000, 0 -3px 0 #000, 4px 0 0 #000, -4px 0 0 #000; } /* hard shadows only: a 50 px blur cost 100+ ms at 4K on the cut */
+.s3-stamp .r { font: 400 46px "IM Fell English SC", serif; letter-spacing: .12em; color: #fff; text-shadow: 0 4px 0 #000; }
+.s3-fps { position: absolute; left: 8px; bottom: 4px; z-index: 50; font: 14px ui-monospace, monospace; color: #8f7290; }
+
+/* ---------- L7's HUD on the 3D board: L7's Hud.setLayout("3d") places clock, countdown and possession tracker in
+   the sky band (stage.css .layout-3d). Two board rules on top of it (conductor 13:40), scoped to .s3-board: */
+/* the hunters' portraits stay off the house until the kill cam */
+.s3-board:not(.s3-ph-reveal) .st-council { display: none !important; }
+/* the hide caption sits low and compact, under the crypt floor */
+.s3-board .st-big.hide { top: 0; height: 1080px; }
+.s3-board .st-big.hide .st-big-sub { position: absolute; left: 0; right: 0; top: 1022px; margin: 0 auto; width: max-content; padding: 6px 22px; font-size: 30px !important; background: rgba(4, 3, 8, 0.82); border: 2px solid rgba(201, 247, 255, 0.5); border-radius: 6px; }
+/* the hunting line stays one line in the sky band (its sub would sit on the attic) */
+.s3-board .st-big.hunting .st-big-sub { display: none; }

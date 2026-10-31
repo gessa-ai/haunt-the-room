@@ -1,0 +1,11 @@
+import { AgentRelay } from '@agent-relay/sdk';
+const base = 'http://localhost:8787';
+const ws = await (await fetch(base + '/v1/workspaces', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: 'research-bun-' + Date.now() }) })).json();
+const relay = new AgentRelay({ workspaceKey: ws.data.api_key, baseUrl: base });
+const a = await relay.workspace.register({ name: 'bun-a', type: 'agent' });
+const b = await relay.workspace.register({ name: 'bun-b', type: 'agent' });
+await a.channels.create({ name: 'crypt' }); await b.channels.join('crypt');
+const got = new Promise(r => relay.addListener('message.created', e => r(e.message.from.name + ': ' + e.message.text)));
+await a.sendMessage({ to: '#crypt', text: 'hello from ' + (globalThis.Bun ? 'Bun ' + Bun.version : 'node') });
+console.log('received:', await Promise.race([got, new Promise(r => setTimeout(() => r('TIMEOUT'), 8000))]));
+process.exit(0);

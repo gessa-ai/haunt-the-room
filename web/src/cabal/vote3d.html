@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vote 3D (lane L26 dev harness)</title>
+    <style>html,body{margin:0;height:100%;background:#05060f;overflow:hidden}#st{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:url(/3d/cabal/table.png) center/100% 100%}#hud{position:fixed;left:8px;top:8px;color:#efe6d2;font:14px monospace;z-index:2}</style>
+  </head>
+  <body>
+    <div id="st"></div><div id="hud"></div>
+    <script type="module">
+      // Loop: four slams one per beat (two land on the crypt and pile), then burn crypt + attic, then clear.
+      import { mount } from "./vote3d.ts"
+      const st = document.getElementById("st")
+      const fit = () => { const s = Math.min(innerWidth / 1920, innerHeight / 1080); st.style.transform = `scale(${s})` }
+      addEventListener("resize", fit); fit()
+      const seats = await (await fetch("/3d/cabal/seats.json")).json()
+      const v = mount(st, seats)
+      window.__v = v
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms))
+      const hud = document.getElementById("hud")
+      let frames = 0, t0 = performance.now()
+      const tick = () => { frames++; const t = performance.now(); if (t - t0 > 1000) { hud.textContent = `${Math.round((frames * 1000) / (t - t0))} fps`; window.__fps = (frames * 1000) / (t - t0); frames = 0; t0 = t } requestAnimationFrame(tick) }
+      tick()
+      for (;;) {
+        window.__phase = "slam"
+        for (const [h, r] of [["exorcist", "crypt"], ["medium", "attic"], ["skeptic", "crypt"], ["priest", "crypt"]]) { v.slam(h, r); await wait(900) }
+        window.__phase = "pile"; await wait(900)
+        window.__phase = "burn"; v.burn(["crypt", "attic"]); await wait(3200)
+        v.clear(); window.__phase = "idle"; await wait(600)
+      }
+    </script>
+  </body>
+</html>

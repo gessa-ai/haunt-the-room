@@ -1,0 +1,3 @@
+**ShipSwarm** — type one product idea into a text box; a swarm of Claude Code agents (each a Durable Actor, state in SQLite) self-organizes over AgentRelay channels, splitting frontend/backend/tests and messaging each other to resolve conflicts, while a live dashboard shows the negotiation.
+
+**Demo moment:** mid-build, kill the server. Durable Actors' alarms resume every agent exactly where it left off with zero lost state — then the finished app deploys live, judges watch it load.

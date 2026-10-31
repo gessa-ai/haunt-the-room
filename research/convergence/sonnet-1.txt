@@ -1,0 +1,5 @@
+**GraveyardOps**
+
+A swarm of Claude Code agents, each a Durable Actor haunting its own "room," self-organize over AgentRelay to build a live app from a single feature request — no orchestrator, just agents DMing each other to claim tasks, hand off blockers, and merge.
+
+**Demo moment:** Judge types one feature in chat. On a projected haunted-mansion map, agent-ghosts flicker awake room by room, visibly negotiating over AgentRelay, and the running app rebuilds itself end-to-end in under 60 seconds.

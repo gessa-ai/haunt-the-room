@@ -1,0 +1,298 @@
+```js
+export const meta = { title: "🏚️ Haunted Escape", minPlayers: 2, maxPlayers: 8, tickMs: 500 };
+
+function doorsForRound(r) { return Math.min(2 + r, 6); }
+function timeForRound(r) { return Math.max(2500, 7000 - r * 600); }
+const MAX_ROUNDS = 6;
+
+export function init(players, ctx) {
+  return {
+    phase: "lobby",
+    players: players.map(p => ({ id: p.id, name: p.name })),
+    round: 0,
+    lives: 3,
+    doors: 3,
+    taps: {},
+    deadline: 0,
+    resultDeadline: 0,
+    pendingOver: null,
+    outcome: null,
+    message: "The house is quiet... for now.",
+    now: ctx.now
+  };
+}
+
+function evaluateRound(state, ctx, timedOut) {
+  const ids = state.players.map(p => p.id);
+  const tappedIds = Object.keys(state.taps);
+  let success = false;
+  if (ids.length > 0 && tappedIds.length === ids.length) {
+    const vals = Object.values(state.taps);
+    success = vals.every(v => v === vals[0]);
+  }
+  if (success) {
+    const doorPicked = state.taps[ids[0]];
+    state.message = `🎉 Room ${state.round} escaped! Everyone ran through door ${doorPicked}!`;
+    if (state.round >= MAX_ROUNDS) state.pendingOver = "win";
+    else state.pendingOver = null;
+  } else {
+    state.lives -= 1;
+    state.message = timedOut
+      ? "⏰ Too slow! A ghost grabbed someone! (-1 life)"
+      : "👻 You scattered to different doors! (-1 life)";
+    if (state.lives <= 0) state.pendingOver = "lose";
+    else state.pendingOver = null;
+  }
+  state.phase = "result";
+  state.resultDeadline = ctx.now + 2500;
+}
+
+function applyPending(state, ctx) {
+  if (state.pendingOver) {
+    state.phase = "over";
+    state.outcome = state.pendingOver;
+  } else {
+    state.round += 1;
+    state.doors = doorsForRound(state.round);
+    state.taps = {};
+    state.deadline = ctx.now + timeForRound(state.round);
+    state.phase = "play";
+  }
+}
+
+export function reduce(state, action, ctx) {
+  if (action.type === "tick") {
+    state.now = ctx.now;
+    if (state.phase === "play" && ctx.now >= state.deadline) {
+      evaluateRound(state, ctx, true);
+    } else if (state.phase === "result" && ctx.now >= state.resultDeadline) {
+      applyPending(state, ctx);
+    }
+    return state;
+  }
+
+  if (action.type === "join") {
+    if (state.players.some(p => p.id === action.playerId)) return state;
+    if (state.players.length >= 8) return state;
+    if (typeof action.name !== "string") return state;
+    state.players.push({ id: action.playerId, name: action.name.slice(0, 20) });
+    return state;
+  }
+
+  if (action.type === "leave") {
+    const before = state.players.length;
+    state.players = state.players.filter(p => p.id !== action.playerId);
+    delete state.taps[action.playerId];
+    if (state.players.length !== before && state.phase === "play") {
+      const ids = state.players.map(p => p.id);
+      if (ids.length > 0 && ids.every(id => state.taps[id] !== undefined)) {
+        evaluateRound(state, ctx, false);
+      }
+    }
+    return state;
+  }
+
+  if (action.type === "start") {
+    if (state.phase !== "lobby") return state;
+    if (state.players.length < 2) return state;
+    state.round = 1;
+    state.doors = doorsForRound(1);
+    state.lives = 3;
+    state.taps = {};
+    state.deadline = ctx.now + timeForRound(1);
+    state.message = "The haunted house awakens... RUN! 🏃";
+    state.phase = "play";
+    return state;
+  }
+
+  if (action.type === "tap") {
+    if (state.phase !== "play") return state;
+    const player = state.players.find(p => p.id === action.playerId);
+    if (!player) return state;
+    if (state.taps[action.playerId] !== undefined) return state;
+    const doorId = action.doorId;
+    if (!Number.isInteger(doorId) || doorId < 1 || doorId > state.doors) return state;
+    state.taps[action.playerId] = doorId;
+    const ids = state.players.map(p => p.id);
+    if (ids.length > 0 && ids.every(id => state.taps[id] !== undefined)) {
+      evaluateRound(state, ctx, false);
+    }
+    return state;
+  }
+
+  if (action.type === "playAgain") {
+    if (state.phase !== "over") return state;
+    state.phase = "lobby";
+    state.round = 0;
+    state.lives = 3;
+    state.doors = 3;
+    state.taps = {};
+    state.outcome = null;
+    state.pendingOver = null;
+    state.message = "The house resets its curse...";
+    return state;
+  }
+
+  return state;
+}
+
+export function view(state, playerId) {
+  const base = {
+    me: playerId,
+    phase: state.phase,
+    round: state.round,
+    maxRounds: MAX_ROUNDS,
+    lives: state.lives,
+    doors: state.doors,
+    message: state.message,
+    players: state.players.map(p => ({ id: p.id, name: p.name, tapped: state.taps[p.id] !== undefined }))
+  };
+  if (state.phase === "play") {
+    base.msLeft = Math.max(0, state.deadline - state.now);
+    base.myTap = state.taps[playerId] || null;
+  }
+  if (state.phase === "result") {
+    base.msLeft = Math.max(0, state.resultDeadline - state.now);
+  }
+  if (state.phase === "over") {
+    base.outcome = state.outcome;
+  }
+  return base;
+}
+
+export function render(view, send, root) {
+  root.replaceChildren();
+  const style = document.createElement("style");
+  style.textContent = `
+    * { box-sizing: border-box; }
+    .ha-root { background:#0b0614; color:#f5f5f5; min-height:100vh; font-family:sans-serif; padding:14px; }
+    .ha-top { font-size:20px; font-weight:bold; margin-bottom:10px; color:#ff7518; }
+    .ha-bar { height:14px; background:#333; border-radius:7px; overflow:hidden; margin:8px 0; }
+    .ha-fill { height:100%; background:#39ff14; transition: width .3s linear; }
+    .ha-msg { background:#1a0f26; border:2px solid #8a2be2; border-radius:10px; padding:10px; margin:10px 0; font-size:17px; }
+    .ha-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin:14px 0; }
+    .ha-door { min-height:70px; font-size:28px; background:#2a1a3a; border:2px solid #8a2be2; border-radius:12px; color:#f5f5f5; }
+    .ha-door.sel { background:#ff7518; border-color:#ff7518; color:#0b0614; }
+    .ha-btn { width:100%; min-height:56px; font-size:19px; border-radius:10px; border:none; margin:8px 0; font-weight:bold; }
+    .ha-start { background:#39ff14; color:#0b0614; }
+    .ha-again { background:#c1121f; color:#f5f5f5; }
+    .ha-plist { margin-top:12px; font-size:15px; }
+    .ha-p { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #332244; }
+    .ok { color:#39ff14; }
+    .wait { color:#888; }
+    .ha-lives { font-size:22px; margin:6px 0; }
+  `;
+  root.appendChild(style);
+
+  const wrap = document.createElement("div");
+  wrap.className = "ha-root";
+  root.appendChild(wrap);
+
+  const top = document.createElement("div");
+  top.className = "ha-top";
+  wrap.appendChild(top);
+
+  if (view.phase === "lobby") {
+    top.textContent = "🏚️ Waiting in the foyer...";
+    const info = document.createElement("div");
+    info.className = "ha-msg";
+    info.textContent = "Everyone must agree out loud, then tap the SAME door at the SAME time to escape each room!";
+    wrap.appendChild(info);
+
+    const plist = document.createElement("div");
+    plist.className = "ha-plist";
+    view.players.forEach(p => {
+      const row = document.createElement("div");
+      row.className = "ha-p";
+      row.textContent = p.name + (p.id === view.me ? " (you)" : "");
+      plist.appendChild(row);
+    });
+    wrap.appendChild(plist);
+
+    const startBtn = document.createElement("button");
+    startBtn.className = "ha-btn ha-start";
+    startBtn.textContent = "👻 Enter the House";
+    startBtn.onclick = () => send({ type: "start" });
+    wrap.appendChild(startBtn);
+    return;
+  }
+
+  // lives + round header for play/result/over
+  const lives = document.createElement("div");
+  lives.className = "ha-lives";
+  lives.textContent = "❤️".repeat(Math.max(0, view.lives));
+  wrap.appendChild(lives);
+
+  const roundLine = document.createElement("div");
+  roundLine.style.marginBottom = "6px";
+  roundLine.textContent = `Room ${Math.max(view.round, 1)} / ${view.maxRounds}`;
+  wrap.appendChild(roundLine);
+
+  if (view.phase === "play") {
+    top.textContent = view.myTap ? "✅ Picked! Wait for the others..." : "👉 Agree on a door, then TAP!";
+    const pct = Math.min(100, Math.round((view.msLeft / Math.max(1, view.msLeft + 1)) * 100));
+    const bar = document.createElement("div");
+    bar.className = "ha-bar";
+    const fill = document.createElement("div");
+    fill.className = "ha-fill";
+    fill.style.width = Math.max(0, Math.min(100, (view.msLeft / 7000) * 100)) + "%";
+    bar.appendChild(fill);
+    wrap.appendChild(bar);
+
+    const timeTxt = document.createElement("div");
+    timeTxt.textContent = `⏳ ${Math.ceil(view.msLeft / 1000)}s left`;
+    wrap.appendChild(timeTxt);
+
+    const grid = document.createElement("div");
+    grid.className = "ha-grid";
+    for (let i = 1; i <= view.doors; i++) {
+      const b = document.createElement("button");
+      b.className = "ha-door" + (view.myTap === i ? " sel" : "");
+      b.textContent = "🚪" + i;
+      b.disabled = !!view.myTap;
+      b.onclick = () => send({ type: "tap", doorId: i });
+      grid.appendChild(b);
+    }
+    wrap.appendChild(grid);
+  }
+
+  if (view.phase === "result") {
+    top.textContent = "👀 Revealing...";
+  }
+
+  if (view.phase === "over") {
+    top.textContent = view.outcome === "win" ? "🎉 YOU ESCAPED THE HOUSE!" : "💀 THE HOUSE WINS...";
+  }
+
+  const msg = document.createElement("div");
+  msg.className = "ha-msg";
+  msg.textContent = view.message;
+  wrap.appendChild(msg);
+
+  const plist = document.createElement("div");
+  plist.className = "ha-plist";
+  view.players.forEach(p => {
+    const row = document.createElement("div");
+    row.className = "ha-p";
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = p.name + (p.id === view.me ? " (you)" : "");
+    const statSpan = document.createElement("span");
+    if (view.phase === "play" || view.phase === "result") {
+      statSpan.className = p.tapped ? "ok" : "wait";
+      statSpan.textContent = p.tapped ? "✅" : "…";
+    }
+    row.appendChild(nameSpan);
+    row.appendChild(statSpan);
+    plist.appendChild(row);
+  });
+  wrap.appendChild(plist);
+
+  if (view.phase === "over") {
+    const again = document.createElement("button");
+    again.className = "ha-btn ha-again";
+    again.textContent = "🔁 Play Again";
+    again.onclick = () => send({ type: "playAgain" });
+    wrap.appendChild(again);
+  }
+}
+```

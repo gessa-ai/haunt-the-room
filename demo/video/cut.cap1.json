@@ -1,0 +1,389 @@
+{
+ "out": "draft-2.5.mp4",
+ "voEngine": "eleven",
+ "capture": "cap1",
+ "segments": [
+  {
+   "note": "cold:whisper",
+   "src": "cap1/stage",
+   "atMs": 1793482761559,
+   "dur": 2.8,
+   "zoom": {
+    "z": 1.12,
+    "x": 0.5,
+    "y": 0.5,
+    "ramp": 2.8
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "whisper",
+      "who": "vik",
+      "to": "medium",
+      "text": "Psst. Everyone's in The Library. Don't tell the others."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:medium",
+   "src": "cap1/stage",
+   "atMs": 1793482777755,
+   "dur": 2.3636363636363638,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "medium",
+      "text": "vik says the library. vik has an honest little face."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:exorcist",
+   "src": "cap1/stage",
+   "atMs": 1793482779434,
+   "dur": 2.909090909090909,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.85,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "exorcist",
+      "text": "every beat the priest finds a new best friend. they're all dead."
+     }
+    }
+   ]
+  },
+  {
+   "note": "cold:reveal",
+   "src": "cap1/stage",
+   "atMs": 1793482880942,
+   "dur": 3.2
+  },
+  {
+   "note": "title",
+   "image": "art/06-title.png",
+   "push": [
+    0.04,
+    0
+   ],
+   "dur": 2.8
+  },
+  {
+   "note": "story:house",
+   "image": "art/parallax/01-house-bg.png",
+   "fg": "art/parallax/01-house-fg.png",
+   "push": [
+    0.01,
+    0.04
+   ],
+   "dur": 1.6,
+   "vo": {
+    "t": 0.1,
+    "text": "Someone hired four exorcists to clear this house."
+   }
+  },
+  {
+   "note": "story:flyer",
+   "image": "art/02-flyer.png",
+   "push": [
+    0.12,
+    0
+   ],
+   "x": 0.8,
+   "y": 0.3,
+   "dur": 1.9
+  },
+  {
+   "note": "story:hunters",
+   "image": "art/parallax/03-hunters-bg.png",
+   "fg": "art/parallax/03-hunters-fg.png",
+   "push": [
+    0.01,
+    0.03
+   ],
+   "dur": 2.2,
+   "vo": {
+    "t": 0.1,
+    "text": "All four are A.I. agents. You are the ghosts."
+   }
+  },
+  {
+   "note": "story:table",
+   "image": "art/04-table.png",
+   "push": [
+    0.04,
+    0
+   ],
+   "dur": 1.4
+  },
+  {
+   "note": "story:ghosts",
+   "image": "art/parallax/05-ghosts-bg.png",
+   "fg": "art/parallax/05-ghosts-fg.png",
+   "push": [
+    0.01,
+    0.04
+   ],
+   "dur": 1.5,
+   "vo": {
+    "t": 0.1,
+    "text": "Scan the code. Your phone is a ghost in the house."
+   }
+  },
+  {
+   "note": "join",
+   "src": "cap1/stage",
+   "atMs": 1793482640547,
+   "dur": 4.2,
+   "pip": {
+    "src": "cap1/phone2",
+    "from": 0.3,
+    "h": 860
+   }
+  },
+  {
+   "note": "point:hide",
+   "src": "cap1/stage",
+   "atMs": 1793482682667,
+   "dur": 6,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 0,
+    "h": 880
+   },
+   "captions": [
+    {
+     "t": 0,
+     "d": 2,
+     "item": {
+      "kind": "tag",
+      "text": "1  HIDE: grab a seat in a room"
+     }
+    },
+    {
+     "t": 2,
+     "d": 2,
+     "item": {
+      "kind": "tag",
+      "text": "2  LIE: whisper a wrong room to an AI"
+     }
+    },
+    {
+     "t": 4,
+     "d": 2,
+     "item": {
+      "kind": "tag",
+      "text": "3  No seat, or a searched room: you're out"
+     }
+    }
+   ],
+   "vo": {
+    "t": 0.1,
+    "text": "Hide. Lie to the hunters. Take the last seat, and someone else is out."
+   }
+  },
+  {
+   "note": "line:priest",
+   "src": "cap1/stage",
+   "atMs": 1793482816728,
+   "dur": 2.6818181818181817,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "priest",
+      "text": "omar asked for me by name. the library. of course they did."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:exorcist",
+   "src": "cap1/stage",
+   "atMs": 1793482819516,
+   "dur": 3,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.85,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "exorcist",
+      "text": "bea whispered the chapel at me. i'm writing it on my list of lies."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:priest",
+   "src": "cap1/stage",
+   "atMs": 1793482869638,
+   "dur": 2.4545454545454546,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "priest",
+      "text": "if we lose, i want it known that i looked magnificent."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:medium",
+   "src": "cap1/stage",
+   "atMs": 1793482872518,
+   "dur": 2.272727272727273,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.85,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "medium",
+      "text": "vik hurt me in the library. but people can change."
+     }
+    },
+    {
+     "t": 0,
+     "d": 2,
+     "item": {
+      "kind": "tag",
+      "text": "4 AI agents · own memory · talking over Agent Relay"
+     }
+    }
+   ]
+  },
+  {
+   "note": "hero1:reveal",
+   "src": "cap1/stage",
+   "atMs": 1793482880942,
+   "dur": 3,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 0.5,
+    "h": 860
+   }
+  },
+  {
+   "note": "line:exorcist",
+   "src": "cap1/stage",
+   "atMs": 1793482890918,
+   "dur": 3,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.85,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "exorcist",
+      "text": "got a tip from gio. the library. i'll weigh it. it weighs nothing."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:medium",
+   "src": "cap1/stage",
+   "atMs": 1793482894460,
+   "dur": 2.3181818181818183,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "medium",
+      "text": "vik hurt me. kev would never. the library, darling."
+     }
+    }
+   ]
+  },
+  {
+   "note": "hero2:reveal",
+   "src": "cap1/stage",
+   "atMs": 1793482899892,
+   "dur": 3,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 0.5,
+    "h": 860
+   }
+  },
+  {
+   "note": "relay:feed",
+   "src": "cap1/feed",
+   "atMs": 1793482818831,
+   "dur": 4,
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "tag",
+      "text": "every line is an Agent Relay message · votes are typed actions"
+     }
+    }
+   ]
+  },
+  {
+   "note": "end",
+   "image": "art/07-end.png",
+   "push": [
+    0,
+    0
+   ],
+   "dur": 4.5
+  }
+ ]
+}

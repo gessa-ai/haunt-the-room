@@ -1,0 +1,321 @@
+```js
+export const meta = {
+  title: "🏚️ Haunted Escape",
+  minPlayers: 2,
+  maxPlayers: 6,
+  tickMs: 500
+};
+
+export function init(players, ctx) {
+  return {
+    players: players.map(p => ({ ...p, ready: false })),
+    phase: "lobby",
+    roomIdx: 0,
+    rooms: [
+      { type: "sync", name: "Creaking Door 🚪" },
+      { type: "order", name: "Candle Circle 🕯️" },
+      { type: "code", name: "Locked Safe 🔒" },
+      { type: "escape", name: "Break Free! 👻" }
+    ],
+    roomState: {},
+    startTime: ctx.now,
+    now: ctx.now,
+    finishTime: null
+  };
+}
+
+export function reduce(state, action, ctx) {
+  state.now = ctx.now;
+  
+  if (action.type === "join") {
+    if (!state.players.find(p => p.id === action.playerId)) {
+      state.players.push({ id: action.playerId, name: action.name, ready: false });
+    }
+    return state;
+  }
+  
+  if (action.type === "leave") {
+    state.players = state.players.filter(p => p.id !== action.playerId);
+    return state;
+  }
+  
+  if (action.type === "ready" && state.phase === "lobby") {
+    const p = state.players.find(p => p.id === action.playerId);
+    if (p) p.ready = !p.ready;
+    if (state.players.length >= 2 && state.players.every(p => p.ready)) {
+      state.phase = "play";
+      state.roomIdx = 0;
+      state.roomState = {};
+      state.startTime = ctx.now;
+    }
+    return state;
+  }
+  
+  if (action.type === "tap" && state.phase === "play") {
+    const room = state.rooms[state.roomIdx];
+    const key = `r${state.roomIdx}`;
+    
+    if (room.type === "sync") {
+      if (!state.roomState[key]) state.roomState[key] = { taps: [] };
+      const rs = state.roomState[key];
+      if (!rs.taps.includes(action.playerId)) rs.taps.push(action.playerId);
+      if (rs.taps.length === state.players.length) {
+        state.roomIdx++;
+        delete state.roomState[key];
+        if (state.roomIdx >= state.rooms.length) {
+          state.phase = "escaped";
+          state.finishTime = ctx.now - state.startTime;
+        }
+      }
+    } else if (room.type === "order") {
+      if (!state.roomState[key]) state.roomState[key] = { taps: [] };
+      const rs = state.roomState[key];
+      if (!rs.taps.includes(action.playerId)) rs.taps.push(action.playerId);
+      const sorted = [...state.players].sort((a, b) => a.name.localeCompare(b.name));
+      const correctOrder = sorted.map(p => p.id);
+      if (rs.taps.length === state.players.length) {
+        if (rs.taps.every((id, i) => id === correctOrder[i])) {
+          state.roomIdx++;
+          delete state.roomState[key];
+          if (state.roomIdx >= state.rooms.length) {
+            state.phase = "escaped";
+            state.finishTime = ctx.now - state.startTime;
+          }
+        } else {
+          rs.taps = [];
+        }
+      }
+    } else if (room.type === "escape") {
+      if (!state.roomState[key]) state.roomState[key] = { count: 0, goal: state.players.length * 5 };
+      const rs = state.roomState[key];
+      rs.count++;
+      if (rs.count >= rs.goal) {
+        state.phase = "escaped";
+        state.finishTime = ctx.now - state.startTime;
+      }
+    }
+    return state;
+  }
+  
+  if (action.type === "code" && state.phase === "play") {
+    const room = state.rooms[state.roomIdx];
+    if (room.type === "code") {
+      const key = `r${state.roomIdx}`;
+      if (!state.roomState[key]) state.roomState[key] = { guesses: 0 };
+      const rs = state.roomState[key];
+      rs.guesses++;
+      if (action.guess === "1234") {
+        state.roomIdx++;
+        delete state.roomState[key];
+        if (state.roomIdx >= state.rooms.length) {
+          state.phase = "escaped";
+          state.finishTime = ctx.now - state.startTime;
+        }
+      }
+    }
+    return state;
+  }
+  
+  if (action.type === "play_again") {
+    state.phase = "lobby";
+    state.roomIdx = 0;
+    state.roomState = {};
+    state.players.forEach(p => p.ready = false);
+    state.finishTime = null;
+  }
+  
+  if (action.type === "tick") {
+    state.now = ctx.now;
+  }
+  
+  return state;
+}
+
+export function view(state, playerId) {
+  const room = state.rooms[state.roomIdx];
+  const key = room ? `r${state.roomIdx}` : null;
+  const rs = key ? state.roomState[key] : null;
+  
+  return {
+    me: playerId,
+    phase: state.phase,
+    players: state.players.map(p => ({ id: p.id, name: p.name, ready: p.ready })),
+    roomIdx: state.roomIdx,
+    total: state.rooms.length,
+    room,
+    roomState: rs,
+    finishTime: state.finishTime ? Math.floor(state.finishTime / 1000) : null
+  };
+}
+
+export function render(view, send, root) {
+  root.replaceChildren();
+  
+  const st = document.createElement("style");
+  st.textContent = `* { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0b0614; color: #f5f5f5; font-family: system-ui; }
+    .c { padding: 16px; min-height: 100vh; display: flex; flex-direction: column; }
+    .h { font-size: 36px; font-weight: bold; text-align: center; margin: 20px 0; color: #ff7518; }
+    .r { font-size: 28px; text-align: center; margin: 16px 0; }
+    .i { font-size: 20px; text-align: center; margin: 12px 0; color: #39ff14; }
+    .ps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+    .p { padding: 12px; background: #2a1540; border-radius: 8px; font-size: 14px; text-align: center; }
+    .p.r { background: #8a2be2; }
+    .bs { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+    button { padding: 16px; font-size: 22px; background: #8a2be2; color: #f5f5f5; border: none; border-radius: 8px; cursor: pointer; min-height: 56px; }
+    button.p { background: #ff7518; }
+    input { padding: 12px; font-size: 18px; width: 100%; background: #2a1540; color: #f5f5f5; border: 2px solid #8a2be2; border-radius: 4px; margin-bottom: 12px; }
+    .pr { text-align: center; font-size: 18px; margin: 16px 0; color: #39ff14; }`;
+  root.appendChild(st);
+  
+  const c = document.createElement("div");
+  c.className = "c";
+  
+  if (view.phase === "lobby") {
+    const h = document.createElement("div");
+    h.className = "h";
+    h.textContent = "🏚️ Haunted Escape";
+    c.appendChild(h);
+    
+    const ps = document.createElement("div");
+    ps.className = "ps";
+    view.players.forEach(p => {
+      const pd = document.createElement("div");
+      pd.className = "p" + (p.ready ? " r" : "");
+      pd.textContent = (p.ready ? "✅ " : "❌ ") + p.name;
+      ps.appendChild(pd);
+    });
+    c.appendChild(ps);
+    
+    const bs = document.createElement("div");
+    bs.className = "bs";
+    const rb = document.createElement("button");
+    rb.textContent = "Ready! 👻";
+    rb.onclick = () => send({ type: "ready" });
+    bs.appendChild(rb);
+    c.appendChild(bs);
+  } else if (view.phase === "play") {
+    const h = document.createElement("div");
+    h.className = "h";
+    h.textContent = `Room ${view.roomIdx + 1}/${view.total}`;
+    c.appendChild(h);
+    
+    const r = document.createElement("div");
+    r.className = "r";
+    r.textContent = view.room.name;
+    c.appendChild(r);
+    
+    if (view.room.type === "sync") {
+      const i = document.createElement("div");
+      i.className = "i";
+      i.textContent = "All tap together! 🤝";
+      c.appendChild(i);
+      const b = document.createElement("button");
+      b.className = "p";
+      b.textContent = "TAP NOW! ⚡";
+      b.style.fontSize = "32px";
+      b.style.padding = "32px";
+      b.onclick = () => send({ type: "tap" });
+      c.appendChild(b);
+      if (view.roomState) {
+        const pr = document.createElement("div");
+        pr.className = "pr";
+        pr.textContent = `${view.roomState.taps.length}/${view.players.length} ready`;
+        c.appendChild(pr);
+      }
+    } else if (view.room.type === "order") {
+      const i = document.createElement("div");
+      i.className = "i";
+      i.textContent = "Tap in order! 📋";
+      c.appendChild(i);
+      const o = document.createElement("div");
+      o.style.textAlign = "center";
+      o.style.fontSize = "14px";
+      o.style.margin = "12px 0";
+      o.textContent = [...view.players].sort((a, b) => a.name.localeCompare(b.name)).map(p => p.name).join(" → ");
+      c.appendChild(o);
+      const b = document.createElement("button");
+      b.className = "p";
+      b.textContent = "TAP! ⚡";
+      b.style.fontSize = "32px";
+      b.style.padding = "32px";
+      b.onclick = () => send({ type: "tap" });
+      c.appendChild(b);
+      if (view.roomState) {
+        const pr = document.createElement("div");
+        pr.className = "pr";
+        pr.textContent = `${view.roomState.taps.length}/${view.players.length} tapped`;
+        c.appendChild(pr);
+      }
+    } else if (view.room.type === "code") {
+      const i = document.createElement("div");
+      i.className = "i";
+      i.textContent = "Guess code! 🔐";
+      c.appendChild(i);
+      const inp = document.createElement("input");
+      inp.type = "text";
+      inp.maxLength = "4";
+      inp.placeholder = "0000";
+      inp.style.fontSize = "28px";
+      inp.style.textAlign = "center";
+      inp.style.letterSpacing = "8px";
+      c.appendChild(inp);
+      const b = document.createElement("button");
+      b.className = "p";
+      b.textContent = "Try Code 🔑";
+      b.onclick = () => {
+        if (inp.value.length === 4) {
+          send({ type: "code", guess: inp.value });
+          inp.value = "";
+        }
+      };
+      c.appendChild(b);
+      if (view.roomState) {
+        const pr = document.createElement("div");
+        pr.className = "pr";
+        pr.textContent = `Attempts: ${view.roomState.guesses}`;
+        c.appendChild(pr);
+      }
+    } else if (view.room.type === "escape") {
+      const i = document.createElement("div");
+      i.className = "i";
+      i.textContent = "Break free! 💪";
+      c.appendChild(i);
+      const b = document.createElement("button");
+      b.className = "p";
+      b.textContent = "TAP! ⚡";
+      b.style.fontSize = "32px";
+      b.style.padding = "32px";
+      b.onclick = () => send({ type: "tap" });
+      c.appendChild(b);
+      if (view.roomState) {
+        const pr = document.createElement("div");
+        pr.className = "pr";
+        pr.textContent = `${view.roomState.count}/${view.roomState.goal}`;
+        c.appendChild(pr);
+      }
+    }
+  } else if (view.phase === "escaped") {
+    const h = document.createElement("div");
+    h.className = "h";
+    h.style.color = "#39ff14";
+    h.textContent = "🎉 You Escaped!";
+    c.appendChild(h);
+    const t = document.createElement("div");
+    t.style.fontSize = "32px";
+    t.style.textAlign = "center";
+    t.style.margin = "32px 0";
+    t.style.color = "#ff7518";
+    t.textContent = `⏱️ ${view.finishTime}s`;
+    c.appendChild(t);
+    const b = document.createElement("button");
+    b.className = "p";
+    b.textContent = "Play Again 🔄";
+    b.style.marginTop = "24px";
+    b.onclick = () => send({ type: "play_again" });
+    c.appendChild(b);
+  }
+  
+  root.appendChild(c);
+}
+```

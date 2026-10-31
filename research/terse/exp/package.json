@@ -1,0 +1,14 @@
+{
+  "name": "terse-exp",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@jitl/quickjs-singlefile-mjs-release-sync": "0.31.0",
+    "durable-actors": "0.14.6",
+    "quickjs-emscripten": "0.31.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.3"
+  }
+}

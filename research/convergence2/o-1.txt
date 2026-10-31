@@ -1,0 +1,7 @@
+**Win condition:** use *both* Terse Durable Actors (stateful) + Agent Relay (agent-to-agent) in one demo — that's where the bonus points and the "most creative" judging live.
+
+1. **Agent Software Factory** — a swarm of role actors (PM, coder, reviewer, QA) that persist state as Durable Actors and talk directly via Agent Relay to ship a real PR live on stage; hits the "Software Factory" track + both techs = overall-winner shot.
+2. **Multiplayer AI dungeon master** — each player and the DM are long-running Durable Actors with persistent world state, Agent Relay carries NPC↔NPC and DM↔player negotiation in real time; visual, demos great, nails "multiplayer AI system."
+3. **Self-coordinating incident war-room** — monitor/triage/fixer agents as Durable Actors that detect a planted failure and resolve it by negotiating over Agent Relay with zero human input; "long-running agent" track + "most likely to scale" angle.
+
+Go with #1 if your team can code fast — a live-shipped artifact beats a toy every time with judges.

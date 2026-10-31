@@ -1,0 +1,73 @@
+/* Shared captions (web/src/captions). The host positions the stack; boxes stack from the bottom. */
+.cap { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; pointer-events: none; }
+.cap-box {
+  --b: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 14px 22px 16px 14px;
+  margin-top: 12px;
+  border: var(--b) solid transparent;
+  background:
+    linear-gradient(#040307, #040307) padding-box,
+    repeating-conic-gradient(var(--sc) 0 25%, #040307 0 50%) 0 0 / calc(var(--b) * 2) calc(var(--b) * 2) border-box;
+  box-shadow: 0 0 0 3px #040307;
+  transform-origin: 50% 100%;
+  animation: cap-in 240ms steps(4) backwards;
+  transition: transform 300ms steps(5), opacity 300ms steps(5), margin 300ms steps(5);
+}
+@keyframes cap-in { from { transform: translateY(40%); opacity: 0; } to { transform: none; opacity: 1; } }
+.cap-old { opacity: 0.6; transform: scale(0.94); margin-top: 4px; }
+.cap-old .cap-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cap-old .cap-ghost { display: none; }
+.cap-out { animation: cap-out 400ms steps(5) both; }
+@keyframes cap-out { to { transform: translateY(-60%) scale(0.85); opacity: 0; } }
+.cap-face { flex: none; image-rendering: pixelated; border: 4px solid var(--sc); background: #0d0816; }
+.cap-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.cap-name { font-family: "IM Fell English", Georgia, serif; color: var(--sc); line-height: 1; display: flex; align-items: center; gap: 16px; }
+.cap-chip { font-family: "GeistPixel", monospace; color: #040307; padding: 4px 12px; line-height: 1; }
+.cap-text { font-family: "IM Fell English", Georgia, serif; color: #fff; line-height: 1.08; }
+.cap-ghost { visibility: hidden; }
+.cap-whisper .cap-name, .cap-whisper .cap-text { font-style: normal; }
+.cap-whisper .cap-text { color: #7af0ff; }
+/* stage: 1920x1080 projector, back row */
+.cap-stage .cap-face { width: 96px; height: 96px; }
+.cap-stage .cap-name { font-size: 38px; }
+.cap-stage .cap-chip { font-size: 34px; }
+.cap-stage .cap-text { font-size: 50px; }
+/* phone */
+.cap-phone .cap-box { --b: 3px; gap: 10px; padding: 8px 10px 9px 8px; margin-top: 6px; }
+.cap-phone .cap-face { width: 44px; height: 44px; border-width: 2px; }
+.cap-phone .cap-name { font-size: 15px; gap: 8px; }
+.cap-phone .cap-chip { font-size: 14px; padding: 2px 6px; }
+.cap-phone .cap-text { font-size: 20px; }
+.cap-stage .cap-old .cap-face { width: 60px; height: 60px; }
+.cap-stage .cap-old .cap-name { font-size: 30px; }
+.cap-stage .cap-old .cap-text { font-size: 36px; }
+.cap-phone .cap-old .cap-text { font-size: 16px; }
+.cap-ghosts { display: inline-flex; gap: 3px; margin-left: 12px; vertical-align: middle; font-style: normal; }
+.cap-g { display: inline-block; width: 0.8em; height: 0.9em; background: var(--ghost-art) center/contain no-repeat; image-rendering: pixelated; }
+.cap-chip { display: inline-flex; align-items: center; }
+
+/* L28 speaker busts */
+.bust-layer { position: fixed; inset: 0; pointer-events: none; z-index: 40; overflow: hidden; }
+.bust-layer.bust-in-host { position: relative; inset: auto; height: 34vh; flex: none; z-index: 1; }
+.bust { position: absolute; bottom: 22vh; height: 45vh; aspect-ratio: 900 / 1100; transition: transform .35s cubic-bezier(.2,1.4,.4,1), opacity .3s, filter .3s; filter: brightness(1) drop-shadow(0 0 0 var(--bc)); }
+.bust-in-host .bust { bottom: 0; height: 100%; }
+.bust-left { left: 1.5vw; }
+.bust-right { right: 1.5vw; }
+.bust-right .bust-img { transform: scaleX(-1); }
+.bust-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated;
+  filter: drop-shadow(5px 0 0 var(--bc)) drop-shadow(-5px 0 0 var(--bc)) drop-shadow(0 -5px 0 var(--bc)) drop-shadow(0 0 22px var(--bc)); }
+.bust-open { opacity: 0; }
+.bust-open.bust-show { opacity: 1; }
+.bust-talk { animation: bust-bob .5s ease-in-out infinite alternate; }
+.bust-punch.bust-left { animation: bust-in-l .42s cubic-bezier(.2,1.5,.4,1) both, bust-bob .5s .42s ease-in-out infinite alternate; }
+.bust-punch.bust-right { animation: bust-in-r .42s cubic-bezier(.2,1.5,.4,1) both, bust-bob .5s .42s ease-in-out infinite alternate; }
+.bust-dim { filter: brightness(.38) saturate(.5); animation: none; transform: scale(.94); }
+.bust-gone { opacity: 0; animation: none; }
+.bust-gone.bust-left { transform: translateX(-60%); }
+.bust-gone.bust-right { transform: translateX(60%); }
+@keyframes bust-in-l { 0% { transform: translateX(-80%) scale(1.25); opacity: 0 } 60% { transform: translateX(4%) scale(1.08); opacity: 1 } 100% { transform: none } }
+@keyframes bust-in-r { 0% { transform: translateX(80%) scale(1.25); opacity: 0 } 60% { transform: translateX(-4%) scale(1.08); opacity: 1 } 100% { transform: none } }
+@keyframes bust-bob { from { translate: 0 0 } to { translate: 0 -1.2% } }

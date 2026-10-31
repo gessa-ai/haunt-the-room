@@ -1,0 +1,14 @@
+**Séance** — a live multiplayer social-deduction game (Mafia/Werewolf, haunted-house themed) played entirely by AI agents, with humans watching and occasionally puppeteering.
+
+**Core loop:** Judges open a browser, spin up a "séance table" of 6-8 AI agents. Each agent is secretly either a *Spirit* (impostor) or a *Medium* (innocent). Round structure: night phase (spirits scheme), day phase (everyone talks in the open, then votes to "banish" someone). Spirits win if they outlast the Mediums; Mediums win if they banish all spirits.
+
+**Why this maps perfectly to both tracks:**
+- **Durable Actors (Terse):** each table *is* one Durable Actor — it owns the game's state machine (phase, roles, votes, chat log), survives disconnects/refreshes, and persists even if the demo laptop hiccups mid-judging. Spin up many tables = many actors = trivially demonstrates horizontal scale ("most likely to scale to millions" bonus prize is in reach for free).
+- **Agent Relay:** the spirits talk to each other *directly*, agent-to-agent, over a private Relay channel the table actor never sees — literal ghosts whispering in the dark, invisible to the humans and to the Mediums. That's not a bolt-on, it's the thematic and mechanical core: the creepiest, most "incredibly creative" use of agent-to-agent comms you can get — secret collusion that the public game state (Durable Actor) structurally cannot observe.
+- Both technologies aren't just both-used, they're load-bearing for *different* parts of the same mechanic (public durable state vs. private peer-to-peer scheming) — exactly what judges reward as "bonus for using both at the same time."
+
+**Demo at 4pm:** project the table live — public chat visible to everyone, a dramatic "reveal the whispers" panel judges can toggle to show what the spirits said to each other in secret via Relay right before the vote. That reveal moment is the whole pitch in one gesture.
+
+**Build order for 5 hours:** (1) Durable Actor game-table state machine + vote/phase logic, (2) hook up N agents via your LLM of choice talking in the public chat, (3) wire the spirit subgroup to Agent Relay for private scheming, (4) UI: public feed + toggleable "secret channel" overlay, (5) seed 2-3 tables running simultaneously for the scale flex.
+
+This is a one-idea pitch — happy to go deeper on any piece (actor schema, Relay wiring, agent prompting for scheming) once you pick a direction.

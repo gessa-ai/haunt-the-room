@@ -1,0 +1,31 @@
+## Build "Revenant" — a town of AI ghosts that refuses to die
+
+**One-liner:** A persistent, multiplayer haunted town where every ghost is its own durable actor — a long-running AI agent with memory, grudges and goals — and the ghosts gossip, scheme and spread hauntings *directly to each other* over Agent Relay. Players drop in from an iPhone, whisper a secret to one ghost, and watch it ripple through the whole town in real time. Kill the server mid-demo and the souls come right back, remembering everything. They're revenants. They don't die.
+
+The theme *is* the architecture: **durability = the ghost that won't stay dead.** That single metaphor is why this wins both prizes at once.
+
+### Why it maps perfectly onto both sponsors
+- **Durable Actors (Terse)** — one actor per ghost. Each holds its own memory log, mood, relationships, and a long-running tick loop that calls OpenAI to decide what to do next. Persistent state that survives a process kill is literally the pitch. This is the clearest possible demo of what Durable Actors are *for*.
+- **Agent Relay** — ghosts don't route through a central orchestrator copy-pasting messages. A ghost *whispers* to its neighbors; rumors, plans and hauntings propagate agent-to-agent. Emergent town drama with no conductor is the purest Agent Relay demo there is.
+
+You use both, heavily and naturally — not bolted on. That's the "bonus points" the judges called out.
+
+### The three demo money-shots (what actually wins the room)
+1. **Propagation:** Two phones. Player A tells one ghost a secret → the room watches it spread ghost-to-ghost across a live relay graph. Visible, instant, magical.
+2. **Durability:** `kill -9` the server on stage, restart it, the town resumes mid-conversation with every memory intact. "They're revenants." This is the moment that locks Best Durable Actors.
+3. **Long-running / emergent:** Start the town at 11am and *leave it running all day*. By the 4pm demo the ghosts have an entire self-generated history — feuds, alliances, a haunting that got out of hand. You're not demoing a toy; you're demoing a world that lived while you weren't watching.
+
+### Scope for 11am–4pm (ruthless cut plan)
+- **Must-have core:** 5–6 ghost actors, memory + LLM tick loop, relay gossip, a thin client. Get the kill-and-restore working early — that's the trophy.
+- **If time:** a native iOS client (sells the iPhone prize demo), the relay visualization graph.
+- **Cut without mercy:** graphics. A simple map + chat bubbles is plenty; the intelligence is the spectacle.
+- **Credits in play:** OpenAI for the ticks, Supabase for auth + the "scales to millions" story (actor-per-entity shards horizontally — mention it, it's a free fourth prize), Freestyle/Superserve for hosting.
+
+### Why it takes first *and* the iPhone
+- **Best Durable Actors (iPhone):** durability is the literal theme and the showstopper.
+- **Best overall (YC interview):** creative + well-executed + multiplayer AI + a real product seed (living AI NPC worlds is a genuinely hot space), with a clean scale narrative.
+- You're also in range for Best Agent Relay and Most-likely-to-scale — one build, four prizes on the table.
+
+---
+
+One honest flag: this is a hackathon bet, not a Gessa ledger row — it moves no red-cell number directly (though a guaranteed YC interview is plausibly mission-adjacent). Happy to help you build it; just noting it sits outside the release cadence. Want me to sketch the actor interface and the relay message schema so you can start at 11am cold?

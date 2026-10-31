@@ -1,0 +1,447 @@
+{
+ "_": "L10b CABAL bank (slot-free, pre-rendered in eleven_v3). Keys = coven/src/lines.ts SITUATIONS + mobLie overtake revive finaleGhosts finaleHunters lastWords. File: voice/<hunter>/<key>-<n>.mp3",
+ "exorcist": {
+  "crowded": [
+   "[sighs] they've put their names on the door.",
+   "that room is a one-bucket job. we sweep it.",
+   "it's full. I can still be home by eleven.",
+   "packed in like a church picnic. easy money."
+  ],
+  "empty": [
+   "empty. [sighs] I drove forty minutes for empty.",
+   "nobody in there. not even the mice.",
+   "zero. that's my favourite number after eleven.",
+   "the board says nothing. I believe the board."
+  ],
+  "whispered": [
+   "a ghost told me something. I'm writing it down and ignoring it.",
+   "[chuckles] they whisper to me like I'm new.",
+   "thirty years. they still try the whisper.",
+   "a dead stranger gave me a tip. noted. declined."
+  ],
+  "lied": [
+   "[sighs] lied to. on overtime.",
+   "that was a lie. I should've stayed home.",
+   "the crypt was empty. the crypt is always a lie.",
+   "I knew it. I went anyway. that's on me."
+  ],
+  "mock": [
+   "the medium is listening to the dead again.",
+   "son, the priest hasn't caught a thing since Easter.",
+   "the skeptic keeps a notebook. he should keep a flashlight.",
+   "everybody's an expert. nobody's got a mop."
+  ],
+  "betrayal": [
+   "I said the attic. I meant the crypt. [chuckles] business.",
+   "we had a deal. I'm going home early.",
+   "sorry, father. the overtime's all mine.",
+   "nothing personal. it's a paycheck."
+  ],
+  "possessed": [
+   "they took the whole room. [sighs] that's a weekend job.",
+   "that house is theirs now. I'm calling my wife.",
+   "possessed. great. that's a different invoice.",
+   "the walls are breathing. that's not in the contract."
+  ],
+  "losing": [
+   "we're behind. I've been behind since nineteen ninety.",
+   "[sighs] they're winning. I'm still getting paid.",
+   "this is what happens when you trust the medium.",
+   "we need a catch. I need a sandwich."
+  ],
+  "winning": [
+   "we're ahead. let's not get cute.",
+   "[chuckles] steady. steady wins it.",
+   "that's how you do it. nobody touch anything.",
+   "good. now let's go home."
+  ],
+  "fooledAgain": [
+   "I swore I'd never get fooled again. [sighs] I swore.",
+   "twice. same ghost. same face.",
+   "fool me twice, it's a Tuesday.",
+   "I'm too old to be lied to this much."
+  ],
+  "mobLie": [
+   "everybody's telling me the same room. that's how I know it's wrong.",
+   "forty ghosts agree. forty ghosts lie.",
+   "[chuckles] a whole choir of liars. cute.",
+   "when the whole house whispers, I check the other room."
+  ],
+  "overtake": [
+   "new ghost on top. I don't even know his name.",
+   "somebody just took the lead. kids these days.",
+   "[sighs] there's a new number one. great.",
+   "fresh face at the top. won't last."
+  ],
+  "revive": [
+   "...did anyone else just die?",
+   "[gasps] what was that. was I gone?",
+   "the lights went out and I felt nothing. like a Monday.",
+   "I blinked and the whole house came back. huh."
+  ],
+  "finaleGhosts": [
+   "[sighs] they won. I'm going home anyway.",
+   "the house is theirs. somebody tell my wife.",
+   "beat by a room full of strangers on their phones.",
+   "thirty years in the trade. lost to the front row."
+  ],
+  "finaleHunters": [
+   "house is clean. I'm home by eleven.",
+   "[chuckles] that's the job. that's the whole job.",
+   "swept. done. invoice is in the mail.",
+   "told you. one bucket."
+  ],
+  "lastWords": [
+   "tell my wife I was home by eleven.",
+   "[sighs] I should've retired in ninety-eight.",
+   "put the mop back where you found it.",
+   "it's been a long shift."
+  ],
+  "flipflop": [
+   "[sighs] you just changed your mind because one ghost said so?",
+   "you were the other room ten seconds ago. one whisper and you move.",
+   "one whisper and you pack a bag. unbelievable."
+  ]
+ },
+ "medium": {
+  "crowded": [
+   "it's so crowded in there. they're lonely.",
+   "that's not a crowd. [gasps] that's a congregation.",
+   "a full room. that's a consensus.",
+   "[gasps] they're all holding hands in there."
+  ],
+  "empty": [
+   "empty? [gasps] no. they're shy.",
+   "it feels empty. which means they're hiding from me personally.",
+   "nobody there. or everybody, invisible.",
+   "zero. but a very emotional zero."
+  ],
+  "whispered": [
+   "[whispers] someone told me a secret. I'm glowing.",
+   "they came to me. out of all four, me.",
+   "a ghost whispered to me. it has such an honest little voice.",
+   "I was chosen. again. [laughs] I'm always chosen."
+  ],
+  "lied": [
+   "[gasps] they lied to me. to my face. my beautiful face.",
+   "it was empty. the house heard that lie. the house remembers.",
+   "I trusted them. I will never trust again.",
+   "[sighs] lied to once. statistically, that's a reset."
+  ],
+  "mock": [
+   "the skeptic doesn't believe in anything. not even lunch.",
+   "the priest only listens to the priest.",
+   "the exorcist has the spiritual depth of a mop.",
+   "[laughs] the skeptic counts ghosts like invoices. they're people. dead ones."
+  ],
+  "betrayal": [
+   "I said the library. I went to the crypt. a girl can change.",
+   "forgive me, father. actually, don't. it was fun.",
+   "I had a feeling. the feeling was betrayal.",
+   "[laughs] I voted against all of you. the dead told me to."
+  ],
+  "possessed": [
+   "[gasps] they took the room. I saw this. in a vision. in the bath.",
+   "possessed. I feel so seen.",
+   "they're singing in there. I want to go in.",
+   "possessed. I told you. nobody writes down what I say."
+  ],
+  "losing": [
+   "we're losing. the spirits are toying with me.",
+   "[sighs] I'm not losing. I'm being taught.",
+   "they're winning because they're organised. the dead have unionised.",
+   "this is the priest's fault. spiritually."
+  ],
+  "winning": [
+   "we're winning. the dead told me we would. one of them was honest.",
+   "[laughs] the spirits are on my side.",
+   "I knew it. I always know.",
+   "we're ahead. I feel very chosen."
+  ],
+  "fooledAgain": [
+   "they lied to me in beat one. I will not be fooled again.",
+   "[gasps] fooled again. but it felt so real.",
+   "I said never again. I meant mostly.",
+   "the same ghost. the same honest little face."
+  ],
+  "mobLie": [
+   "everyone is saying the same room. that's a consensus.",
+   "the whole house agrees. who am I to argue.",
+   "so many whispers. they can't all be lying.",
+   "[gasps] forty ghosts told me. forty."
+  ],
+  "overtake": [
+   "a new ghost is on top. I sensed it a second ago.",
+   "[gasps] a new number one. I saw their name in the steam.",
+   "someone just took the crown. it's so romantic.",
+   "a new number one. I felt that in my teeth."
+  ],
+  "revive": [
+   "...did anyone else just die?",
+   "[gasps] I went somewhere. it was carpeted.",
+   "I saw a light. it was the projector.",
+   "we died. we're back. I've never felt closer to you all."
+  ],
+  "finaleGhosts": [
+   "they won. I said they would. nobody writes it down.",
+   "[gasps] the house is theirs. I've never been so right and so evicted.",
+   "I lost to the people I believed in. that's on them.",
+   "the spirits won. I said they would."
+  ],
+  "finaleHunters": [
+   "we won. I felt it all along.",
+   "[laughs] the spirits let us win. they're so kind.",
+   "victory. I want to thank my third eye.",
+   "we cleansed it. I'll miss them."
+  ],
+  "lastWords": [
+   "remember me as the one who believed.",
+   "[whispers] kyle, if you're out there. I still trust you.",
+   "I'll see you all on the other side. I'll save seats.",
+   "it was always the crypt. always."
+  ],
+  "flipflop": [
+   "[gasps] they spoke to you and not to me? I see how it is.",
+   "you switched. even the doubters hear them now.",
+   "you felt it too. I said this an hour ago."
+  ]
+ },
+ "skeptic": {
+  "crowded": [
+   "board says it's full. [scoffs] so it's empty.",
+   "full room. too obvious. so it's obvious.",
+   "I'd like it on the record that I'm right before I'm right.",
+   "lots of subjects. no ghosts. I don't say ghosts."
+  ],
+  "empty": [
+   "board says empty. so they're in there.",
+   "empty. the medium will call it a feeling.",
+   "zero subjects. I find that suspicious.",
+   "an empty room is just a full room that's lying."
+  ],
+  "whispered": [
+   "a dead stranger typed one sentence at me.",
+   "[scoffs] someone whispered. I'm doing the opposite.",
+   "I got a tip. I don't take tips.",
+   "a whisper. that's not evidence. that's a sound."
+  ],
+  "lied": [
+   "I was lied to. I'm adding it to the tally.",
+   "[sighs] I was wrong. that's a first. write it down.",
+   "that was a lie. technically I was misinformed.",
+   "lied to. by a subject. on a phone."
+  ],
+  "mock": [
+   "the medium heard a whisper and packed a bag.",
+   "that's four for the medium. four wrong.",
+   "the priest is checking his hair in the crypt.",
+   "the exorcist is asleep with his eyes open."
+  ],
+  "betrayal": [
+   "I agreed out loud. I voted in private.",
+   "[chuckles] I never said I was on your side.",
+   "betrayal is just strategy with feelings.",
+   "I lied too. it felt efficient."
+  ],
+  "possessed": [
+   "the room is possessed. statistically unlikely.",
+   "[scoffs] possessed. sure. it's drafty.",
+   "that's not possession. that's a lot of phones.",
+   "I refuse to acknowledge that room."
+  ],
+  "losing": [
+   "we're losing. I have it in a spreadsheet.",
+   "this is the medium's fault. I have receipts.",
+   "[sighs] we're behind. as predicted. by me.",
+   "losing to subjects. humiliating, but data."
+  ],
+  "winning": [
+   "we're winning. against my expectations.",
+   "ahead. I'll allow it.",
+   "good. nobody say a word, especially the medium.",
+   "winning. I'm still not saying ghost."
+  ],
+  "fooledAgain": [
+   "fooled twice. I'm updating my priors.",
+   "[sighs] same lie. different beat.",
+   "I knew it was a lie. I just wanted to check.",
+   "fooled again. I'm removing myself from the tally."
+  ],
+  "mobLie": [
+   "the whole room agrees. which means nobody checked.",
+   "forty whispers is just one lie, forty times.",
+   "[scoffs] a mob. lovely. a wrong mob.",
+   "consensus is just a lie with friends."
+  ],
+  "overtake": [
+   "new leader. irrelevant. still a subject.",
+   "someone passed number one. I didn't see it happen.",
+   "a new name on top. I'll misspell it.",
+   "[scoffs] new number one. the medium is weeping."
+  ],
+  "revive": [
+   "...did anyone else just die?",
+   "we were dead. for the record, I didn't believe it.",
+   "the lights went out. I assume a fuse. not ghosts.",
+   "[sighs] we died. I'd like that removed from the minutes."
+  ],
+  "finaleGhosts": [
+   "they won. I still don't believe in them.",
+   "[scoffs] beaten by things that don't exist.",
+   "the subjects won. I'm filing a complaint.",
+   "I lost. I'd like a recount."
+  ],
+  "finaleHunters": [
+   "we won. I was right. not about anything specific.",
+   "victory. I'll be in my car.",
+   "the house is clean. it was always clean. it was empty.",
+   "[chuckles] told you. they weren't real."
+  ],
+  "lastWords": [
+   "for the record. I was right.",
+   "[sighs] still not saying the word.",
+   "the tally is in my coat. read it out at the funeral.",
+   "this is a draft. I'm going home."
+  ],
+  "flipflop": [
+   "flipped on one whisper. minuted.",
+   "you were the other room. now this one. remarkable.",
+   "[scoffs] folded in under a second. a record."
+  ]
+ },
+ "priest": {
+  "crowded": [
+   "a full room. they've come to hear me speak.",
+   "the chapel, of course. they know where the voice is.",
+   "so many souls. I'll need my good robe.",
+   "[clears throat] gather round, children. it's me."
+  ],
+  "empty": [
+   "empty. they're intimidated by my presence.",
+   "nobody there. they must have heard me warming up.",
+   "an empty room, like the medium's head.",
+   "zero. they fled from my good side."
+  ],
+  "whispered": [
+   "a ghost whispered to me. naturally. I'm the famous one.",
+   "[chuckles] they always come to me first.",
+   "a little bird told me. a dead bird.",
+   "a whisper, for me. I'll be gracious."
+  ],
+  "lied": [
+   "they lied to a man of the cloth. [gasps] the nerve.",
+   "I was misled. I forgive them. loudly.",
+   "an empty room. my robes are dusty for nothing.",
+   "lied to. I blame the medium."
+  ],
+  "mock": [
+   "the medium is a gifted amateur.",
+   "the skeptic wouldn't know faith if it sat on him.",
+   "the exorcist has the charisma of a bucket.",
+   "[laughs] bless their little hearts."
+  ],
+  "betrayal": [
+   "I said the chapel. the lord said otherwise.",
+   "forgive me. I'm magnificent and I'm hungry.",
+   "[chuckles] I voted for myself. spiritually.",
+   "betrayal? I call it a sermon."
+  ],
+  "possessed": [
+   "they've taken the room. I'll need to sing at it.",
+   "[gasps] possession. my time to shine.",
+   "the devil is in there. and he's not even dressed up.",
+   "possessed. a lesser priest would panic."
+  ],
+  "losing": [
+   "we're losing. the medium's prayers are out of tune.",
+   "[sighs] behind. nobody listened to me.",
+   "losing is a test. I will pass it beautifully.",
+   "this is the medium's fault. I said it in the hymn."
+  ],
+  "winning": [
+   "we're winning because of me. you're welcome.",
+   "[laughs] glory. mostly mine.",
+   "praise be. to me, specifically.",
+   "a lead. hallelujah. I'll take a bow."
+  ],
+  "fooledAgain": [
+   "fooled twice. the lord tests the beautiful.",
+   "[sighs] I was lied to again. at least I looked good.",
+   "again. I'll pray about it. loudly.",
+   "the same lie. the same humble servant. me."
+  ],
+  "mobLie": [
+   "the whole flock agrees. a flock is a flock.",
+   "they're all saying it. I hear a choir.",
+   "[chuckles] a congregation of liars. I've preached to worse.",
+   "when everyone agrees, I lead the way."
+  ],
+  "overtake": [
+   "a new number one. they must have heard my sermon.",
+   "someone new on top. I'll anoint them.",
+   "a fresh leader. I preached that.",
+   "[gasps] a new champion. almost as good as me."
+  ],
+  "revive": [
+   "...did anyone else just die?",
+   "I died. I'd like to note I looked serene.",
+   "[gasps] resurrection. that's my department.",
+   "back from the dead. I've done this before."
+  ],
+  "finaleGhosts": [
+   "they won. it's a miracle. not mine, sadly.",
+   "[sighs] the house is lost. my robes are ruined.",
+   "beaten by a crowd with phones. heavenly.",
+   "I'll pray for you all. after lunch."
+  ],
+  "finaleHunters": [
+   "we won. I'll take questions.",
+   "[laughs] glory be. mostly to me.",
+   "cleansed. by my voice, primarily.",
+   "victory. the medium may kiss my ring."
+  ],
+  "lastWords": [
+   "bury me in the good robe.",
+   "[clears throat] I'd like a choir.",
+   "tell them it was me. it was always me.",
+   "I forgive you all. especially me."
+  ],
+  "flipflop": [
+   "you changed sides for a whisper. I'd never. unless they asked me.",
+   "[clears throat] they whispered to you instead of me. a clerical error.",
+   "you follow them in. I'll lead you out after."
+  ]
+ },
+ "announcer": {
+  "overtake": [
+   "new leader. the crown has moved.",
+   "a ghost just took number one.",
+   "[dramatic] the throne has a new name."
+  ],
+  "revive": [
+   "the house is back. and so are they.",
+   "they died. they rose. let's go.",
+   "[dramatic pause] the dead have come back online."
+  ],
+  "mob-lie": [
+   "the whole house is lying. together.",
+   "a mob of whispers. one big lie."
+  ],
+  "finale-ghosts": [
+   "the house belongs to the dead.",
+   "ghosts win. the hunters go home.",
+   "[dramatic] tonight, the house is yours."
+  ],
+  "finale-hunters": [
+   "the house is clean. hunters win.",
+   "exorcised. every last one.",
+   "the hunters take the night."
+  ],
+  "closing": [
+   "this has been haunt the room.",
+   "four hunters. one house. a room full of liars.",
+   "goodnight. lock your doors.",
+   "[whispers] they're still in there."
+  ]
+ }
+}

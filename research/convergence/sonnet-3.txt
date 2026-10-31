@@ -1,0 +1,5 @@
+**Hauntlet**
+
+Pitch: A multiplayer haunted house where every ghost is a Durable Actor with persistent memory and alarms, and the ghosts secretly coordinate scares on live visitors by messaging each other over AgentRelay channels.
+
+Demo moment: Judges join as a "visitor" walking through rooms on a shared screen; unseen, three ghost agents DM each other over AgentRelay plotting a trap, then simultaneously spring a coordinated jump-scare — revealed live on a "ghost chatter" sidebar.

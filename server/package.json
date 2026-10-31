@@ -1,0 +1,22 @@
+{
+  "name": "conjure-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun src/main.ts",
+    "start": "NODE_ENV=production bun src/main.ts",
+    "generate": "durable-actors generate ../actors/src/actors.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "test:api": "bun test/api.ts"
+  },
+  "dependencies": {
+    "@agent-relay/sdk": "15.0.1",
+    "durable-actors": "0.14.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "@types/express": "^5.0.0",
+    "typescript": "~5.9.3"
+  }
+}

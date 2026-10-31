@@ -1,0 +1,2782 @@
+/* The projector frame: 1920x1080, scaled to fit, letterboxed in black. */
+.st-viewport {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+  cursor: none;
+}
+.st {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: #07050c;
+  color: #efe3c8;
+  font-family: "IM Fell English", Georgia, serif;
+  user-select: none;
+}
+.st canvas.st-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+}
+.st-feed {
+  position: absolute;
+  left: 1306px;
+  top: 0;
+  width: 614px;
+  height: 1080px;
+}
+
+/* ---------- top bar ---------- */
+.st-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 150px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 3, 8, 0.82), rgba(4, 3, 8, 0));
+}
+.st-title {
+  position: absolute;
+  left: 34px;
+  top: 18px;
+  font-family: "Pirata One", "IM Fell English SC", serif;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #f4e6c4;
+  text-shadow:
+    0 0 24px rgba(177, 140, 255, 0.55),
+    0 2px 0 #000;
+}
+.st-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.st-emblem {
+  width: 66px;
+  height: 66px;
+  filter: drop-shadow(0 0 14px rgba(122, 240, 255, 0.55));
+}
+.st-round {
+  position: absolute;
+  left: 118px;
+  top: 84px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  color: #b9a988;
+}
+.st-counters {
+  position: absolute;
+  right: 26px;
+  top: 16px;
+  display: flex;
+  gap: 30px;
+}
+.st-counter {
+  text-align: right;
+}
+.st-counter b {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  color: #f6e7c1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 18px rgba(122, 240, 255, 0.35);
+}
+.st-counter span {
+  display: block;
+  margin-top: 4px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: #a8987a;
+}
+
+/* ---------- clock tower ---------- */
+.st-clock {
+  position: absolute;
+  z-index: 9;
+  width: 172px;
+  height: 172px;
+  pointer-events: none;
+  border-radius: 50%;
+  transition: box-shadow 0.4s;
+}
+.st-clock.down {
+  box-shadow:
+    0 0 0 10px #0d0a12,
+    0 0 0 13px #8a6d42,
+    0 0 60px 20px rgba(255, 255, 255, 0.35);
+}
+.st-clock svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+.st-clock .face {
+  fill: #e9dcc0;
+}
+.st-clock .ticks line {
+  stroke: #2a1c10;
+  stroke-width: 3;
+}
+.st-clock .ring-bg {
+  fill: none;
+  stroke: rgba(30, 20, 12, 0.35);
+  stroke-width: 9;
+}
+.st-clock .ring {
+  fill: none;
+  stroke: #b0261f;
+  stroke-width: 9;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 86px 86px;
+}
+.st-clock .digits {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.st-clock .digits b {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  color: #1a120a;
+  font-variant-numeric: tabular-nums;
+}
+.st-clock .digits span {
+  font-family: "IM Fell English SC", serif;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  color: #5a4128;
+  margin-top: 2px;
+}
+.st-clock.urgent .digits b {
+  color: #9e0f0a;
+  animation: st-beat 1s ease-in-out infinite;
+}
+@keyframes st-beat {
+  15% {
+    transform: scale(1.12);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+.st-possess {
+  position: absolute;
+  width: 420px;
+  margin-left: -210px;
+  text-align: center;
+  font-family: "IM Fell English SC", serif;
+  font-size: 21px;
+  letter-spacing: 0.08em;
+  color: #c9b893;
+  pointer-events: none;
+}
+.st-possess i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 4px;
+  border-radius: 50%;
+  border: 2px solid #6dff9b;
+  vertical-align: -1px;
+}
+.st-possess i.on {
+  background: #6dff9b;
+  box-shadow: 0 0 12px #6dff9b;
+}
+
+/* ---------- rooms ---------- */
+.st-room {
+  position: absolute;
+  pointer-events: none;
+}
+.st-plaque {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 4px 14px 3px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: #f0dfb8;
+  background: linear-gradient(180deg, rgba(40, 28, 16, 0.92), rgba(20, 14, 8, 0.92));
+  border: 1px solid rgba(160, 120, 70, 0.6);
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.st-room.possessed .st-plaque {
+  color: #0b1a10;
+  background: #6dff9b;
+  border-color: #b8ffd0;
+  box-shadow: 0 0 18px #6dff9b;
+}
+.st-count {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  min-width: 64px;
+  padding: 2px 12px 1px 32px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 26px;
+  text-align: right;
+  color: #f6e7c1;
+  background: rgba(10, 7, 14, 0.78);
+  border-radius: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.st-count::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: #c9f7ff;
+  box-shadow: 0 0 10px 3px rgba(122, 240, 255, 0.8);
+}
+
+/* ---------- hunters ---------- */
+
+/* ---------- QR ---------- */
+.st-qr {
+  position: absolute;
+  z-index: 5;
+  transition:
+    left 0.9s cubic-bezier(0.6, 0, 0.2, 1),
+    top 0.9s cubic-bezier(0.6, 0, 0.2, 1),
+    width 0.9s cubic-bezier(0.6, 0, 0.2, 1),
+    padding 0.9s,
+    box-shadow 0.9s;
+  text-align: center;
+  background: #efe3c8;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 6px #1a120a,
+    0 0 0 8px #8a6d42,
+    0 30px 90px rgba(0, 0, 0, 0.85);
+}
+.st-qr canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+.st-qr .st-qr-cta {
+  font-family: "Pirata One", serif;
+  color: #9e0f0a;
+  line-height: 1;
+}
+.st-qr .st-qr-url {
+  font-family: ui-monospace, Menlo, monospace;
+  color: #3b2a18;
+}
+.st-qr.big {
+  left: 118px;
+  top: 300px;
+  width: 470px;
+  padding: 22px 22px 16px;
+}
+.st-qr.big .st-qr-cta {
+  display: none;
+}
+.st-qr.big .st-qr-url {
+  font-size: 22px;
+  margin-top: 12px;
+}
+.st-qr.small {
+  left: 1752px;
+  top: 14px;
+  width: 150px;
+  padding: 6px 7px 7px;
+}
+.st-qr.small .st-qr-err {
+  display: none;
+}
+.st-qr.small .st-qr-cta {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.st-qr.small .st-qr-url {
+  display: none;
+}
+.st-qr-err {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  color: #b0261f;
+}
+.st-souls {
+  position: absolute;
+  z-index: 5;
+  left: 640px;
+  width: 600px;
+  top: 300px;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+.st-souls .st-cta {
+  display: block;
+  font-family: "Pirata One", serif;
+  font-size: 150px;
+  line-height: 0.9;
+  color: #e3261b;
+  text-shadow:
+    0 0 40px rgba(255, 40, 20, 0.6),
+    0 5px 0 #2a0000;
+}
+.st-souls .st-cta-sub {
+  display: block;
+  margin: 18px 0 40px;
+  font-family: "IM Fell English", serif;
+  font-style: normal;
+  font-size: 34px;
+  line-height: 1.25;
+  color: #e8dcc0;
+  text-shadow: 0 2px 6px #000;
+}
+.st-souls b {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 130px;
+  line-height: 1;
+  color: #f6e7c1;
+  text-shadow: 0 0 40px rgba(122, 240, 255, 0.75);
+  font-variant-numeric: tabular-nums;
+}
+.st-souls span.st-souls-l {
+  display: block;
+  font-family: "IM Fell English SC", serif;
+  font-size: 34px;
+  letter-spacing: 0.1em;
+  color: #c9b893;
+}
+.st-dim {
+  position: absolute;
+  inset: 0 614px 0 0;
+  z-index: 4;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.75));
+  pointer-events: none;
+  transition: opacity 0.9s;
+}
+
+/* ---------- banners ---------- */
+.st-banner {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  width: 1306px;
+  top: 430px;
+  padding: 40px 0 46px;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0) 100%);
+  text-align: center;
+  font-family: "Pirata One", serif;
+  font-size: 120px;
+  line-height: 1;
+  color: #f4e6c4;
+  text-shadow:
+    0 0 40px rgba(255, 60, 40, 0.8),
+    0 4px 0 #000;
+  pointer-events: none;
+  opacity: 0;
+}
+.st-banner.show {
+  animation: st-banner 1.7s ease-out both;
+}
+.st-banner small {
+  display: block;
+  font-family: "IM Fell English SC", serif;
+  font-size: 36px;
+  letter-spacing: 0.12em;
+  color: #c9b893;
+  text-shadow: 0 2px 4px #000;
+  margin-top: 8px;
+}
+@keyframes st-banner {
+  0% {
+    opacity: 0;
+    transform: scale(1.3);
+    filter: blur(12px);
+  }
+  14% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+/* ---------- outage: TV static ---------- */
+.st-static {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+  display: none;
+  overflow: hidden;
+  background: #111;
+}
+.st-static.on {
+  display: block;
+}
+.st-static canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  opacity: 0.85;
+}
+.st-static::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0 2px, transparent 2px 4px);
+}
+.st-static::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 160px;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  animation: st-roll 2.4s linear infinite;
+}
+@keyframes st-roll {
+  from {
+    top: -160px;
+  }
+  to {
+    top: 1080px;
+  }
+}
+.st-dead {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 400px;
+  text-align: center;
+  font-family: "Pirata One", serif;
+  font-size: 150px;
+  line-height: 1;
+  color: #fff;
+  text-shadow:
+    -6px 0 0 rgba(255, 0, 60, 0.75),
+    6px 0 0 rgba(0, 220, 255, 0.75),
+    0 0 40px rgba(0, 0, 0, 0.9);
+  animation: st-jitter 0.18s steps(2) infinite;
+}
+.st-dead-sub {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 590px;
+  text-align: center;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 30px;
+  letter-spacing: 0.08em;
+  color: #e8e8e8;
+  text-shadow: 0 0 8px #000, 0 0 2px #000;
+}
+@keyframes st-jitter {
+  50% {
+    transform: translate(3px, -2px) skewX(2deg);
+  }
+}
+
+/* ---------- revive ---------- */
+.st-revive {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  width: 1306px;
+  top: 0;
+  height: 1080px;
+  pointer-events: none;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  opacity: 0;
+}
+.st-revive.show {
+  animation: st-revive 5.2s ease-out both;
+}
+.st-revive b {
+  font-family: "Pirata One", serif;
+  font-size: 104px;
+  color: #c9f7ff;
+  text-shadow:
+    0 0 30px rgba(122, 240, 255, 0.9),
+    0 0 80px rgba(122, 240, 255, 0.5);
+}
+.st-revive span {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 28px;
+  color: #c9f7ff;
+  opacity: 0.85;
+  margin-top: 16px;
+}
+@keyframes st-revive {
+  0% {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  8% {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- finale ---------- */
+.st-finale {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+}
+.st-finale.ghosts,
+.st-finale.hunters {
+  display: block;
+}
+.st-finale .flood {
+  position: absolute;
+  inset: 0;
+}
+.st-finale.ghosts .flood {
+  background:
+    radial-gradient(80% 60% at 50% 40%, rgba(150, 0, 0, 0.55), rgba(60, 0, 0, 0.95) 70%),
+    linear-gradient(180deg, #5a0000, #1a0000);
+  mix-blend-mode: normal;
+  animation: st-flood 1.6s cubic-bezier(0.5, 0, 0.2, 1) both;
+}
+.st-finale.ghosts .drips {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 220px;
+  background:
+    radial-gradient(14px 90px at 6% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(10px 140px at 17% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(16px 70px at 29% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(12px 170px at 41% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(9px 110px at 53% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(15px 150px at 66% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(11px 80px at 78% 0, #8a0000 98%, transparent 100%),
+    radial-gradient(14px 130px at 90% 0, #8a0000 98%, transparent 100%);
+  animation: st-drip 3s ease-in both;
+}
+@keyframes st-flood {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes st-drip {
+  from {
+    transform: translateY(-220px);
+  }
+}
+.st-finale.hunters .flood {
+  /* cold dawn: the light comes up from below and the house is clean */
+  background:
+    radial-gradient(90% 55% at 50% 105%, rgba(255, 214, 150, 0.95), rgba(255, 214, 150, 0) 70%),
+    linear-gradient(0deg, #f3e2c4 0%, #dfe7f5 38%, #a9bddb 75%, #7f97bd 100%);
+  animation: st-flood 1.6s cubic-bezier(0.5, 0, 0.2, 1) both;
+}
+.st-finale.hunters::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #fff;
+  animation: st-flashout 0.9s ease-out both;
+}
+@keyframes st-flashout {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes st-whiteout {
+  0% {
+    background: #fff;
+    opacity: 1;
+  }
+}
+.st-finale .words {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 300px;
+  text-align: center;
+  font-family: "Pirata One", serif;
+  font-size: 190px;
+  line-height: 0.95;
+  animation: st-words 1.4s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.st-finale.ghosts .words {
+  color: #ffe9e0;
+  text-shadow:
+    0 0 50px rgba(255, 40, 20, 0.9),
+    0 6px 0 #2a0000;
+}
+.st-finale.hunters .words {
+  color: #0d1220;
+  text-shadow: 0 0 40px rgba(120, 180, 255, 0.8);
+}
+@keyframes st-words {
+  from {
+    opacity: 0;
+    transform: scale(1.4);
+    filter: blur(14px);
+  }
+}
+.st-finale .stats {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 720px;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  animation: st-words 1s 1.6s ease-out both;
+}
+.st-finale .stats div {
+  text-align: center;
+}
+.st-finale .stats b {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 76px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.st-finale .stats span {
+  display: block;
+  font-family: "IM Fell English SC", serif;
+  font-size: 26px;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+.st-finale.ghosts .stats {
+  color: #ffe0d0;
+}
+.st-finale.hunters .stats {
+  color: #1a2234;
+}
+
+/* ---------- presenter + sound hint ---------- */
+.st-toast {
+  position: absolute;
+  z-index: 20;
+  left: 16px;
+  bottom: 34px;
+  padding: 6px 14px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 16px;
+  color: #e8e8e8;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.st-toast.show {
+  opacity: 1;
+}
+.st-toast.err {
+  color: #ff8a7a;
+}
+.st-sound {
+  position: absolute;
+  z-index: 20;
+  left: 16px;
+  bottom: 8px;
+  padding: 3px 10px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: rgba(232, 232, 232, 0.45);
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 4px;
+}
+.st-fps {
+  position: absolute;
+  z-index: 20;
+  right: 630px;
+  bottom: 6px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: rgba(232, 232, 232, 0.35);
+}
+
+/* ---------- juice: counters, floaters, leaderboard, lie banner ---------- */
+.st-counter b.bump {
+  animation: st-bump 0.5s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+@keyframes st-bump {
+  30% {
+    transform: scale(1.18);
+    color: #c9f7ff;
+  }
+}
+.st-floaters {
+  position: absolute;
+  inset: 0 614px 0 0;
+  z-index: 7;
+  pointer-events: none;
+}
+.st-float {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow:
+    0 0 18px currentColor,
+    0 3px 0 #000;
+  animation: st-floatup 1.8s cubic-bezier(0.15, 0.9, 0.3, 1) both;
+}
+@keyframes st-floatup {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%) scale(0.4);
+  }
+  14% {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(1.15);
+  }
+  24% {
+    transform: translate(-50%, -70%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -230%) scale(1);
+  }
+}
+.st-board {
+  pointer-events: none;
+}
+.st-board-h {
+  font-family: "IM Fell English SC", serif;
+  font-size: 17px;
+  letter-spacing: 0.14em;
+  color: #a8987a;
+  margin-bottom: 4px;
+}
+.st-board-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.st-board-name {
+  font-family: "IM Fell English SC", serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 10px currentColor;
+}
+.st-board-ecto {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  color: #f6e7c1;
+  font-variant-numeric: tabular-nums;
+}
+.st-lie {
+  position: absolute;
+  z-index: 9;
+  left: 1306px;
+  top: 360px;
+  width: 614px;
+  padding: 26px 30px 28px;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(4, 30, 40, 0), rgba(4, 30, 40, 0.94) 12%, rgba(4, 30, 40, 0.94) 88%, rgba(4, 30, 40, 0));
+  border-top: 2px solid rgba(122, 240, 255, 0.7);
+  border-bottom: 2px solid rgba(122, 240, 255, 0.7);
+  box-shadow: 0 0 60px rgba(122, 240, 255, 0.35);
+  pointer-events: none;
+  opacity: 0;
+}
+.st-lie.show {
+  animation: st-lie 4.2s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+.st-lie small {
+  display: block;
+  font-family: "IM Fell English", serif;
+  font-style: normal;
+  font-size: 24px;
+  color: #9eeeff;
+  letter-spacing: 0.1em;
+}
+.st-lie b {
+  display: block;
+  margin-top: 6px;
+  font-family: "Pirata One", serif;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.05;
+  color: #e9fdff;
+  text-shadow:
+    0 0 20px rgba(122, 240, 255, 0.95),
+    0 0 50px rgba(122, 240, 255, 0.5);
+}
+@keyframes st-lie {
+  0% {
+    opacity: 0;
+    transform: translateX(80px) skewX(-8deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-8px) skewX(2deg);
+  }
+  16% {
+    transform: translateX(0) skewX(0);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+.st-finale .words {
+  top: 40px !important;
+}
+
+.st-finale .stats {
+  top: 860px !important;
+  z-index: 2;
+}
+.st-finale .words {
+  z-index: 2;
+}
+
+/* ---------- wave / liar / daredevil tags ---------- */
+.st-tags {
+  position: absolute;
+  inset: 0 614px 0 0;
+  z-index: 7;
+  pointer-events: none;
+}
+.st-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  font-family: "IM Fell English SC", serif;
+  font-size: 26px;
+  line-height: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+.st-tag {
+  translate: -50% -100%;
+  padding: 4px 12px 3px;
+  background: rgba(6, 4, 10, 0.78);
+  border: 1px solid currentColor;
+  border-radius: 14px;
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: 0 0 18px color-mix(in srgb, currentColor 45%, transparent);
+  animation: st-tagin 0.4s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+@keyframes st-tagin {
+  from {
+    scale: 0.3;
+    opacity: 0;
+  }
+}
+.st-tag.liar {
+  font-size: 28px;
+  border-width: 2px;
+}
+
+/* ---------- the last ten seconds ---------- */
+
+/* ---------- podium ---------- */
+.st-finale .fboard {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: 290px;
+  transform: translateX(-50%);
+  width: 1200px;
+  z-index: 2;
+  animation: st-words 1s 1.2s ease-out both;
+}
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+}
+.pod {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pod-orb {
+  --c: #fff;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 18%, var(--c) 45%, transparent 72%);
+  box-shadow: 0 0 40px 14px color-mix(in srgb, var(--c) 70%, transparent);
+  margin-bottom: 16px;
+  animation: st-bob 2.4s ease-in-out infinite;
+}
+.p1 .pod-orb {
+  width: 64px;
+  height: 64px;
+}
+@keyframes st-bob {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.pod-name {
+  font-family: "IM Fell English SC", serif;
+  font-size: 40px;
+  line-height: 1.05;
+  text-align: center;
+  text-shadow: 0 0 16px currentColor, 0 3px 0 #000;
+}
+.p1 .pod-name {
+  font-size: 54px;
+}
+.pod-ecto {
+  margin: 6px 0 12px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+.st-finale.ghosts .pod-ecto {
+  color: #ffd9cc;
+}
+.st-finale.hunters .pod-ecto {
+  color: #1a2234;
+}
+.pod-step {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 64px;
+  border-radius: 8px 8px 0 0;
+}
+.st-finale.ghosts .pod-step {
+  color: rgba(255, 220, 210, 0.85);
+  background: linear-gradient(180deg, rgba(20, 0, 0, 0.55), rgba(20, 0, 0, 0.25));
+  border: 2px solid rgba(255, 120, 100, 0.35);
+}
+.st-finale.hunters .pod-step {
+  color: rgba(20, 34, 52, 0.8);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.2));
+  border: 2px solid rgba(20, 34, 52, 0.25);
+}
+.p1 .pod-step {
+  height: 170px;
+}
+.p2 .pod-step {
+  height: 120px;
+}
+.p3 .pod-step {
+  height: 86px;
+}
+.pod-rest {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 16px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 30px;
+  text-shadow: 0 0 10px currentColor, 0 2px 0 #000;
+}
+.st-dead-why {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 650px;
+  text-align: center;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 18px;
+  color: #ffb3a8;
+  text-shadow: 0 0 6px #000, 0 0 2px #000;
+}
+.st-stamp {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  padding: 6px 26px 2px;
+  font-family: "Pirata One", serif;
+  font-size: 76px;
+  line-height: 1;
+  white-space: nowrap;
+  border: 4px solid currentColor;
+  border-radius: 8px;
+  background: rgba(4, 20, 10, 0.72);
+  text-shadow: 0 0 24px currentColor;
+  box-shadow: 0 0 40px rgba(109, 255, 155, 0.5);
+  animation: st-stamp 2.2s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+@keyframes st-stamp {
+  0% {
+    transform: translate(-50%, -50%) rotate(-6deg) scale(2.4);
+    opacity: 0;
+  }
+  12% {
+    transform: translate(-50%, -50%) rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- THE LOOP: rooms ---------- */
+.st-plaque {
+  border-color: var(--rc) !important;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--rc) 55%, transparent), 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+.st-glyph {
+  color: var(--rc);
+  margin-right: 10px;
+  font-size: 22px;
+  text-shadow: 0 0 10px var(--rc);
+}
+.st-room .st-count {
+  font-size: 40px;
+  padding: 2px 16px 0 38px;
+  border: 2px solid var(--rc);
+}
+.st-room .st-count::before {
+  background: var(--rc);
+  box-shadow: 0 0 12px 3px var(--rc);
+}
+.st-room.possessed .st-plaque {
+  color: #fff;
+  background: var(--rc) !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 26px var(--rc) !important;
+}
+.st-room.swept .st-plaque {
+  background: #fff !important;
+  color: #120b06;
+}
+.st-possess {
+  width: 360px !important;
+  margin-left: -180px !important;
+  font-size: 22px !important;
+  color: #f0e2c0 !important;
+  text-shadow: 0 2px 6px #000;
+}
+.st-possess i {
+  width: 22px !important;
+  height: 22px !important;
+  border-color: #fff !important;
+}
+.st-possess i.on {
+  background: #fff !important;
+  box-shadow: 0 0 16px #fff, 0 0 30px #ff4fd8 !important;
+}
+
+/* ---------- THE LOOP: one huge message ---------- */
+.st-big {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  width: 1306px;
+  top: 360px;
+  text-align: center;
+  pointer-events: none;
+  display: none;
+}
+.st-big.intro,
+.st-big.hide,
+.st-big.hunting,
+.st-big.reveal {
+  display: block;
+}
+.st-big-h {
+  font-family: "Pirata One", serif;
+  line-height: 0.9;
+  color: #fff4e4;
+  text-shadow: 0 0 50px rgba(255, 60, 40, 0.7), 0 6px 0 #000;
+}
+.st-big-sub {
+  margin-top: 12px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 0 18px #000, 0 3px 0 #000;
+}
+.st-big.intro .st-big-h {
+  font-size: 150px;
+}
+.st-big.hide {
+  top: 330px;
+}
+.st-big.hide .st-big-h {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 280px;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(122, 240, 255, 0.85), 0 8px 0 #000;
+}
+.st-big.hide .st-big-sub {
+  font-size: 54px;
+  color: #c9f7ff;
+}
+.st-big.hunting {
+  top: 300px;
+}
+.st-big.hunting .st-big-h {
+  font-size: 96px;
+  animation: st-drum 0.5s ease-in-out infinite;
+}
+@keyframes st-drum {
+  50% {
+    transform: scale(1.04);
+  }
+}
+.st-big.hunting .st-big-h {
+  will-change: transform;
+}
+.st-big.reveal {
+  top: auto;
+  bottom: 60px;
+}
+.st-big.reveal .st-big-sub {
+  font-size: 34px;
+  display: inline-block;
+  padding: 8px 26px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+}
+.st-big-h.pop {
+  animation: st-bigpop 0.6s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+.st-big.hunting .st-big-h.pop {
+  animation:
+    st-bigpop 0.6s cubic-bezier(0.2, 1.5, 0.4, 1) both,
+    st-drum 0.5s 0.6s ease-in-out infinite;
+}
+@keyframes st-bigpop {
+  from {
+    transform: scale(1.8);
+    opacity: 0;
+    filter: blur(12px);
+  }
+}
+
+/* ---------- THE LOOP: the hunters' council (HUNTING + REVEAL) ---------- */
+.st-council {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  width: 1306px;
+  top: 560px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s, transform 0.5s cubic-bezier(0.2, 1.2, 0.4, 1);
+}
+.st-council.on {
+  opacity: 1;
+  transform: none;
+}
+.st-big.reveal ~ .st-council.on {
+  top: 760px;
+}
+.st-card {
+  --hc: #fff;
+  position: relative;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.st-card-img {
+  height: 230px;
+  filter: drop-shadow(0 0 18px var(--hc));
+}
+.st-card-name {
+  margin-top: -6px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hc);
+  text-shadow: 0 0 12px var(--hc), 0 2px 2px #000;
+}
+.st-card-vote {
+  margin-top: 8px;
+  min-height: 40px;
+  padding: 2px 16px;
+  border-radius: 8px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #fff;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+.st-council:not(.on) .st-card-vote:empty {
+  visibility: hidden;
+}
+.st-card-bubble {
+  position: absolute;
+  bottom: 100%;
+  width: 260px;
+  padding: 8px 12px;
+  font-family: "IM Fell English", serif;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.15;
+  color: #1a120a;
+  background: #efe3c8;
+  border-radius: 12px;
+  text-align: center;
+  opacity: 0;
+}
+.st-card-bubble.show {
+  animation: st-say 4.5s ease-out both;
+}
+@keyframes st-say {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  8%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.st-big.reveal ~ .st-council.on .st-card-img {
+  height: 150px;
+}
+
+/* ---------- between beats: top 5 ---------- */
+.st-top5 {
+  position: absolute;
+  z-index: 7;
+  left: 403px;
+  top: 300px;
+  width: 500px;
+  padding: 18px 26px 20px;
+  background: rgba(8, 5, 4, 0.92);
+  border: 2px solid rgba(196, 160, 110, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  opacity: 0;
+}
+.st-top5.show {
+  animation: st-slide 1.8s cubic-bezier(0.2, 1.1, 0.3, 1) both;
+}
+@keyframes st-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  15%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+}
+.st-top5-h {
+  font-family: "IM Fell English SC", serif;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  color: #a8987a;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.st-top5-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 34px;
+  line-height: 1.3;
+}
+.st-top5-row span {
+  font-family: "IM Fell English SC", serif;
+  text-shadow: 0 0 12px currentColor;
+}
+.st-top5-row b {
+  font-family: "Cinzel", serif;
+  color: #f6e7c1;
+}
+.st-stamp {
+  background: rgba(0, 0, 0, 0.72) !important;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ---------- pixel UI type (Geist Pixel), old-print headers stay serif ---------- */
+.st-counter b,
+.st-counter span,
+.st-round,
+.st-clock .digits b,
+.st-clock .digits span,
+.st-possess,
+.st-plaque,
+.st-room .st-count,
+.st-big-sub,
+.st-big.hide .st-big-h,
+.st-card-name,
+.st-card-vote,
+.st-top5-row b,
+.st-top5-h,
+.st-qr .st-qr-cta,
+.st-souls b,
+.st-souls span.st-souls-l,
+.st-finale .stats b,
+.st-finale .stats span,
+.pod-ecto,
+.st-tag,
+.st-dead-sub,
+.st-toast {
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  letter-spacing: 0.02em !important;
+}
+.st-big.hide .st-big-h {
+  font-size: 300px !important;
+}
+
+/* ---------- council at reveal: two portraits each side of the clock tower ---------- */
+.st-big.reveal ~ .st-council.on {
+  top: 96px !important;
+  justify-content: space-between;
+  padding: 0 70px;
+  box-sizing: border-box;
+  gap: 0;
+}
+.st-big.reveal ~ .st-council.on .st-card:nth-child(2) {
+  margin-right: 380px;
+}
+.st-big.reveal ~ .st-council.on .st-card-img {
+  height: 100px !important;
+}
+.st-big.reveal ~ .st-council.on {
+  top: 92px !important;
+}
+.st-big.reveal ~ .st-council.on .st-card {
+  width: 200px;
+}
+
+/* ---------- lobby: the house in darkness, a candle breathing ---------- */
+.st.lobby .st-dim {
+  animation: st-candle 4.2s ease-in-out infinite;
+  will-change: opacity;
+}
+@keyframes st-candle {
+  0%, 100% { opacity: 1; }
+  37% { opacity: 0.9; }
+  41% { opacity: 1; }
+  44% { opacity: 0.93; }
+  70% { opacity: 0.97; }
+}
+
+/* ---------- INTRO: a horror title sequence ---------- */
+.st-intro {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+  background: radial-gradient(70% 60% at 50% 50%, rgba(10, 6, 14, 0.9), #000 80%);
+  display: none;
+  pointer-events: none;
+}
+.st-intro.on {
+  display: grid;
+  place-items: center;
+}
+.st-intro-seg {
+  text-align: center;
+  animation: st-pushin 4s linear both;
+}
+@keyframes st-pushin {
+  from { transform: scale(0.94); }
+  to { transform: scale(1.04); }
+}
+.st-intro-kicker {
+  font-family: "IM Fell English SC", serif;
+  font-size: 84px;
+  letter-spacing: 0.02em;
+  color: #d9cdb2;
+  animation: st-flickin 4s steps(1) both;
+}
+.st-intro-title {
+  margin-top: 26px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 84px;
+  letter-spacing: 0.01em;
+  color: #f4e9d2;
+  text-shadow: 0 0 30px rgba(200, 20, 20, 0.5);
+  animation: st-flickin2 4s steps(1) both;
+}
+@keyframes st-flickin {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  22% { opacity: 0; }
+  25% { opacity: 1; }
+  27% { opacity: 0.2; }
+  30%, 100% { opacity: 1; }
+}
+@keyframes st-flickin2 {
+  0%, 40% { opacity: 0; }
+  43% { opacity: 1; }
+  45% { opacity: 0; }
+  50% { opacity: 1; }
+  52% { opacity: 0.3; }
+  55%, 88% { opacity: 1; transform: none; }
+  90% { opacity: 1; transform: scale(1.08) translateX(6px); color: #ff3b2f; }
+  93% { transform: scale(1) translateX(-4px); }
+  96%, 100% { opacity: 1; transform: none; color: #f4e9d2; }
+}
+.st-intro-card {
+  margin-top: 40px;
+  font-family: "Pirata One", serif;
+  font-size: 170px;
+  line-height: 1;
+  color: #f4e9d2;
+  text-shadow: 0 0 40px rgba(255, 60, 40, 0.45), 0 6px 0 #000;
+  animation: st-fadein 1.2s ease-out both;
+}
+.st-intro-body {
+  margin-top: 22px;
+  max-width: 980px;
+  font-family: "IM Fell English", serif;
+  font-style: normal;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #d9cdb2;
+  animation: st-fadein 1.2s 0.6s ease-out both;
+}
+@keyframes st-fadein {
+  from { opacity: 0; filter: blur(8px); }
+}
+/* tiny looping illustrations */
+.st-ill {
+  position: relative;
+  width: 260px;
+  height: 150px;
+  margin: 0 auto;
+  animation: st-fadein 1s ease-out both;
+}
+.ill-1 b, .ill-3 b {
+  position: absolute;
+  left: 70px;
+  top: 30px;
+  width: 170px;
+  height: 110px;
+  border: 4px solid #d9cdb2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ill-1 i:first-child {
+  position: absolute;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  top: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 25%, #7af0ff 55%, transparent 72%);
+  box-shadow: 0 0 24px 8px rgba(122, 240, 255, 0.6);
+  animation: st-slip 2.4s ease-in-out infinite;
+}
+@keyframes st-slip {
+  0% { left: -20px; opacity: 0; }
+  15% { opacity: 1; }
+  60%, 85% { left: 140px; opacity: 1; }
+  100% { left: 140px; opacity: 0; }
+}
+.ill-2 i {
+  position: absolute;
+  top: -10px;
+  width: 90px;
+  height: 170px;
+  background: linear-gradient(180deg, rgba(255, 244, 220, 0.9), rgba(255, 244, 220, 0));
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  transform-origin: 50% 0;
+  filter: blur(2px);
+}
+.ill-2 i:first-child {
+  left: 40px;
+  animation: st-sweepL 2.6s ease-in-out infinite alternate;
+}
+.ill-2 i:nth-child(2) {
+  left: 130px;
+  animation: st-sweepR 2.6s ease-in-out infinite alternate;
+}
+@keyframes st-sweepL {
+  from { transform: rotate(28deg); }
+  to { transform: rotate(-18deg); }
+}
+@keyframes st-sweepR {
+  from { transform: rotate(-28deg); }
+  to { transform: rotate(18deg); }
+}
+.ill-3 b::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, #2fa84f, #b8ffd0);
+  box-shadow: 0 0 40px #2fa84f;
+  animation: st-floodup 2.8s ease-in infinite;
+}
+@keyframes st-floodup {
+  0% { height: 0; opacity: 1; }
+  70% { height: 100%; opacity: 1; }
+  100% { height: 100%; opacity: 0; }
+}
+
+/* HUNTING: only the headline, the council and the feed matter */
+.st.hunting .st-rooms,
+.st.hunting .st-possess,
+.st.hunting .st-tags {
+  opacity: 0.18;
+  transition: opacity 0.4s;
+}
+.st-rooms,
+.st-possess {
+  transition: opacity 0.4s;
+}
+.st-possess {
+  white-space: nowrap;
+}
+.st-big.hunting {
+  padding: 30px 0 36px;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 100%);
+}
+.st.hunting .st-feed {
+  outline: 4px solid rgba(255, 80, 60, 0.7);
+  z-index: 3;
+}
+
+/* ---------- camera ---------- */
+.st-cam {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+  transform-origin: 0 0;
+  transition: transform 0.9s cubic-bezier(0.6, 0, 0.15, 1);
+  overflow: visible;
+}
+.st-cam > .st-rooms,
+.st-cam > .st-tags,
+.st-cam > .st-floaters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------- clean + big: title and counters only in lobby / finale ---------- */
+.st-top .st-title,
+.st-top .st-round,
+.st-top .st-counters {
+  transition: opacity 0.6s, transform 0.8s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.st.playing .st-top .st-title,
+.st.playing .st-top .st-round {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.8);
+}
+.st.playing .st-top .st-counters {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+.st.playing .st-top {
+  background: none;
+}
+
+/* ---------- live podium (right column) ---------- */
+.st-podium {
+  position: relative;
+  height: 362px;
+  margin: 2px 0 6px;
+}
+.st-podium-h {
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: #ffe27a;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.st-pod-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 34px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  background: #0d0907;
+  border: 2px solid rgba(232, 220, 192, 0.18);
+  border-radius: 6px;
+  transition:
+    transform 0.6s cubic-bezier(0.3, 1.3, 0.4, 1),
+    opacity 0.4s;
+}
+.st-pod-row.enter,
+.st-pod-row.leave {
+  opacity: 0;
+}
+.st-pod-rank {
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 34px;
+  width: 30px;
+  color: #e8dcc0;
+}
+.st-pod-name {
+  flex: 1;
+  font-family: "IM Fell English SC", serif;
+  font-size: 34px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 12px currentColor;
+}
+.st-pod-score {
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 36px;
+  color: #fff3d6;
+  font-variant-numeric: tabular-nums;
+}
+.st-pod-row.first {
+  border-color: #ffe27a;
+  background: linear-gradient(90deg, rgba(255, 226, 122, 0.22), #0d0907 70%);
+  box-shadow: 0 0 22px rgba(255, 226, 122, 0.4);
+}
+.st-pod-row.first .st-pod-rank::before {
+  content: "♛";
+  position: absolute;
+  left: 10px;
+  top: -16px;
+  font-size: 22px;
+  color: #ffe27a;
+}
+.st-pod-row.fire {
+  border-color: #ff7a2f;
+  box-shadow: 0 0 18px rgba(255, 110, 30, 0.7), inset 0 -16px 24px -10px rgba(255, 90, 20, 0.55);
+}
+.st-pod-row.fire::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 100%;
+  height: 26px;
+  background:
+    radial-gradient(8px 22px at 10% 100%, #ffb347 60%, transparent 62%),
+    radial-gradient(7px 16px at 26% 100%, #ff6a1f 60%, transparent 62%),
+    radial-gradient(9px 24px at 45% 100%, #ffd27a 60%, transparent 62%),
+    radial-gradient(7px 18px at 63% 100%, #ff6a1f 60%, transparent 62%),
+    radial-gradient(8px 22px at 82% 100%, #ffb347 60%, transparent 62%);
+  filter: blur(1px);
+  animation: st-flame 0.35s steps(2) infinite;
+  transform-origin: 50% 100%;
+}
+@keyframes st-flame {
+  50% {
+    transform: scaleY(0.7) translateX(3px);
+    opacity: 0.85;
+  }
+}
+.st-podium.crown .st-pod-row.first {
+  animation: st-crown 1.2s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+@keyframes st-crown {
+  20% {
+    box-shadow: 0 0 60px #ffe27a;
+    background: rgba(255, 226, 122, 0.6);
+  }
+}
+.st-tag.fire {
+  border-width: 2px;
+}
+
+/* ---------- AI labels ---------- */
+.st-card-ai {
+  margin-top: 4px;
+  padding: 3px 8px 2px;
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 16px;
+  color: #0b0810;
+  background: var(--hc);
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+}
+
+/* bigger everything */
+.st-plaque {
+  font-size: 26px !important;
+}
+.st-big-sub {
+  font-size: 46px;
+}
+
+/* strong contrast: every headline sits on a solid dark plate */
+.st-big-sub {
+  display: inline-block;
+  padding: 10px 30px 8px;
+  background: #0a070d;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+.st-big.hide .st-big-h {
+  display: inline-grid;
+  place-items: center;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: #0a070d;
+  border: 6px solid #7af0ff;
+  box-shadow: 0 0 60px rgba(122, 240, 255, 0.6);
+  font-size: 230px !important;
+  line-height: 1;
+}
+.st-big.hide {
+  top: 250px;
+}
+.st-big.hunting .st-big-h,
+.st-big.intro .st-big-h {
+  display: inline-block;
+  padding: 10px 40px 18px;
+  background: #0a070d;
+  border-radius: 12px;
+}
+
+.st-big.intro,
+.st-big.hide,
+.st-big.hunting,
+.st-big.reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.st-big.reveal {
+  top: auto;
+  bottom: 40px;
+}
+.st-banner {
+  background: none !important;
+}
+.st-banner.show {
+  text-shadow: 0 0 30px rgba(0, 0, 0, 1), 0 0 60px rgba(0, 0, 0, 0.9), 0 4px 0 #000 !important;
+}
+
+.st-big.hide {
+  top: 0;
+  bottom: 0;
+  height: 1080px;
+}
+.st-big.hide .st-big-h {
+  position: absolute;
+  left: 653px;
+  top: 548px;
+  transform: translate(-50%, -50%);
+  width: 230px !important;
+  height: 230px !important;
+  margin: 0 !important;
+  font-size: 150px !important;
+}
+.st-big.hide .st-big-sub {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 50px !important;
+}
+.st-big.hide .st-big-h.pop {
+  animation: st-hidepop 0.6s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+@keyframes st-hidepop {
+  from {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+}
+
+.st-revive b,
+.st-revive span {
+  display: block;
+  padding: 10px 34px;
+  background: #06040a;
+  border-radius: 12px;
+}
+.st-revive span {
+  margin: 10px auto 0;
+}
+.st-revive {
+  z-index: 12 !important;
+}
+
+.st-qr {
+  z-index: 9 !important;
+}
+
+/* ---------- pixel icons (no emoji, no eyebrow labels) ---------- */
+.px-crown {
+  width: 44px;
+  height: 26px;
+  margin: 0 auto 6px 0;
+  background: #ffe27a;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 6' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h1v1h1v1h1V1h1V0h1v1h1v1h1V1h1V0h1v1h1v5H0z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 6' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h1v1h1v1h1V1h1V0h1v1h1v1h1V1h1V0h1v1h1v5H0z'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 0 8px #ffe27a);
+}
+.st-top5 .px-crown {
+  margin: 0 auto 10px;
+}
+.st-clock .digits span {
+  letter-spacing: 0.12em !important;
+  font-size: 13px;
+  color: #9e0f0a;
+}
+.st-finale .socials {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  pointer-events: auto;
+}
+.soc {
+  width: 46px;
+  height: 46px;
+  background: #fff3e8;
+  -webkit-mask: var(--px) center / contain no-repeat;
+  mask: var(--px) center / contain no-repeat;
+}
+.st-finale.hunters .soc {
+  background: #1a2234;
+}
+.px-x {
+  --px: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h2v1h1v1h1v1h1V2h1V1h1V0h2v1H8v1H7v1H6v1H5v1h1v1h1v1h1v1h1v1H7V8H6V7H5V6H4v1H3v1H2v1H0V8h1V7h1V6h1V5h1V4H3V3H2V2H1V1H0z'/%3E%3C/svg%3E");
+}
+.px-github {
+  --px: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h5v1h1v1h1v4H8v1H7v2H5V7H4v2H2V8H1V7h1V6H1V2h1z'/%3E%3C/svg%3E");
+}
+.px-web {
+  --px: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' shape-rendering='crispEdges'%3E%3Cpath d='M3 0h3v1h1v1h1v1h1v3H8v1H7v1H6v1H3V8H2V7H1V6H0V3h1V2h1V1h1zm1 1v7h1V1zM1 4v1h7V4z'/%3E%3C/svg%3E");
+}
+.st-lie b {
+  margin-top: 0 !important;
+}
+
+/* ---------- REVEAL kill cam (L15 stills) ---------- */
+.st-killcam {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+  display: none;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #000;
+  pointer-events: none;
+}
+.st-killcam.on {
+  display: flex;
+}
+.st-kc {
+  --rc: #fff;
+  position: relative;
+  flex: 1;
+  background: center / cover no-repeat;
+  border: 8px solid var(--rc);
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.7), 0 0 40px var(--rc);
+  animation: st-kcslam 0.45s cubic-bezier(0.2, 1.2, 0.3, 1) both;
+  overflow: hidden;
+}
+.st-kc:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.st-kc::after {
+  /* the flash as the beam lands */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: st-kcflash 0.6s ease-out both;
+  animation-delay: inherit;
+}
+@keyframes st-kcslam {
+  from {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+@keyframes st-kcflash {
+  from {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.st-kc-room {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  padding: 6px 16px 4px;
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 34px;
+  color: #fff;
+  background: var(--rc);
+  border-radius: 6px;
+}
+.st-kc-n {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%) rotate(-5deg);
+  white-space: nowrap;
+  padding: 8px 30px 2px;
+  font-family: "Pirata One", serif;
+  font-size: 96px;
+  line-height: 1;
+  color: #fff;
+  background: #0a070d;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  animation: st-stamp 2.2s 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.st-killcam.n2 .st-kc-n {
+  font-size: 72px;
+}
+.st-intro-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: st-pushin 16s linear both;
+}
+.st-intro.on {
+  overflow: hidden;
+}
+.st-intro-seg {
+  position: relative;
+}
+
+/* clear digits: every number and "#" in Geist Pixel */
+.st-banner,
+.st-stamp,
+.st-kc-n,
+.st-pod-name,
+.st-top5-row span,
+.pod-name,
+.st-lie b {
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  letter-spacing: 0 !important;
+}
+.st-banner {
+  font-size: 92px !important;
+}
+.st-stamp {
+  font-size: 64px !important;
+  padding: 10px 24px 6px !important;
+}
+.st-pod-name {
+  font-size: 28px !important;
+}
+.pod-name {
+  font-size: 36px !important;
+}
+.p1 .pod-name {
+  font-size: 46px !important;
+}
+.st-lie b {
+  font-size: 44px !important;
+}
+.st-big.reveal .st-big-sub:empty {
+  display: none;
+}
+/* the feed's moment: it widens over the dimmed house while the AI hunters argue */
+.st-feed {
+  transition:
+    left 0.6s cubic-bezier(0.6, 0, 0.2, 1),
+    width 0.6s cubic-bezier(0.6, 0, 0.2, 1);
+  z-index: 3;
+}
+.st.hunting .st-feed {
+  left: 1040px;
+  width: 880px;
+}
+.st.hunting .st-big,
+.st.hunting .st-council {
+  width: 1040px !important;
+}
+
+.st-podflash {
+  position: absolute;
+  z-index: 4;
+  left: -6px;
+  right: -6px;
+  top: 30px;
+  padding: 14px 18px;
+  text-align: center;
+  background: #ffe27a;
+  color: #120b06;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(255, 226, 122, 0.8);
+  animation: st-podflash 2.6s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.st-podflash b {
+  display: block;
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 54px;
+  line-height: 1;
+}
+.st-podflash span {
+  display: block;
+  margin-top: 6px;
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 32px;
+}
+@keyframes st-podflash {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  12% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.st-revive b {
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  font-size: 110px !important;
+}
+.st-revive span {
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  font-size: 40px !important;
+}
+
+.st-big.hunting {
+  top: 210px !important;
+}
+.st-big.hunting .st-big-h {
+  font-size: 78px !important;
+  white-space: nowrap;
+}
+.st-big.hunting .st-big-sub {
+  font-size: 34px !important;
+  white-space: nowrap;
+}
+.st.hunting .st-council {
+  top: 590px !important;
+}
+
+.st-card-ai {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.st-intro-title {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+}
+.st-big.hunting .st-big-sub {
+  white-space: normal !important;
+  max-width: 900px;
+  font-size: 32px !important;
+}
+.st-dead {
+  font-size: 130px !important;
+}
+
+/* ---------- L16 3D showpieces ---------- */
+.st-showpiece {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.st-showpiece canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+.st-intro.shot {
+  background: #000 !important;
+}
+.st-intro.shot .st-intro-still {
+  display: none;
+}
+.st-intro.shot .st-intro-seg {
+  z-index: 1;
+}
+.st-intro.shot .st-intro-kicker,
+.st-intro.shot .st-intro-title {
+  text-shadow: 0 0 30px #000, 0 4px 0 #000;
+}
+/* the welcome lands over the last frames of the push-in (and the 2D version keeps the same beat) */
+.st-intro-seg.seg-0 .st-intro-kicker {
+  animation-delay: 2.4s;
+}
+.st-intro-seg.seg-0 .st-intro-title {
+  animation-delay: 2.4s;
+}
+.st-intro-seg.seg-0 {
+  animation-duration: 6.5s;
+}
+.st-finale.shot > :not(.st-showpiece) {
+  display: none;
+}
+.st-finale .st-showpiece {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+/* ---------- musical chairs: candles per seat ---------- */
+.st-seats {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 8px;
+  display: flex;
+  gap: 4px;
+}
+.st-seats i {
+  flex: 1;
+  height: 14px;
+  border-radius: 2px;
+  background: rgba(10, 7, 14, 0.85);
+  border: 2px solid color-mix(in srgb, var(--rc) 50%, #000);
+}
+.st-seats i.on {
+  background: #ffe2a8;
+  border-color: #fff3d6;
+  box-shadow: 0 0 10px #ffb347, 0 -6px 12px -2px rgba(255, 179, 71, 0.8);
+}
+.st-room.full .st-seats i.on {
+  background: #fff;
+  box-shadow: 0 0 14px var(--rc), 0 -8px 16px -2px var(--rc);
+}
+.st-room.full .st-plaque {
+  box-shadow: 0 0 30px var(--rc), 0 0 0 3px var(--rc) !important;
+}
+.st-room .st-count {
+  min-width: 96px;
+}
+/* ---------- top 10 ---------- */
+.st-podium {
+  height: 520px !important;
+}
+.st-pod-row {
+  height: 42px !important;
+}
+.st-pod-name,
+.st-pod-score,
+.st-pod-rank {
+  font-size: 26px !important;
+}
+.st-pod-name,
+.st-top5-row span,
+.pod-name,
+.st-tag,
+.st-podflash span {
+  text-transform: lowercase;
+}
+/* ---------- finale socials: buttons big enough to photograph ---------- */
+.st-finale .socials {
+  gap: 24px !important;
+}
+.soc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 26px;
+  background: #0a070d;
+  border: 3px solid #fff3e8;
+  border-radius: 12px;
+  color: #fff3e8;
+  text-decoration: none;
+  font-family: "GeistPixel", ui-monospace, monospace;
+  font-size: 32px;
+}
+.soc-btn .soc {
+  width: 34px;
+  height: 34px;
+}
+.st-finale.hunters .soc-btn {
+  background: #f3ead8;
+  color: #1a2234;
+  border-color: #1a2234;
+}
+.st-finale .stats {
+  top: 800px !important;
+}
+.st-finale .stats b {
+  font-size: 64px !important;
+}
+.pod-rest {
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  text-transform: lowercase;
+  font-size: 28px !important;
+}
+
+/* ---------- avatars (L19) ---------- */
+.st-pod-face {
+  width: 34px;
+  height: 34px;
+  image-rendering: pixelated;
+  flex: none;
+}
+.pod-face {
+  --c: #fff;
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 18px var(--c));
+  animation: st-bob 2.4s ease-in-out infinite;
+}
+.p1 .pod-face {
+  width: 160px;
+  height: 160px;
+}
+
+/* ---------- layout for L16's 3D stage: nothing covers a room ---------- */
+.st.layout-3d .st-rooms,
+.st.layout-3d .st-floaters {
+  display: none;
+}
+.st.layout-3d .st-clock {
+  left: 24px !important;
+  top: 20px !important;
+  transform: scale(0.8);
+  transform-origin: 0 0;
+}
+.st.layout-3d .st-possess {
+  left: 240px !important;
+  top: 60px !important;
+  margin-left: 0 !important;
+  text-align: left;
+}
+.st.layout-3d .st-big.hide .st-big-h {
+  left: 1180px;
+  top: 150px;
+  width: 170px !important;
+  height: 170px !important;
+  font-size: 110px !important;
+}
+.st.layout-3d .st-big.hunting {
+  top: 40px !important;
+}
+.st.layout-3d .st-council.on {
+  top: 300px !important;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.st.layout-3d .st-council.on .st-card {
+  width: 150px;
+}
+.st.layout-3d .st-council.on .st-card:nth-child(2) {
+  margin-right: auto;
+}
+.st.layout-3d .st-council.on .st-card-img {
+  height: 120px !important;
+}
+.st.layout-3d .st-council:not(.on) {
+  display: none;
+}
+
+/* ---------- LOBBY story reel (L20) with the QR always visible ---------- */
+.st-story {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 1306px;
+  height: 1080px;
+  overflow: hidden;
+  display: none;
+}
+.st.storying .st-story {
+  display: block;
+}
+.st.storying .st-dim,
+.st.storying .st-souls .st-cta,
+.st.storying .st-souls .st-cta-sub {
+  display: none;
+}
+.st.storying .st-qr.big {
+  left: 940px;
+  top: 640px;
+  width: 330px;
+  padding: 12px 12px 10px;
+}
+.st.storying .st-qr.big .st-qr-cta {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+.st.storying .st-qr.big .st-qr-url {
+  font-size: 16px;
+}
+.st.storying .st-souls {
+  left: 940px;
+  width: 330px;
+  top: 560px;
+  z-index: 9;
+}
+.st.storying .st-souls b {
+  font-size: 54px;
+}
+.st.storying .st-souls span.st-souls-l {
+  font-size: 22px;
+}
+.st.storying .st-top .st-title,
+.st.storying .st-top .st-round {
+  display: none;
+}
+/* 3D: the clock lives top-left, so the title steps aside */
+.st.layout-3d .st-top .st-title,
+.st.layout-3d .st-top .st-round {
+  display: none;
+}
+.st.storying .st-clock {
+  display: none;
+}
+/* ---------- presenter debug panel (hidden by default) ---------- */
+.st-gear {
+  position: absolute;
+  z-index: 60;
+  left: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+.st-debug {
+  position: absolute;
+  z-index: 61;
+  left: 24px;
+  bottom: 28px;
+  width: 560px;
+  padding: 14px 16px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(8, 6, 12, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  font: 15px/1.3 ui-monospace, Menlo, monospace;
+  color: #e8e8e8;
+  cursor: default;
+}
+.st-debug.on {
+  display: flex;
+}
+.st-dbg-h {
+  font-weight: 700;
+  color: #ffe27a;
+}
+.st-dbg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.st-dbg-btn {
+  padding: 5px 10px;
+  font: inherit;
+  color: #fff;
+  background: #2a2233;
+  border: 1px solid #5a4a6a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.st-dbg-btn:hover {
+  background: #3d3150;
+}
+.st-dbg-btn.danger {
+  background: #7a1414;
+  border-color: #ff5a4f;
+}
+.st-dbg-range {
+  flex: 1;
+  min-width: 140px;
+}
+.st-dbg-l,
+.st-dbg-val {
+  min-width: 52px;
+  color: #bbb;
+}
+.st-dbg-out {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  color: #9eeeff;
+  font: inherit;
+}
+.st-viewport:has(.st-debug.on) {
+  cursor: default;
+}
+
+/* POKER leans: a hunter-colour pixel eye per hunter eyeing the room */
+.st-leans {
+  position: absolute;
+  left: 50%;
+  top: 56px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.st-eye {
+  --hc: #fff;
+  width: 54px;
+  height: 30px;
+  background: var(--hc);
+  filter: drop-shadow(0 0 10px var(--hc)) drop-shadow(0 2px 0 #000);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 5' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h5v1h1v1h1v1H8v1H7v1H2V4H1V3H0V2h1V1h1zm1 1v3h3V1zm1 1h1v1H4z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 5' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h5v1h1v1h1v1H8v1H7v1H2V4H1V3H0V2h1V1h1zm1 1v3h3V1zm1 1h1v1H4z'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: st-blink 3.4s steps(1) infinite;
+}
+@keyframes st-blink {
+  0%, 92% { transform: scaleY(1); }
+  94% { transform: scaleY(0.15); }
+  97%, 100% { transform: scaleY(1); }
+}
+
+/* ---------- compact podium: top 3 + last ---------- */
+.st-podium {
+  height: 176px !important;
+  margin: 0 !important;
+}
+.st-pod-row {
+  top: 0 !important;
+  height: 34px !important;
+  padding: 0 10px !important;
+  gap: 10px !important;
+  border-width: 1px !important;
+}
+.st-pod-face {
+  width: 24px !important;
+  height: 24px !important;
+}
+.st-pod-name,
+.st-pod-score,
+.st-pod-rank {
+  font-size: 21px !important;
+}
+.st-pod-rank {
+  width: 40px !important;
+}
+.st-pod-row.last {
+  opacity: 0.75;
+  border-style: dashed !important;
+}
+.st-pod-row.last .st-pod-rank {
+  font-size: 15px !important;
+  color: #ff8a7a;
+}
+.st-pod-row.first .st-pod-rank::before {
+  display: none;
+}
+.st-pod-row.fire::after {
+  height: 14px !important;
+}
+.st-podflash {
+  top: 0 !important;
+  padding: 6px 12px !important;
+}
+.st-podflash b {
+  font-size: 26px !important;
+}
+.st-podflash span {
+  font-size: 18px !important;
+}
+.st-card-portrait {
+  width: 120px;
+  height: 120px;
+}
+.fd-stage .fd-slot {
+  padding-right: 190px !important;
+  min-height: 200px;
+}
+
+.st-card-img {
+  width: 180px !important;
+  height: 180px !important;
+  border-radius: 12px;
+  border: 3px solid var(--hc);
+  box-shadow: 0 0 30px var(--hc);
+  filter: none !important;
+}
+.st-big.reveal ~ .st-council.on .st-card-img {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+/* ---------- L20 epilogue over the whole stage ---------- */
+.st-epilogue {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: none;
+  overflow: hidden;
+  background: #000;
+}
+.st-epilogue.on {
+  display: block;
+}
+
+/* ---------- TASTE round 2 ---------- */
+/* one clock at a time: during hide the big countdown is the clock */
+.st.hiding .st-clock {
+  visibility: hidden;
+}
+/* kill cam: capped exposure, crisp stamps that stay */
+.st-kc {
+  filter: contrast(1.35) brightness(0.78) saturate(1.15);
+}
+.st-kc::after {
+  animation-duration: 0.35s !important;
+}
+.st-kc-n {
+  animation: st-kcstamp 0.5s 0.3s cubic-bezier(0.2, 1.4, 0.4, 1) both !important;
+  background: #000 !important;
+  color: #fff !important;
+  text-shadow: none !important;
+}
+@keyframes st-kcstamp {
+  from {
+    transform: translateX(-50%) rotate(-5deg) scale(2);
+    opacity: 0;
+  }
+}
+/* QR plate never covers the podium */
+.st-qr.small {
+  left: 1786px !important;
+  top: 10px !important;
+  width: 124px !important;
+}
+.st-qr.small .st-qr-cta {
+  font-size: 17px !important;
+}
+.fd-stage .fd-slot {
+  padding-right: 156px !important;
+  min-height: 170px !important;
+}
+/* NEW #1 replaces row 1 in place (no duplicate row) */
+.st-podflash {
+  height: 34px !important;
+  padding: 0 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0 !important;
+  right: 0 !important;
+  box-sizing: border-box;
+}
+.st-podflash b {
+  font-size: 21px !important;
+  text-transform: lowercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* revive: the stat is the headline, big and crisp */
+.st-revive b {
+  font-size: 140px !important;
+  color: #fff !important;
+  text-shadow: 0 0 40px rgba(122, 240, 255, 0.8) !important;
+}
+.st-revive span {
+  font-size: 48px !important;
+  color: #e9fdff !important;
+  opacity: 1 !important;
+}
+
+/* ---------- cover pass: countdown in the sky, chat stacks under the podium ---------- */
+.st-big.hide .st-big-h {
+  left: 1080px !important;
+  top: 150px !important;
+  width: 190px !important;
+  height: 190px !important;
+  font-size: 128px !important;
+}
+.fd-stage .fd-list {
+  flex: 1;
+  justify-content: flex-start !important;
+  mask-image: none !important;
+}
+.fd-stage .fd-slot {
+  min-height: 0 !important;
+}
+.fd-stage .fd-head {
+  padding-bottom: 0 !important;
+}
+/* finale: the title lands over the 3D shot, then stays over the podium */
+.st-finale.shot > .words {
+  display: block !important;
+  z-index: 6;
+  text-shadow: 0 0 40px #000, 0 6px 0 #000 !important;
+}
+/* revive: its own dark card over the house, nothing else shows through */
+.st-revive {
+  background: radial-gradient(70% 60% at 50% 50%, rgba(4, 3, 8, 0.92), rgba(4, 3, 8, 0.75)) !important;
+}
+.st-revive.show {
+  z-index: 25 !important;
+}
+.fd-stage .fd-slot {
+  padding-bottom: 0 !important;
+}
+/* the fps line is a debug readout, not projector chrome */
+.st-fps {
+  display: none;
+}
+.st:has(.st-debug.on) .st-fps {
+  display: block;
+}
+
+/* ---------- TASTE round 3 ---------- */
+/* finale above the DOM dither overlay, crisp; podium centred without transforms (animations never shift it) */
+.st-finale {
+  z-index: 55 !important;
+}
+.st-finale .fboard {
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto;
+  transform: none !important;
+  animation: st-fadein-crisp 0.8s 0.6s ease-out both !important;
+}
+.st-finale .words,
+.st-finale .stats {
+  animation: st-fadein-crisp 0.8s 0.3s ease-out both !important;
+}
+@keyframes st-fadein-crisp {
+  from {
+    opacity: 0;
+  }
+}
+/* outage line: big, white, on a dark plate */
+.st-dead-sub {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%);
+  top: 600px !important;
+  width: max-content;
+  max-width: 1200px;
+  padding: 14px 30px 12px;
+  background: #050308;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  font-family: "GeistPixel", ui-monospace, monospace !important;
+  font-size: 44px !important;
+  color: #fff !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+}
+.st-dead-why {
+  top: 720px !important;
+}
+.st-static {
+  z-index: 56 !important;
+}

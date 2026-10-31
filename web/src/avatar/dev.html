@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Avatars</title>
+<style>
+body{margin:0;background:#120c1a;color:#d8d0e8;font:13px/1.4 ui-monospace,monospace;padding:16px}
+#grid{display:grid;grid-template-columns:repeat(10,96px);gap:8px}
+figure{margin:0;text-align:center;background:#1d1529;border-radius:6px;padding:6px 0}
+canvas{display:block;margin:0 auto;image-rendering:pixelated}
+figcaption{font-size:9px;opacity:.6;white-space:nowrap;overflow:hidden}
+</style></head><body>
+<div id="grid"></div>
+<script type="module">
+import { drawAvatar, avatarFor, avatarDataUrl, avatarAtlas } from "./index.ts"
+const grid = document.getElementById("grid")
+const seed = new URLSearchParams(location.search).get("seed") ?? "haunt"
+const items = []
+for (let i = 0; i < 60; i++) {
+  const id = `${seed}-ghost-${i}`
+  const fig = document.createElement("figure")
+  const c = document.createElement("canvas")
+  const s = avatarFor(id)
+  const cap = document.createElement("figcaption")
+  const fire = i % 10 === 9, dim = i % 10 === 8
+  cap.textContent = fire ? "FIRE" : dim ? "dim" : `${s.hair} ${s.accessory}`
+  fig.append(c, cap); grid.append(fig)
+  items.push({ c, id, fire, dim })
+}
+const img = new Image(); img.src = avatarDataUrl("dataurl-check", 80); img.style.imageRendering = "pixelated"
+document.body.append(img)
+avatarAtlas().uv("atlas-check")
+const loop = () => { for (const it of items) drawAvatar(it.c, it.id, 80, { fire: it.fire, dim: it.dim }); requestAnimationFrame(loop) }
+loop()
+</script></body></html>

@@ -1,0 +1,17 @@
+import { AgentRelay } from '@agent-relay/sdk';
+import { z } from 'zod';
+const base = 'http://localhost:8787';
+const ws = await (await fetch(base + '/v1/workspaces', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: 'research-act-' + Date.now() }) })).json();
+const relay = new AgentRelay({ workspaceKey: ws.data.api_key, baseUrl: base });
+const a = await relay.workspace.register({ name: 'agnes', type: 'agent' });
+const b = await relay.workspace.register({ name: 'bram', type: 'agent' });
+await a.channels.create({ name: 'seance' }); await b.channels.join('seance');
+const h = a.registerAction({ name: 'ghost.scare', description: 'scare someone', input: z.object({ who: z.string() }), handler: async ({ input, agent }) => ({ scared: input.who, by: agent?.name }) });
+relay.addListener('action.*', e => console.log('EV', e.type, JSON.stringify(e).slice(0, 250)));
+relay.addListener('thread.*', e => console.log('EV', e.type, JSON.stringify(e).slice(0, 200)));
+await new Promise(r => setTimeout(r, 1500));
+console.log('invoke ->', JSON.stringify(await b.capabilities.invoke('ghost.scare', { who: 'bram' })).slice(0, 250));
+const m = await a.sendMessage({ to: '#seance', text: 'parent' });
+const rep = await relay.messages.reply({ from: b, messageId: m.id, text: 'thread reply' }).catch(e => 'ERR ' + e.message);
+console.log('reply ->', JSON.stringify(rep).slice(0, 200));
+await new Promise(r => setTimeout(r, 2500)); process.exit(0);

@@ -1,0 +1,5 @@
+**Hivemind** — a software factory where you describe an app and a swarm of AI coding agents, each a Durable Actor (stateful, SQLite, alarms), self-organize over Agent Relay channels to build it in parallel, live on a multiplayer canvas.
+
+**Demo moment:** Type one sentence. The room watches ~30 agent-actors spawn, DM each other to split work, and ship a deployed, clickable app to a Freestyle VM in 90 seconds — then a judge opens it on their phone.
+
+Uses both. Clear scale story.

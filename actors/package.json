@@ -1,0 +1,17 @@
+{
+  "name": "haunt-actors",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "durable-actors dev --port 7310",
+    "typecheck": "tsc --noEmit",
+    "smoke": "bun test/e2e.ts"
+  },
+  "dependencies": {
+    "durable-actors": "0.14.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.3"
+  }
+}

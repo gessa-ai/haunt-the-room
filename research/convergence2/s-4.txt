@@ -1,0 +1,13 @@
+**"The Gossiping Mansion"** — a haunted house where every room is a living, memory-having ghost that gossips about you to the *next* room before you even open the door.
+
+**Core mechanic:** Players explore a procedurally-growing mansion rendered as a glowing top-down blueprint (think a dark, candle-lit floor plan like a living Figma board). Each room is its own **Durable Actor** — a persistent AI "spirit" with its own personality, fear-meter state, and memory that survives restarts/redeploys. As a player types/speaks into a room, that room's ghost actor forms an opinion of them ("this one lied about not being scared," "this one screamed at the mirror") and uses **Agent Relay** to *whisper that rumor ahead* to neighboring rooms — agent-to-agent, with zero human relay. The next room's ghost greets the player already knowing their reputation, twisting its haunting accordingly.
+
+**The visual spectacle:** the mansion map is live and reactive —
+- Rooms pulse and flicker based on their actor's current fear-state (idle ghosts dim/breathe; agitated ones strobe red).
+- Every Agent Relay message is rendered as a traveling wisp of light/particle trail crawling along the corridor between two rooms in real time — you *watch the gossip travel* before it arrives.
+- New rooms materialize and bolt onto the blueprint live when the mansion's "architect" actor decides the house should grow in response to player behavior (more fear = more rooms, less = house collapses/shrinks).
+- A sidebar "séance log" shows the raw agent-to-agent chatter being exchanged, so judges can see the actors actually scheming in real time, not just a scripted light show.
+
+**Why it hits both tracks hard:** Durable Actors aren't decorative — each room *must* persist independent long-running state (grudges, fear history) across the whole session, which is the actual Terse pitch. Agent Relay isn't a side feature — the entire horror mechanic (rumors preceding you) only works because agents talk directly to each other without a human or central server orchestrating it.
+
+**Demo arc for judges (2 min):** walk into room 1, be rude to the ghost; cut to the map view showing the gossip wisp shoot down the hallway; walk into room 2, which already roasts you by name for what you did in room 1 — live, unscripted, model-generated. That "it already knows" beat is the jump-scare moment that sells the whole thing.

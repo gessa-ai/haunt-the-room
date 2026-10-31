@@ -1,0 +1,14 @@
+# HAUNT THE ROOM public origin (lane L12): named tunnel "haunt-the-room", https://haunt.gessa.ai -> the Mac's
+# server on :3300. Websocket upgrades (the server's /ws actor proxy) pass through with no extra settings.
+# Run it with deploy/tunnel.sh start (detached, restarts cloudflared if it exits). Credentials stay in ~/.cloudflared.
+tunnel: 28298137-774d-466d-ae2c-554326a7a302
+credentials-file: /Users/paws/.cloudflared/28298137-774d-466d-ae2c-554326a7a302.json
+no-autoupdate: true
+# On stop/restart drop open sockets after 2 s instead of 30 s (phones re-join by themselves).
+grace-period: 2s
+# GET http://127.0.0.1:20241/ready = 200 while at least one edge connection is registered.
+metrics: 127.0.0.1:20241
+ingress:
+  - hostname: haunt.gessa.ai
+    service: http://localhost:3300
+  - service: http_status:404

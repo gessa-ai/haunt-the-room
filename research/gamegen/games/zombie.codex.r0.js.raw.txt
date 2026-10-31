@@ -1,0 +1,57 @@
+
+--- stderr ---
+OpenAI Codex v0.154.0
+--------
+workdir: /Users/paws/haunted-hacks/research/gamegen/.cwd
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1934a-b7b3-73b3-921b-ef020785873a
+--------
+user
+You write complete, playable multiplayer party games for phones, as ONE plain JavaScript (ES2022) module. Players are in the same room, each on their own phone. The user gives a game idea; you reply with the module only, in one ```js fenced block, nothing before or after it. No imports. Keep it under 300 lines.
+
+The module has exactly these named exports:
+
+```js
+export const meta = { title: "Short Title", minPlayers: 2, maxPlayers: 8, tickMs: 500 }; // tickMs only if the game has timers
+export function init(players, ctx) { return state; }          // players: [{ id, name }]
+export function reduce(state, action, ctx) { return state; }  // all game logic
+export function view(state, playerId) { return {...}; }       // what this player may see
+export function render(view, send, root) { }                  // phone UI
+```
+
+SERVER RULES (init, reduce, view run in a pure sandbox):
+- ctx = { now, random }: now = current ms timestamp, random() = seeded random in [0,1). Never use Math.random or Date (they throw). No timers, no fetch, no globals.
+- State and views are plain JSON only: objects, arrays, strings, finite numbers, booleans, null. No undefined inside arrays, no Map/Set/Date/classes/functions.
+- reduce may mutate the given state and must ALWAYS return the state. reduce must NEVER throw: for unknown action types, wrong phase, a playerId not in the game, or a bad/missing payload, return state unchanged. Validate every payload field (type, range, membership).
+- action = { type, playerId, ...payload }. playerId is set by the server. Your own action types are anything except these system actions, which only the server sends:
+  - { type: "join", playerId, name }: a player arrives after init (late join or rejoin). Ignore if already present or full; otherwise add them (as a spectator until the next round is fine).
+  - { type: "leave", playerId }: a player left. Keep the game going with whoever remains (skip them, end their turn, recount votes).
+  - { type: "tick" }: sent every meta.tickMs ms when tickMs is set. Store state.now = ctx.now here. Implement timers as deadlines (ctx.now + ms) and advance phases when ctx.now passes them.
+- Use the phase pattern: state.phase like "lobby" | "play" | "reveal" | "over". Start the game from the lobby with a button any player can press (or start immediately in init). After "over", a "Play again" action restarts.
+- view(state, playerId) returns only what that player may see: hide other players' secret roles, words, answers and votes until they are revealed. Always include me: playerId and the phase. If timers exist, include msLeft computed from state.now.
+- Each call must be fast (under 50 ms) and state under 64 KB.
+
+CLIENT RULES (render runs in the phone browser):
+- render is called with the newest view every time it changes. Start with root.replaceChildren() and rebuild everything. Attach event listeners only to elements you create inside root; never to document or window.
+- Every input calls send({ type: "...", ...payload }). Never change state locally; wait for the next view.
+- DOM only: no canvas, images, network or external fonts. Emoji are great.
+- Mobile first: a <button> for every action, min-height 56px, font-size at least 18px, full-width or big grid buttons, one clear line at the top saying what this player should do right now. Text answers: an <input> plus a submit button that sends its value.
+- Halloween look: background #0b0614, pumpkin #ff7518, purple #8a2be2, slime #39ff14, blood #c1121f, text #f5f5f5. Put styles inline or in a <style> element appended inside root.
+- Show the scoreboard and whose turn or what phase it is. Make it fun: short punchy copy, emoji, juicy feedback.
+
+Write the full game logic, not a stub. Output only the ```js block.
+
+
+Do not run any commands or edit files; just reply.
+
+Game idea: zombie tag on a grid
+
+Write the complete module now.
+warning: Model metadata for `gpt-6.1-sol` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+ERROR: {"type":"error","status":400,"error":{"type":"invalid_request_error","message":"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.","code":"model_not_found"}}
+ERROR: {"type":"error","status":400,"error":{"type":"invalid_request_error","message":"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.","code":"model_not_found"}}

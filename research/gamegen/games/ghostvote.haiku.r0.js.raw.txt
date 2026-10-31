@@ -1,0 +1,247 @@
+```js
+export const meta = {
+  title: "👻 Ghost Hunt",
+  minPlayers: 3,
+  maxPlayers: 8,
+  tickMs: 500
+};
+
+export function init(players, ctx) {
+  const ghostCount = Math.max(1, Math.floor(players.length / 3));
+  const shuffled = [...players].sort(() => ctx.random() - 0.5);
+  const ghosts = new Set(shuffled.slice(0, ghostCount).map(p => p.id));
+  
+  return {
+    players: players.map(p => ({
+      id: p.id,
+      name: p.name,
+      isGhost: ghosts.has(p.id),
+      alive: true
+    })),
+    phase: "lobby",
+    now: ctx.now,
+    phaseEnd: null,
+    votes: {},
+    nightTarget: null,
+    lastMsg: ""
+  };
+}
+
+export function reduce(state, action, ctx) {
+  state.now = ctx.now;
+
+  if (action.type === "join") {
+    if (!state.players.find(p => p.id === action.playerId) && state.players.length < 8) {
+      state.players.push({
+        id: action.playerId,
+        name: action.name,
+        isGhost: false,
+        alive: true
+      });
+    }
+    return state;
+  }
+
+  if (action.type === "leave") {
+    state.players = state.players.filter(p => p.id !== action.playerId);
+    delete state.votes[action.playerId];
+    return state;
+  }
+
+  if (action.type === "tick") {
+    if (state.phaseEnd && ctx.now >= state.phaseEnd) {
+      if (state.phase === "day") {
+        let maxVotes = 0, eliminated = null;
+        const voteCount = {};
+        Object.values(state.votes).forEach(tid => {
+          voteCount[tid] = (voteCount[tid] || 0) + 1;
+        });
+        Object.entries(voteCount).forEach(([tid, cnt]) => {
+          if (cnt > maxVotes) { maxVotes = cnt; eliminated = tid; }
+        });
+        if (eliminated) {
+          const vic = state.players.find(p => p.id === eliminated);
+          if (vic) { vic.alive = false; state.lastMsg = `💀 ${vic.name} was voted out!`; }
+        }
+        state.votes = {};
+        state.phase = "night";
+        state.phaseEnd = ctx.now + 12000;
+        state.lastMsg = state.lastMsg || "🌙 Night falls! Ghosts choose...";
+      } else if (state.phase === "night") {
+        if (state.nightTarget) {
+          const vic = state.players.find(p => p.id === state.nightTarget);
+          if (vic) { vic.alive = false; state.lastMsg = `🌙 ${vic.name} was haunted!`; }
+        }
+        state.nightTarget = null;
+        const ag = state.players.filter(p => p.alive && p.isGhost).length;
+        const av = state.players.filter(p => p.alive && !p.isGhost).length;
+        if (ag === 0) {
+          state.phase = "gameover";
+          state.lastMsg = "🌞 Villagers won! All ghosts banished!";
+        } else if (ag >= av) {
+          state.phase = "gameover";
+          state.lastMsg = "👻 Ghosts won! Village is lost!";
+        } else {
+          state.phase = "day";
+          state.phaseEnd = ctx.now + 30000;
+          state.lastMsg = "☀️ New day dawns!";
+        }
+      }
+    }
+    return state;
+  }
+
+  if (action.type === "startGame") {
+    if (state.phase === "lobby" && state.players.length >= 3) {
+      state.phase = "day";
+      state.phaseEnd = ctx.now + 30000;
+      state.lastMsg = "☀️ Day breaks! Discuss & vote!";
+    }
+    return state;
+  }
+
+  if (action.type === "vote" && action.targetId) {
+    if (state.phase === "day") {
+      const t = state.players.find(p => p.id === action.targetId);
+      if (t && t.alive) state.votes[action.playerId] = action.targetId;
+    }
+    return state;
+  }
+
+  if (action.type === "haunt" && action.targetId) {
+    if (state.phase === "night") {
+      const vo = state.players.find(p => p.id === action.playerId);
+      const t = state.players.find(p => p.id === action.targetId);
+      if (vo && vo.isGhost && t && t.alive) state.nightTarget = action.targetId;
+    }
+    return state;
+  }
+
+  if (action.type === "playAgain" && state.phase === "gameover") {
+    const gc = Math.max(1, Math.floor(state.players.length / 3));
+    const sh = [...state.players].sort(() => ctx.random() - 0.5);
+    const gh = new Set(sh.slice(0, gc).map(p => p.id));
+    state.players.forEach(p => {
+      p.isGhost = gh.has(p.id);
+      p.alive = true;
+    });
+    state.phase = "day";
+    state.phaseEnd = ctx.now + 30000;
+    state.votes = {};
+    state.nightTarget = null;
+    state.lastMsg = "☀️ A new day begins!";
+  }
+
+  return state;
+}
+
+export function view(state, playerId) {
+  const me = state.players.find(p => p.id === playerId);
+  const ag = state.players.filter(p => p.alive && p.isGhost).length;
+  const av = state.players.filter(p => p.alive && !p.isGhost).length;
+  const msLeft = state.phaseEnd ? Math.max(0, state.phaseEnd - state.now) : null;
+
+  return {
+    me: playerId,
+    phase: state.phase,
+    msg: state.lastMsg,
+    msLeft,
+    iGhost: me ? me.isGhost : false,
+    players: state.players.map(p => ({
+      id: p.id,
+      name: p.name,
+      alive: p.alive,
+      isGhost: p.id === playerId ? p.isGhost : undefined,
+      votes: Object.values(state.votes).filter(v => v === p.id).length,
+      haunted: p.id === state.nightTarget
+    })),
+    ag, av,
+    myVote: state.votes[playerId] || null,
+    nightTarget: state.nightTarget
+  };
+}
+
+export function render(view, send, root) {
+  root.replaceChildren();
+  const st = document.createElement("style");
+  st.textContent = `*{box-sizing:border-box}body{margin:0;padding:16px;background:#0b0614;color:#f5f5f5;font-family:system-ui;font-size:18px}.hdr{text-align:center;font-size:28px;font-weight:bold;margin-bottom:12px}.inf{background:#2a0f4a;padding:12px;border-radius:8px;margin-bottom:12px;text-align:center;line-height:1.5}.inf strong{color:#39ff14}.inf.gst{background:#8a2be2}.plyr{background:#1a0f2e;padding:12px;margin-bottom:6px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:8px}.plyr.ded{opacity:0.4;text-decoration:line-through}.btns{display:grid;gap:10px;margin-top:16px}button{background:#ff7518;color:#0b0614;border:none;padding:14px;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;width:100%;min-height:56px}button:active{opacity:0.8}.tmr{color:#c1121f;font-weight:bold}`;
+  root.appendChild(st);
+
+  const hdr = document.createElement("div");
+  hdr.className = "hdr";
+  hdr.textContent = view.phase === "gameover" ? "🎃 Game Over" : "👻 Ghost Hunt";
+  root.appendChild(hdr);
+
+  const inf = document.createElement("div");
+  inf.className = "inf";
+  let txt = view.msg || "";
+  if (view.phase !== "lobby" && view.phase !== "gameover") {
+    txt += ` | 👥 <strong>${view.av}</strong> | 👻 <strong>${view.ag}</strong>`;
+  }
+  if (view.msLeft !== null) {
+    const sec = Math.ceil(view.msLeft / 1000);
+    txt += ` | <span class="tmr">⏱️${sec}s</span>`;
+  }
+  inf.innerHTML = txt;
+  root.appendChild(inf);
+
+  if (view.iGhost && view.phase !== "gameover") {
+    const gst = document.createElement("div");
+    gst.className = "inf gst";
+    gst.innerHTML = "🔮 You are a <strong>GHOST</strong>";
+    root.appendChild(gst);
+  }
+
+  const plys = document.createElement("div");
+  view.players.forEach(p => {
+    const itm = document.createElement("div");
+    itm.className = "plyr";
+    if (!p.alive) itm.classList.add("ded");
+    
+    const nm = document.createElement("span");
+    let s = `${p.isGhost ? "👻" : "👤"} ${p.name}`;
+    if (!p.alive) s += " ☠️";
+    if (p.haunted) s += " 🌙";
+    if (p.votes > 0) s += ` ${p.votes}🗳️`;
+    nm.textContent = s;
+    itm.appendChild(nm);
+
+    if (view.phase === "day" && p.alive && p.id !== view.me) {
+      const b = document.createElement("button");
+      b.textContent = view.myVote === p.id ? "✓" : "Vote";
+      b.style.width = "70px";
+      b.style.padding = "8px";
+      b.style.fontSize = "16px";
+      b.onclick = () => send({ type: "vote", targetId: p.id });
+      itm.appendChild(b);
+    }
+    if (view.phase === "night" && view.iGhost && p.alive && p.id !== view.me) {
+      const b = document.createElement("button");
+      b.textContent = view.nightTarget === p.id ? "✓" : "Haunt";
+      b.style.width = "75px";
+      b.style.padding = "8px";
+      b.style.fontSize = "16px";
+      b.onclick = () => send({ type: "haunt", targetId: p.id });
+      itm.appendChild(b);
+    }
+    plys.appendChild(itm);
+  });
+  root.appendChild(plys);
+
+  const btns = document.createElement("div");
+  btns.className = "btns";
+  if (view.phase === "lobby") {
+    const b = document.createElement("button");
+    b.textContent = "🎮 Start Game";
+    b.onclick = () => send({ type: "startGame" });
+    btns.appendChild(b);
+  }
+  if (view.phase === "gameover") {
+    const b = document.createElement("button");
+    b.textContent = "🔄 Play Again";
+    b.onclick = () => send({ type: "playAgain" });
+    btns.appendChild(b);
+  }
+  root.appendChild(btns);
+}
+```

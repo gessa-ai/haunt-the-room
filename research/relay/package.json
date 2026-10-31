@@ -1,0 +1,19 @@
+{
+  "name": "relay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@agent-relay/harnesses": "^15.0.1",
+    "@agent-relay/sdk": "^15.0.1",
+    "@relaycast/sdk": "^12.3.0",
+    "agent-relay": "^15.0.1",
+    "ws": "^8.22.1"
+  }
+}

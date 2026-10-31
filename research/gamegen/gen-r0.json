@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "pumpkin",
+    "idea": "pumpkin carving speed race",
+    "model": "sonnet",
+    "genSeconds": 91.2,
+    "exit": 0,
+    "lines": 340
+  },
+  {
+    "slug": "pumpkin",
+    "idea": "pumpkin carving speed race",
+    "model": "haiku",
+    "genSeconds": 90.9,
+    "exit": 0,
+    "lines": 254
+  },
+  {
+    "slug": "ghostvote",
+    "idea": "werewolf-style hidden ghost voting",
+    "model": "sonnet",
+    "genSeconds": 140,
+    "exit": 0,
+    "lines": 328
+  },
+  {
+    "slug": "ghostvote",
+    "idea": "werewolf-style hidden ghost voting",
+    "model": "haiku",
+    "genSeconds": 65.9,
+    "exit": 0,
+    "lines": 246
+  },
+  {
+    "slug": "trivia",
+    "idea": "trivia about horror movies",
+    "model": "sonnet",
+    "genSeconds": 50.2,
+    "exit": 0,
+    "lines": 314
+  },
+  {
+    "slug": "trivia",
+    "idea": "trivia about horror movies",
+    "model": "haiku",
+    "genSeconds": 94.9,
+    "exit": 0,
+    "lines": 246
+  },
+  {
+    "slug": "escape",
+    "idea": "haunted house tap-to-escape where everyone must coordinate",
+    "model": "sonnet",
+    "genSeconds": 74.6,
+    "exit": 0,
+    "lines": 297
+  },
+  {
+    "slug": "escape",
+    "idea": "haunted house tap-to-escape where everyone must coordinate",
+    "model": "haiku",
+    "genSeconds": 116.1,
+    "exit": 0,
+    "lines": 320
+  },
+  {
+    "slug": "emoji",
+    "idea": "costume drawing guessing game using emoji only",
+    "model": "sonnet",
+    "genSeconds": 141.2,
+    "exit": 0,
+    "lines": 361
+  },
+  {
+    "slug": "emoji",
+    "idea": "costume drawing guessing game using emoji only",
+    "model": "haiku",
+    "genSeconds": 113.6,
+    "exit": 0,
+    "lines": 271
+  },
+  {
+    "slug": "zombie",
+    "idea": "zombie tag on a grid",
+    "model": "sonnet",
+    "genSeconds": 70.4,
+    "exit": 0,
+    "lines": 275
+  },
+  {
+    "slug": "zombie",
+    "idea": "zombie tag on a grid",
+    "model": "haiku",
+    "genSeconds": 78.7,
+    "exit": 0,
+    "lines": 289
+  },
+  {
+    "slug": "zombie",
+    "idea": "zombie tag on a grid",
+    "model": "codex",
+    "genSeconds": 3.3,
+    "exit": 1,
+    "lines": 1
+  }
+]

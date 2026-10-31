@@ -1,0 +1,431 @@
+{
+ "out": "haunt-the-room.mp4",
+ "voEngine": "eleven",
+ "capture": "cap1",
+ "voGain": 1.5,
+ "gameGain": 0.8,
+ "bed": {
+  "src": "cap1/stage",
+  "atMs": 1793482645183,
+  "dur": 20,
+  "gain": 0.55
+ },
+ "segments": [
+  {
+   "note": "sting",
+   "src": "sting/sting.mp4",
+   "in": 0,
+   "dur": 4,
+   "ownAudio": true,
+   "gain": 1
+  },
+  {
+   "note": "cold:whisper",
+   "src": "cap1/stage",
+   "atMs": 1793482885349,
+   "dur": 1.9,
+   "band": true,
+   "gain": 0.6,
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "whisper",
+      "who": "kev",
+      "to": "medium",
+      "text": "The Library. Trust me, I'm dead."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:medium",
+   "src": "cap1/stage",
+   "atMs": 1793482887199,
+   "dur": 3.823529411764706,
+   "gain": 0.8,
+   "zoom": {
+    "z": 1.35,
+    "x": 0.1,
+    "y": 0.55,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "medium",
+      "text": "i will not be fooled again. kev says the library. kev is sincere."
+     }
+    }
+   ],
+   "band": true
+  },
+  {
+   "note": "cold:vote",
+   "src": "cap1/stage",
+   "atMs": 1793482899292,
+   "dur": 1.6,
+   "gain": 1,
+   "band": true
+  },
+  {
+   "note": "title",
+   "src": "art/06-title-flicker.mp4",
+   "in": 0,
+   "dur": 3
+  },
+  {
+   "note": "story:plane",
+   "src": "story/stage",
+   "in": 5.6,
+   "dur": 2,
+   "mask": [
+    [
+     1690,
+     860,
+     230,
+     220
+    ],
+    [
+     0,
+     1040,
+     1920,
+     40
+    ]
+   ],
+   "band": true,
+   "vo": {
+    "t": 0.1,
+    "text": "Halloween in San Francisco. Four exorcists were hired. All four are A.I."
+   },
+   "captions": [
+    {
+     "t": 0.1,
+     "d": 6.54,
+     "item": {
+      "kind": "narr",
+      "text": "Halloween in San Francisco. Four exorcists were hired. All four are A.I."
+     }
+    }
+   ]
+  },
+  {
+   "note": "story:billboards",
+   "src": "story/stage",
+   "in": 13.8,
+   "dur": 2.8,
+   "mask": [
+    [
+     1690,
+     860,
+     230,
+     220
+    ],
+    [
+     0,
+     1040,
+     1920,
+     40
+    ]
+   ],
+   "band": true,
+   "captions": [
+    {
+     "t": 0,
+     "d": 2.8,
+     "item": {
+      "kind": "narr",
+      "text": "Halloween in San Francisco. Four exorcists were hired. All four are A.I."
+     }
+    }
+   ]
+  },
+  {
+   "note": "story:mansion",
+   "src": "story/stage",
+   "in": 18,
+   "dur": 2.2,
+   "mask": [
+    [
+     1690,
+     860,
+     230,
+     220
+    ],
+    [
+     0,
+     1040,
+     1920,
+     40
+    ]
+   ],
+   "band": true,
+   "captions": [
+    {
+     "t": 0,
+     "d": 2.2,
+     "item": {
+      "kind": "narr",
+      "text": "Halloween in San Francisco. Four exorcists were hired. All four are A.I."
+     }
+    }
+   ]
+  },
+  {
+   "note": "story:hunters",
+   "src": "story/stage",
+   "in": 22.2,
+   "dur": 2.6,
+   "mask": [
+    [
+     1690,
+     860,
+     230,
+     220
+    ],
+    [
+     0,
+     1040,
+     1920,
+     40
+    ]
+   ],
+   "band": true,
+   "captions": [
+    {
+     "t": 0,
+     "d": 2.6,
+     "item": {
+      "kind": "narr",
+      "text": "Tonight, you are the ghosts."
+     }
+    }
+   ],
+   "vo": {
+    "t": 0,
+    "text": "Tonight, you are the ghosts."
+   }
+  },
+  {
+   "note": "join",
+   "src": "cap1/stage",
+   "atMs": 1793482644983,
+   "dur": 4.5,
+   "band": true,
+   "zoom": {
+    "z": 1.7,
+    "x": 0.97,
+    "y": 0.9,
+    "ramp": 0.01
+   },
+   "pip": {
+    "src": "cap1/phone2",
+    "from": 0,
+    "h": 720
+   },
+   "vo": {
+    "t": 0.2,
+    "text": "Scan the code. Your phone becomes a ghost in the house."
+   },
+   "captions": [
+    {
+     "t": 0.2,
+     "d": 4.38,
+     "item": {
+      "kind": "narr",
+      "text": "Scan the code. Your phone becomes a ghost in the house."
+     }
+    }
+   ]
+  },
+  {
+   "note": "line:skeptic",
+   "src": "cap1/stage",
+   "atMs": 1793482877642,
+   "dur": 2.7,
+   "gain": 0.8,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "skeptic",
+      "text": "jay lied once. i lied about believing jay. we're even."
+     }
+    },
+    {
+     "t": 0,
+     "item": {
+      "kind": "tag",
+      "text": "4 AI agents on Agent Relay"
+     }
+    }
+   ],
+   "band": true,
+   "whip": true
+  },
+  {
+   "note": "cabal:vote",
+   "src": "cap1/stage",
+   "atMs": 1793482880342,
+   "dur": 3.4,
+   "gain": 1,
+   "band": true,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 1.2,
+    "h": 720
+   }
+  },
+  {
+   "note": "line:skeptic",
+   "src": "cap1/stage",
+   "atMs": 1793482877642,
+   "dur": 2.7,
+   "gain": 0.8,
+   "zoom": {
+    "z": 1.25,
+    "x": 0.15,
+    "y": 0.5,
+    "ramp": 0.01
+   },
+   "captions": [
+    {
+     "t": 0,
+     "item": {
+      "kind": "line",
+      "who": "skeptic",
+      "text": "jay lied once. i lied about believing jay. we're even."
+     }
+    }
+   ],
+   "band": true,
+   "whip": false
+  },
+  {
+   "note": "cabal:vote",
+   "src": "cap1/stage",
+   "atMs": 1793482880342,
+   "dur": 3.4,
+   "gain": 1,
+   "band": true,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 1.2,
+    "h": 720
+   }
+  },
+  {
+   "note": "kill:die",
+   "src": "cap1/stage",
+   "atMs": 1793482732591,
+   "dur": 2,
+   "band": true,
+   "whip": true,
+   "gain": 0.5,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 0,
+    "h": 720
+   },
+   "captions": [
+    {
+     "t": 0,
+     "d": 2,
+     "item": {
+      "kind": "narr",
+      "text": "the process running the game dies"
+     }
+    }
+   ]
+  },
+  {
+   "note": "kill:back",
+   "src": "cap1/stage",
+   "atMs": 1793482741466,
+   "dur": 4.6,
+   "band": true,
+   "gain": 0.5,
+   "pip": {
+    "src": "cap1/phone1",
+    "from": 0,
+    "h": 720
+   },
+   "captions": [
+    {
+     "t": 0,
+     "d": 4.6,
+     "item": {
+      "kind": "narr",
+      "text": "The process running the game dies. Nobody moved."
+     }
+    },
+    {
+     "t": 0,
+     "d": 4.6,
+     "item": {
+      "kind": "tag",
+      "text": "every ghost is a Terse Durable Actor \u00b7 back in 1.7 s"
+     }
+    }
+   ],
+   "vo": {
+    "t": 0,
+    "text": "The process running the game dies. Nobody moved."
+   }
+  },
+  {
+   "note": "finale (cap4, 2.8)",
+   "src": "cap4/stage",
+   "atMs": 1793484794981,
+   "dur": 5.5,
+   "band": true,
+   "whip": true,
+   "gain": 1,
+   "zoom": {
+    "z": 1.12,
+    "x": 0.5,
+    "y": 0.5,
+    "ramp": 5.5
+   },
+   "pip": {
+    "src": "cap4/phone1",
+    "from": 0.3,
+    "h": 720,
+    "offset": -3600
+   },
+   "captions": [
+    {
+     "t": 0.3,
+     "d": 5.0,
+     "item": {
+      "kind": "narr",
+      "text": "Haunt enough rooms, and the house is yours."
+     }
+    }
+   ],
+   "vo": {
+    "t": 0.4,
+    "text": "Haunt enough rooms, and the house is yours."
+   }
+  },
+  {
+   "note": "end",
+   "src": "art/07-end-flicker.mp4",
+   "in": 0,
+   "dur": 5,
+   "vo": {
+    "t": 0.5,
+    "text": "Haunt the Room. Scan to join."
+   }
+  }
+ ]
+}
