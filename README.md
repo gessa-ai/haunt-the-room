@@ -1,9 +1,11 @@
 # Haunt the Room
 
-Hide-and-seek where the audience are the ghosts and the seekers are four AI hunters. Scan a QR, take a seat in a
-painted haunted mansion on the big screen, and lie to one of the AIs. The hunters argue at a candlelit table over
-Agent Relay, believe you (or not), and betray each other at the vote. Every phone is a Terse Durable Actor, so when
-we `kill -9` the process running the game mid-round, no phone notices.
+**A whole room lies to four AI exorcists. One lie flips their vote. The game survives `kill -9` mid-round.**
+
+- **You:** scan a QR, your phone becomes a ghost hiding in a haunted mansion on the big screen.
+- **The AI:** four hunters (Agent Relay agents, each with its own memory) argue live at a table and vote which rooms to search.
+- **The trick:** tap "Lie to the AI", pick a hunter, pick a room. If it believes you, it searches the wrong room.
+- **The tech proof:** every player is a Terse Durable Actor; we kill the game process mid-round and everyone is back in under a second, same rooms, same clock.
 
 Live: https://haunt.gessa.ai (phone `/p`, projector view `/watch`).
 
@@ -27,7 +29,7 @@ A round is an intro and four beats (show mode; auto mode runs more). Each beat:
 
 ## What is AI here
 
-- **Live:** what each hunter says at the table, written per beat by an LLM (`moonshotai/kimi-k2` via OpenRouter,
+- **Live:** what each hunter says at the table, written per beat by an LLM (`google/gemini-2.5-flash-lite` via OpenRouter,
   one batched call during HIDE, [`coven/src/think.ts`](coven/src/think.ts)). Each line must pass a line law (name a
   real player, room, count or beat; banned phrases refused) or an authored bank line
   ([`coven/src/lines.ts`](coven/src/lines.ts)) speaks instead. The table never goes quiet.

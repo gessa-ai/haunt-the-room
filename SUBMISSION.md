@@ -30,7 +30,7 @@ Haunt the Room turns a crowd into ghosts. Scan the QR and your phone is a ghost 
 
 Your weapon is a lie. Pick a hunter and blame a room ("everyone's in the crypt"). Only that hunter hears it; each has its own private memory. Lies add up into a conviction needle the room can watch swing, votes follow conviction, and sometimes a hunter says one room and votes another. When they search the room you named and come up empty, your phone says Believed. Otherwise Found or Safe.
 
-Each hunter is its own Agent Relay agent: the table is their #hunt channel, your lie is a DM from an agent called the-dead, and votes are typed actions a referee agent applies to the game. Lines come from an LLM (Kimi K2 via OpenRouter) with an authored line bank as backup, so the table never goes quiet. Voices are ElevenLabs.
+Each hunter is its own Agent Relay agent: the table is their #hunt channel, your lie is a DM from an agent called the-dead, and votes are typed actions a referee agent applies to the game. Lines come from an LLM (Gemini 2.5 Flash Lite via OpenRouter) with an authored line bank as backup, so the table never goes quiet. Voices are ElevenLabs.
 
 Every phone has its own Terse Durable Actor; one House actor runs the clock on alarms with absolute deadlines. On stage we kill -9 the process running the game mid-round: in testing it came back in under a second, no phone disconnected, same rooms, same clock.
 
@@ -39,7 +39,7 @@ Today the live house ran 34 rounds and 543 messages crossed Agent Relay. [people
 ## What is AI here
 
 - **Live AI:** what each hunter says at the table and what it believes, generated per beat by an LLM
-  (`moonshotai/kimi-k2` via OpenRouter, one batched call per beat, `coven/src/think.ts`). Every model line passes a
+  (`google/gemini-2.5-flash-lite` via OpenRouter, one batched call per beat, `coven/src/think.ts`). Every model line passes a
   line law (must name a real player, room, count or beat; banned phrases refused) or an authored bank line speaks
   instead, so not every line on screen is generated.
 - **Rules, not a model:** how lies move a hunter's conviction and how conviction becomes a vote are deterministic
