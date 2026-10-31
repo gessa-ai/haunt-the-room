@@ -12,7 +12,7 @@ table 44, reveal 53 · beat 3 hide 57, table 63, reveal 72 · beat 4 hide 76, ta
 1. `cd ~/haunted-hacks && ./dev.sh status` (actors, coven, server up); https://haunt.gessa.ai/p answers.
 2. Pick the kill target (first line `alive`, age under 10 s):
    `for f in release/current/logs/house-executor-7300.pid logs/house-executor-7300.pid; do [ -f "$f" ] && { ps -p "$(cut -d' ' -f1 "$f")" >/dev/null && s=alive || s=DEAD; echo "$f: $s, age $(( $(date +%s) - $(stat -f %m "$f") )) s"; } || echo "$f: missing"; done`
-   Pre-type (no Return) `kill -9 $(cut -d' ' -f1 ~/haunted-hacks/<that file>)` in a 28 pt terminal, bottom-left.
+   Pre-type (no Return) `kill -9 $(cut -d' ' -f1 ~/haunted-hacks/release/current/logs/house-executor-7300.pid)` in a 28 pt terminal, bottom-left.
    Re-run right before walking on: the pid changes after every kill.
 3. Stage `http://localhost:3300/stage?token=<PRESENTER_TOKEN>`, maximized, clicked once (audio), volume up.
    Press **S**, then **R**. Bots on to 120 (they retire as phones join). QR big (**Q**).

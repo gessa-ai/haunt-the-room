@@ -7,7 +7,9 @@ we `kill -9` the process running the game mid-round, no phone notices.
 
 Live: https://haunt.gessa.ai (phone `/p`, projector view `/watch`).
 
-![Haunt the Room](web/public/art/social.png)
+![The cabal: four AI hunters debate at the table, a player's lie sways the Medium (real in-game screenshot)](docs/screens/cabal.png)
+
+<img src="docs/screens/phone-lie.png" alt="Lying to the AI on a phone (real in-game screenshot)" width="280">
 
 ## How to play
 
